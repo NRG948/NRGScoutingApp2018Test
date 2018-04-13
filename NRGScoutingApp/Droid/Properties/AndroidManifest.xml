@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="0.1" package="com.NRG.ScoutingApp.NRG_Scouting">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.NRG.ScoutingApp.NRG_Scouting" android:versionName="0.1" android:versionCode="1">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="24" />
-	<uses-permission android:name="android.permission.READ_PROFILE" />
-	<uses-permission android:name="android.permission.WRITE_PROFILE" />
-	<application android:label="NRG Scouting" android:icon="@drawable/icon" android:theme="@style/MainTheme"></application>
+	<application android:label="NRG Scouting"></application>
 </manifest>

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-     <color name="app_red">#d7401a</color>
     <style name="MyTheme" parent="MyTheme.Base">
     </style>
     <!-- Base theme applied no matter what API -->
@@ -24,8 +23,5 @@
     </style>
     <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#FF4081</item>
-    </style>
-     <style name="MainTheme" parent="android:Theme.Material.Light">
-        <item name="android:statusBarColor">@color/app_red</item>
     </style>
 </resources>

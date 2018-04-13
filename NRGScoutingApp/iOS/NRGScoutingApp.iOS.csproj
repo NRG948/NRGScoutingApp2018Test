@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{DE7DECC1-0D90-4B95-A4A2-9E24C5CC276A}</ProjectGuid>
+    <ProjectGuid>{621FCC7A-E611-45FC-A6A0-77B54B3136D9}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>NRGScoutingApp.iOS</RootNamespace>
@@ -23,7 +23,7 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
-    <IOSDebuggerPort>44061</IOSDebuggerPort>
+    <IOSDebuggerPort>20587</IOSDebuggerPort>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -71,7 +71,7 @@
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <IOSDebuggerPort>10213</IOSDebuggerPort>
+    <IOSDebuggerPort>17892</IOSDebuggerPort>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -108,19 +108,19 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\4040.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\8080.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\7676.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152152.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\10241024.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\2020.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\2929.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\5858.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120120.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180180.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\6060.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\8787.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\tab_about.png" />

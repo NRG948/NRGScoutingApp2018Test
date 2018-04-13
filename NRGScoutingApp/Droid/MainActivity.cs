@@ -29,5 +29,6 @@ namespace NRGScoutingApp.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
         }
+
     }
 }
