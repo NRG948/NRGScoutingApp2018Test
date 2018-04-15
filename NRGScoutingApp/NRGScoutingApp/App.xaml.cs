@@ -12,17 +12,31 @@ namespace NRGScoutingApp
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage( new WelcomePage());
+            if (Device.RuntimePlatform == Device.iOS){
+                MainPage = new NavigationPage(new NavTab());
+                //new NavigationPage(
+            }
+            else{
+                MainPage = new NavigationPage(new NavTab());
+            }
 
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<CloudDataStore>();
 
-            //if (Device.RuntimePlatform == Device.iOS)
-          //      MainPage = new MainPage();
-           // else
-             //   MainPage = new NavigationPage(new MainPage()); 
+           
+          
         }
+      public class NavTab : TabbedPage
+        {
+            public NavTab()
+            {
+                Children.Add(new WelcomePage());
+                Children.Add(new Rankings());
+                Children.Add(new BlueAllianceMatches());
+            }
+        } 
+
     }
 }

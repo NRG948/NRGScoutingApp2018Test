@@ -13,14 +13,14 @@ namespace NRGScoutingApp
 
 
         }
-        protected override bool OnBackButtonPressed()
+  /*      protected override bool OnBackButtonPressed()
         {
             // If you want to continue going back
             base.OnBackButtonPressed();
             DisplayAlert("Warning", "You will lose all unsaved data", "Cancel", "Ok");
-            return false;
+            return true;
 
-        }
+        } */
       
 
     }
