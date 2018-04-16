@@ -9,6 +9,7 @@
              >
     <ContentPage.ToolbarItems> 
     <ToolbarItem  Icon="plus.png" Clicked="New_Clicked"/>
+    <ToolbarItem  Text="NRG Scouting"/>
 </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
