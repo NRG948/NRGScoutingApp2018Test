@@ -139,6 +139,9 @@
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\drawable\plus.png" />
     <AndroidResource Include="Resources\drawable\main.png" />
+    <AndroidResource Include="Resources\drawable\poll-2.png" />
+    <AndroidResource Include="Resources\drawable\trophy-variant.png" />
+    <AndroidResource Include="Resources\drawable\web.png" />
   </ItemGroup>
   <Import Project="..\NRGScoutingApp\NRGScoutingApp.projitems" Label="Shared" Condition="Exists('..\NRGScoutingApp\NRGScoutingApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

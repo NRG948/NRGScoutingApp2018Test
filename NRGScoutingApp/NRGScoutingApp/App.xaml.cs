@@ -34,7 +34,7 @@ namespace NRGScoutingApp
             {
                 Children.Add(new WelcomePage());
                 Children.Add(new Rankings());
-                Children.Add(new BlueAllianceMatches());
+
             }
         } 
 

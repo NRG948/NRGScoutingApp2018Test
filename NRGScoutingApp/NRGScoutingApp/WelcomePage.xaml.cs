@@ -19,7 +19,7 @@ namespace NRGScoutingApp
     {
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new MatchEntryStart());
+            Navigation.PushAsync(new BlueAllianceMatches());
         }
 
         void New_Clicked(object sender, System.EventArgs e)

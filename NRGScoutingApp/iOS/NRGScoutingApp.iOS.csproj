@@ -135,6 +135,9 @@
     <BundleResource Include="Resources\plus.png" />
     <BundleResource Include="Resources\plusx2.png" />
     <BundleResource Include="Resources\plusx3.png" />
+    <BundleResource Include="Resources\poll-2.png" />
+    <BundleResource Include="Resources\trophy-variant.png" />
+    <BundleResource Include="Resources\web.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

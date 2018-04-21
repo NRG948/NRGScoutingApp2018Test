@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using NRGScoutingApp;
 using Xamarin.Forms;
-using Android.Provider;
 
 namespace NRGScoutingApp
 {
@@ -22,6 +21,9 @@ namespace NRGScoutingApp
             if (Browser.CanGoBack)
             {
                 Browser.GoBack();
+            }
+            else{
+                Navigation.PopAsync();
             }
             }
 
