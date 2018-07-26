@@ -7,9 +7,13 @@
              ios:Page.UseSafeArea="true"
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content>
+        <ContentPage.ToolbarItems> 
+            <ToolbarItem  Text="Home" Clicked="Home_Clicked"/>
+</ContentPage.ToolbarItems>
+       
         <StackLayout >
       <StackLayout Orientation="Horizontal" Padding="10,0">
-                <Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="backClicked" />
+                <Button Text="Back Page" HorizontalOptions="StartAndExpand" Clicked="backClicked" />
                 <Button Text="Forward" HorizontalOptions="End" Clicked="forwardClicked" />
             </StackLayout>
             <WebView x:Name="Browser" Source="https://www.thebluealliance.com/" WidthRequest="1000" HeightRequest="1000" />

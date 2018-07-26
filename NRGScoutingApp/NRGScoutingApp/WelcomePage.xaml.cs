@@ -17,10 +17,10 @@ namespace NRGScoutingApp
 {
     public partial class WelcomePage : ContentPage
     {
-        void Handle_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new BlueAllianceMatches());
-        }
+        //void Handle_Clicked(object sender, System.EventArgs e)
+        //{
+        //    Navigation.PushAsync(new BlueAllianceMatches());
+        //}
 
         void New_Clicked(object sender, System.EventArgs e)
         {

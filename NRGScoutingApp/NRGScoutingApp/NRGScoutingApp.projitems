@@ -45,9 +45,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)NavTab.xaml.cs">
       <DependentUpon>NavTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)BlueAllianceMatches.xaml.cs">
-      <DependentUpon>BlueAllianceMatches.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -71,9 +68,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BlueAllianceMatches.xaml">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)BlueAllianceMatches.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)BlueAllianceMatches.xaml.cs">
+      <DependentUpon>BlueAllianceMatches.xaml</DependentUpon>
+    </None>
   </ItemGroup>
 </Project>
