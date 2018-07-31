@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="NRGScoutingApp.NewMatchStart"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             Title="Start Match"
+             ios:Page.UseSafeArea="true"
+             ios:NavigationPage.PrefersLargeTitles="true">
+    <ContentPage.ToolbarItems> 
+    <!--<ToolbarItem  Icon="plus.png" Clicked="New_Clicked"/>
+<ToolbarItem Icon="web.png" Clicked="Handle_Clicked"/> 
+    <ToolbarItem  Text="NRG Scouting"/>-->
+</ContentPage.ToolbarItems>
+    <ContentPage.Content>
+                   <StackLayout>
+            
+          <Label 
+            Text="0:00.00"
+            x:Name="timerValue"
+            VerticalOptions="Start" 
+            HorizontalOptions="Center" 
+            TextColor="#fdad13" 
+            FontSize="40"
+            Margin="0,20,0,10"/>
+            <Label x:Name="testLabel" Text=" Unstarted"/>
+        <Slider 
+            x:Name="timeSlider"
+            Maximum="150"
+            ValueChanged="timerValueChanged"
+            Margin="20,5,20,5"
+            Minimum="0"
+            />
+        <FlexLayout 
+            Direction="Row"
+            AlignItems="Center"
+            >
+                <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="10,2"
+                       Margin="30,0,10,5">
+            <StackLayout Spacing="-25">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="resetClicked"/>
+                    </StackLayout.GestureRecognizers>
+                     <Image Source="icexchange.png" Scale=".5" Margin="0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="resetClicked"/>
+                        </Image.GestureRecognizers>
+                     </Image>
+                    
+                <Button
+                    x:Name="resetTimer"
+                    Text="Reset Timer"
+                    FontSize="Medium"
+                    Clicked="resetClicked"
+                    Margin="0"
+                    TextColor="White"/>
+                </StackLayout>
+                    </Frame>
+                   <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="50,2"
+                       Margin="5,0,10,5">
+            <StackLayout Spacing="-25">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="startClicked"/>
+                    </StackLayout.GestureRecognizers>
+                <Image Source="ic_timer.png" Scale=".5">
+                     <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="startClicked"/>
+                     </Image.GestureRecognizers>
+                </Image>
+                <Button
+                    x:Name="startTimer"
+                    Text="Start Timer"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Clicked="startClicked"
+                    FontSize="Medium"
+                    TextColor="White"/>
+             </StackLayout>
+                    </Frame>
+                </FlexLayout>
+                <FlexLayout 
+                Direction="Row"
+                AlignItems="Center"
+                >
+                <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="10,2"
+                       Margin="30,0,10,5">
+            <StackLayout Spacing="-25">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="climbClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="ic_climb.png" Scale=".5">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="climbClicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                <Button 
+                    x:Name="climbStart"
+                    Text="Climb Start"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Clicked="climbClicked"
+                    FontSize="Medium"
+                    TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+                
+                 <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="50,2"
+                       Margin="5,0,10,5">
+            <StackLayout Spacing="-26">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="cubeClicked"/>
+                    </StackLayout.GestureRecognizers>
+                        <Image Source="ic_picked_cube.png"
+                               Scale=".5">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="cubeClicked"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    <Button
+                    x:Name="cubePicked"
+                    Text="Cube Picked"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Clicked="cubeClicked"
+                    FontSize="Medium"
+                    TextColor="White" 
+                    Margin="0,5,0,-5"/>
+                    </StackLayout>
+                </Frame>
+      </FlexLayout>
+  </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

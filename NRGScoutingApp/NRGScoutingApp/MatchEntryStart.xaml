@@ -8,7 +8,7 @@
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-           <SearchBar Placeholder="Search" TextChanged="SearchBar_OnTextChanged"></SearchBar>
+           <SearchBar Placeholder="Team Name/Number" TextChanged="SearchBar_OnTextChanged"></SearchBar>
            <ListView IsPullToRefreshEnabled="false" x:Name="MatchesList" ItemTapped="Handle_ItemTapped"/>
             
         </StackLayout>

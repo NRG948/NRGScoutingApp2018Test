@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
-using UIKit;
+
 
 namespace NRGScoutingApp
 {
@@ -19,59 +19,44 @@ namespace NRGScoutingApp
     {
 
         public MatchEntryStart()
-        {   
+        {
             InitializeComponent();
-            if (EnableBackButtonOverride)
-            {
-                this.CustomBackButtonAction = async () =>
-                {
-                    var result = await this.DisplayAlert(null,
-                        "Hey wait now! are you sure " +
-                        "you want to go back?",
-                        "Yes go back", "Nope");
+            //if (EnableBackButtonOverride)
+            //{
+            //    this.CustomBackButtonAction = async () =>
+            //    {
+            //        var result = await this.DisplayAlert(null,
+            //            "Hey wait now! are you sure " +
+            //            "you want to go back?",
+            //            "Yes go back", "Nope");
 
-                    if (result)
-                    {
-                        await Navigation.PopAsync(true);
-                    }
-                };
-            }
+            //        if (result)
+            //        {
+            //            await Navigation.PopAsync(true);
+            //        }
+            //    };
+            //}
             MatchesList.ItemsSource = teams;
 
 
 
         }
-  /*      protected override bool OnBackButtonPressed()
-        {
-            // If you want to continue going back
-            base.OnBackButtonPressed();
-            DisplayAlert("Warning", "You will lose all unsaved data", "Cancel", "Ok");
-            return true;
+        /*      protected override bool OnBackButtonPressed()
+              {
+                  // If you want to continue going back
+                  base.OnBackButtonPressed();
+                  DisplayAlert("Warning", "You will lose all unsaved data", "Cancel", "Ok");
+                  return true;
 
-        } */
-          void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+              } */
+        void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
-            DisplayAlert("Alert", "You have been alerted", "OK");
+            Navigation.PushAsync(new NewMatchStart());
+
         }
-       
+ 
 
-        //protected override bool OnBackButtonPressed()
-        //{
-        //    // Begin an asyncronous task on the UI thread because we intend to ask the users permission.
-        //    Device.BeginInvokeOnMainThread(async () =>
-        //    {
-        //        if (await DisplayAlert("Exit page?", "Are you sure you want to exit this page? You will not be able to continue it.", "Yes", "No"))
-        //        {
-        //            base.OnBackButtonPressed();
 
-        //            await Navigation.PopAsync();
-        //        }
-        //    });
-
-        //    // Always return true because this method is not asynchronous.
-        //    // We must handle the action ourselves: see above.
-        //    return true;
-        //}
 
         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {

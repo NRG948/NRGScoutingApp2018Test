@@ -14,7 +14,7 @@
 </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-           <SearchBar Placeholder="Search" TextChanged="SearchBar_OnTextChanged"></SearchBar>
+           <SearchBar Placeholder="Match Number" TextChanged="SearchBar_OnTextChanged"></SearchBar>
            <ListView IsPullToRefreshEnabled="false" x:Name="MatchesList"/>
         </StackLayout>
             
