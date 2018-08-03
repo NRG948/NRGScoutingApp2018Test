@@ -5,9 +5,9 @@
             xmlns:local="clr-namespace:NRGScoutingApp;assembly=NRGScoutingApp" 
             x:Class="NRGScoutingApp.NavTab">
     <ContentPage Title="Scouting">
-        <x:Arguments>
+        <!--x:Arguments>
             <local:WelcomePage />
-        </x:Arguments>
+        </x:Arguments>-->
     </ContentPage>
     <local:Rankings />
    

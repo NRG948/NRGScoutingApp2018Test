@@ -15,9 +15,12 @@
         <item name="colorPrimaryDark">#d7401a</item>
         <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-        <item name="colorAccent">#000000</item>
+        <item name="colorAccent">#f7ba24</item>
         <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
+        <!--<item name="navigationBarColor">#000000</item>
+        <item name="statusBarColor">#000000</item>
+        <item name="textColorPrimary">#ffffff</item>-->
         <item name="windowActionModeOverlay">true
         <item name="android:itemTextAppearance">@style/TodoActionBar.MenuTextStyle</item>
         </item>

@@ -20,7 +20,7 @@
             VerticalOptions="Start" 
             HorizontalOptions="Center" 
             TextColor="#fdad13" 
-            FontSize="40"
+            FontSize="60"
             Margin="0,20,0,10"/>
             <Label x:Name="testLabel" Text=" Unstarted"/>
         <Slider 
@@ -28,8 +28,7 @@
             Maximum="150"
             ValueChanged="timerValueChanged"
             Margin="20,5,20,5"
-            Minimum="0"
-            />
+            Minimum="0"/>
         <FlexLayout 
             Direction="Row"
             AlignItems="Center"
@@ -53,8 +52,10 @@
                     Text="Reset Timer"
                     FontSize="Medium"
                     Clicked="resetClicked"
-                    Margin="0"
-                    TextColor="White"/>
+                    Margin="0,11"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"
+                    />
                 </StackLayout>
                     </Frame>
                    <Frame BackgroundColor="#fdad13"
@@ -77,7 +78,9 @@
                     HorizontalOptions="Start"
                     Clicked="startClicked"
                     FontSize="Medium"
-                    TextColor="White"/>
+                    TextColor="White"
+                    BackgroundColor="#fdad13" 
+                    Margin="0,11"/>
              </StackLayout>
                     </Frame>
                 </FlexLayout>
@@ -105,7 +108,9 @@
                     HorizontalOptions="End"
                     Clicked="climbClicked"
                     FontSize="Medium"
-                    TextColor="White"/>
+                    TextColor="White"
+                            Margin="0,11"
+                        BackgroundColor="#fdad13" />
                     </StackLayout>
                 </Frame>
                 
@@ -131,10 +136,14 @@
                     Clicked="cubeClicked"
                     FontSize="Medium"
                     TextColor="White" 
-                    Margin="0,5,0,-5"/>
+                  
+                            Margin="0,11"
+                        BackgroundColor="#fdad13" />
                     </StackLayout>
                 </Frame>
       </FlexLayout>
   </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+<!--  Margin="0,5,0,-5"-->

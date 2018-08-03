@@ -25,7 +25,7 @@ namespace NRGScoutingApp
 
         }
 
-        private int min = 0, sec = 0, ms = 1;
+        private int min = 0, sec = 0, ms = 0;
         private int minutes, seconds, milliseconds;
 
         void resetClicked(object sender, System.EventArgs e)
@@ -42,7 +42,7 @@ namespace NRGScoutingApp
             }
 
         }
-        private Timer timer;
+        Timer timer;
         void startClicked(object sender, System.EventArgs e)
         {
             
@@ -50,9 +50,10 @@ namespace NRGScoutingApp
             {
                 
                 startTimer.Text = "Pause Timer";
-                timer = new Timer();
+                timer = new Timer(150001);
                 timer.Interval = 1; // 1 ms
-                timer.Elapsed += Timer_Elapsed;
+                timer.Enabled = true;
+                timer.Elapsed += new ElapsedEventHandler(Timer_Elapsed); //Elapsed
                 timer.Start();
 
 
@@ -61,23 +62,24 @@ namespace NRGScoutingApp
             else if (startTimer.Text == "Pause Timer")
             {
                 startTimer.Text = "Start Timer";
+                testLabel.Text = "before stop";
                 timer.Stop();
-                timer = null;
+                testLabel.Text = "after stp";
+                //timer = null;
             } 
         }
-        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e) //sender  System.Timers.ElapsedEventArgs
         {
-            testLabel.Text = ms.ToString();
             ms++;
-            //if(ms>=1000){
-            //    sec++;
-            //    ms = 0;
-            //}222
+            if(ms>=1000){
+                sec++;
+                ms = 0;
+            }
             //if (sec==59){
             //    min++;
             //    sec = 0;
             //}
-            testLabel.Text = ms.ToString(); //String.Format("{0}:{00}.{00}", min, sec, ms);   min + " " + sec + " " +
+            timerValue.Text = ms.ToString(); //String.Format("{0}:{00}.{00}", min, sec, ms);   min + " " + sec + " " +
         }
 
         void timerValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)
