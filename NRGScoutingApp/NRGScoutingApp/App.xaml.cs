@@ -9,6 +9,7 @@ namespace NRGScoutingApp
         public static bool UseMockDataStore = true;
         public static string BackendUrl = "https://localhost:5000";
 
+
         public App()
         {
             InitializeComponent();
@@ -36,7 +37,16 @@ namespace NRGScoutingApp
                 Children.Add(new Rankings());
 
             }
-        } 
+        }
+        //public class MatchEntryEditTab : TabbedPage
+        //{
+        //    public MatchEntryEditTab()
+        //    {
+        //        Children.Add(new WelcomePage());
+        //        Children.Add(new Rankings());
+
+        //    }
+        //}
 
     }
 }

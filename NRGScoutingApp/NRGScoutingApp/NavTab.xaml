@@ -9,6 +9,6 @@
             <local:WelcomePage />
         </x:Arguments>-->
     </ContentPage>
-    <local:Rankings />
+<!--    <local:Rankings />-->
    
 </TabbedPage>

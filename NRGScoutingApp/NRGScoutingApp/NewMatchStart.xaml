@@ -22,10 +22,10 @@
             TextColor="#fdad13" 
             FontSize="60"
             Margin="0,20,0,10"/>
-            <Label x:Name="testLabel" Text=" Unstarted"/>
+            <!--<Label x:Name="testLabel" Text=" Unstarted"/>-->
         <Slider 
             x:Name="timeSlider"
-            Maximum="150"
+            Maximum="150000"
             ValueChanged="timerValueChanged"
             Margin="20,5,20,5"
             Minimum="0"/>
@@ -37,16 +37,11 @@
                        HasShadow="false"
                       Padding="10,2"
                        Margin="30,0,10,5">
-            <StackLayout Spacing="-25">
-                    <StackLayout.GestureRecognizers>
+                    <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="resetClicked"/>
-                    </StackLayout.GestureRecognizers>
-                     <Image Source="icexchange.png" Scale=".5" Margin="0">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="resetClicked"/>
-                        </Image.GestureRecognizers>
-                     </Image>
-                    
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    <Image Source="icexchange.png" Scale=".5" Margin="0"/>
                 <Button
                     x:Name="resetTimer"
                     Text="Reset Timer"
@@ -62,15 +57,11 @@
                        HasShadow="false"
                       Padding="50,2"
                        Margin="5,0,10,5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="startClicked"/>
+                    </Frame.GestureRecognizers>
             <StackLayout Spacing="-25">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="startClicked"/>
-                    </StackLayout.GestureRecognizers>
-                <Image Source="ic_timer.png" Scale=".5">
-                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="startClicked"/>
-                     </Image.GestureRecognizers>
-                </Image>
+                <Image Source="ic_timer.png" Scale=".5"/>
                 <Button
                     x:Name="startTimer"
                     Text="Start Timer"
@@ -92,14 +83,12 @@
                        HasShadow="false"
                       Padding="10,2"
                        Margin="30,0,10,5">
-            <StackLayout Spacing="-25">
-                    <StackLayout.GestureRecognizers>
+                    <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="climbClicked"/>
-                    </StackLayout.GestureRecognizers>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    
                     <Image Source="ic_climb.png" Scale=".5">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="climbClicked"/>
-                        </Image.GestureRecognizers>
                     </Image>
                 <Button 
                     x:Name="climbStart"
@@ -118,15 +107,12 @@
                        HasShadow="false"
                       Padding="50,2"
                        Margin="5,0,10,5">
-            <StackLayout Spacing="-26">
-                    <StackLayout.GestureRecognizers>
+                    <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="cubeClicked"/>
-                    </StackLayout.GestureRecognizers>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-26">
                         <Image Source="ic_picked_cube.png"
                                Scale=".5">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="cubeClicked"/>
-                            </Image.GestureRecognizers>
                         </Image>
                     <Button
                     x:Name="cubePicked"

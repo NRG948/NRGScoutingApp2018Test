@@ -51,10 +51,9 @@ namespace NRGScoutingApp
               } */
         void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new NewMatchStart());
+            Navigation.PushAsync(new MatchEntryEditTab());
 
         }
- 
 
 
 
