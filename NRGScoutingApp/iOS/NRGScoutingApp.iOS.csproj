@@ -104,6 +104,12 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.3.1.0.637273\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.168\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.IOS">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.168\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -139,9 +145,12 @@
     <BundleResource Include="Resources\trophyvariant.png" />
     <BundleResource Include="Resources\web.png" />
     <BundleResource Include="Resources\ic_climb.png" />
-    <BundleResource Include="Resources\icexchange.png" />
+    <BundleResource Include="Resources\ic_exchange.png" />
     <BundleResource Include="Resources\ic_picked_cube.png" />
     <BundleResource Include="Resources\ic_timer.png" />
+    <BundleResource Include="Resources\ic_switch.png" />
+    <BundleResource Include="Resources\ic_cancel.png" />
+    <BundleResource Include="Resources\ic_scale.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

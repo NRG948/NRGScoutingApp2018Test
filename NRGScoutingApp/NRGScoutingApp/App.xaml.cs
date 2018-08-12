@@ -38,6 +38,7 @@ namespace NRGScoutingApp
 
             }
         }
+
         //public class MatchEntryEditTab : TabbedPage
         //{
         //    public MatchEntryEditTab()

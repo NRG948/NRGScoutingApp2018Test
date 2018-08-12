@@ -126,6 +126,12 @@
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
       <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.26.1.0.1\lib\MonoAndroid80\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
     </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.168\lib\MonoAndroid\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Droid">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.168\lib\MonoAndroid\Rg.Plugins.Popup.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -152,10 +158,13 @@
     <AndroidResource Include="Resources\drawable\trophyvariant.png" />
     <AndroidResource Include="Resources\drawable\web.png" />
     <AndroidResource Include="Resources\drawable\ic_climb.png" />
-    <AndroidResource Include="Resources\drawable\icexchange.png" />
+    <AndroidResource Include="Resources\drawable\ic_exchange.png" />
     <AndroidResource Include="Resources\drawable\ic_picked_cube.png" />
     <AndroidResource Include="Resources\drawable\ic_timer.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\drawable\ic_switch.png" />
+    <AndroidResource Include="Resources\drawable\ic_cancel.png" />
+    <AndroidResource Include="Resources\drawable\ic_scale.png" />
   </ItemGroup>
   <Import Project="..\NRGScoutingApp\NRGScoutingApp.projitems" Label="Shared" Condition="Exists('..\NRGScoutingApp\NRGScoutingApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

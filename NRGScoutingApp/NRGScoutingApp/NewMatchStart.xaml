@@ -31,8 +31,7 @@
             Minimum="0"/>
         <FlexLayout 
             Direction="Row"
-            AlignItems="Center"
-            >
+            AlignItems="Center">
                 <Frame BackgroundColor="#fdad13"
                        HasShadow="false"
                       Padding="10,2"
@@ -41,7 +40,7 @@
                         <TapGestureRecognizer Tapped="resetClicked"/>
                     </Frame.GestureRecognizers>
             <StackLayout Spacing="-25">
-                    <Image Source="icexchange.png" Scale=".5" Margin="0"/>
+                    <Image Source="ic_exchange.png" Scale=".5" Margin="0"/>
                 <Button
                     x:Name="resetTimer"
                     Text="Reset Timer"

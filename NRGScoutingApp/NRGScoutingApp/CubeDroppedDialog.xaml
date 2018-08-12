@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="NRGScoutingApp.CubeDroppedDialog"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+        <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="100"
+                                   DurationOut="10"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame HorizontalOptions="Center"
+             VerticalOptions="Center"
+           BackgroundColor="#ffffff"
+           HasShadow="true"
+           Padding="24,1,30,1"
+           CornerRadius="4"
+           Margin="20">
+    <StackLayout VerticalOptions="Center">
+       <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="15,1"
+                       Margin="0,5"
+                       HorizontalOptions="CenterAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="scaleClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    <Image Source="ic_scale.png" Scale=".5" Margin="0"/>
+                <Button
+                    x:Name="scaleDrop"
+                    Text="Scale"
+                    FontSize="15"
+                    Clicked="scaleClicked"
+                    Margin="0,10"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"/>
+                </StackLayout>
+                </Frame>
+        <FlexLayout 
+            Direction="Row"
+            AlignItems="Center"
+                Margin="0"
+                Padding="0"
+                JustifyContent="SpaceEvenly"
+                >
+                <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="6,1"
+                       Margin="6,5,3,5"
+                       HorizontalOptions="Center">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="allySwitchClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    <Image Source="ic_switch.png" Scale=".5" Margin="0"/>
+                <Button
+                    x:Name="allySwitchDrop"
+                    Text="Ally Switch"
+                    FontSize="15"
+                    Clicked="allySwitchClicked"
+                    Margin="0,10"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"/>
+                </StackLayout>
+                    </Frame>
+                   <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="15,1"
+                       Margin="3,5"
+                          HorizontalOptions="Center">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="noneClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    <Image Source="ic_cancel.png" Scale=".5" Margin="0"/>
+                <Button
+                    x:Name="noneDrop"
+                    Text="None"
+                    FontSize="15"
+                    Clicked="noneClicked"
+                    Margin="0,10"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"/>
+                </StackLayout>
+                    </Frame>
+            <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="6,1"
+                       Margin="3,5,0,5"
+                   HorizontalOptions="Center">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="oppSwitchClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    <Image Source="ic_switch.png" Scale=".5" Margin="0"/>
+                <Button
+                    x:Name="oppSwitchDrop"
+                    Text="Opp. Switch"
+                    FontSize="15"
+                    Clicked="oppSwitchClicked"
+                    Margin="0,10"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"/>
+                </StackLayout>
+                    </Frame>
+                </FlexLayout>
+               <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                      Padding="6,2"
+                       Margin="0,5"
+                       HorizontalOptions="CenterAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="exchangeClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25">
+                    <Image Source="ic_exchange.png" Scale=".5" Margin="0"/>
+                <Button
+                    x:Name="exchangeDrop"
+                    Text="Exchange"
+                    FontSize="15"
+                    Clicked="exchangeClicked"
+                    Margin="0,10"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"/>
+                </StackLayout>
+                </Frame>
+            <Button HorizontalOptions="End"
+                        VerticalOptions="End"
+                        Text="Cancel"
+                    Font="15"
+                    Clicked="backClicked"/>
+    </StackLayout>
+        
+        </Frame>
+</pages:PopupPage>
+<!--xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 ios:Page.UseSafeArea="true"
+                 ios:NavigationPage.PrefersLargeTitles="true">
+    -->
+    <!--     AlignItems="Center"-->

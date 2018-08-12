@@ -12,12 +12,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Timers;
+using Rg.Plugins.Popup.Services;
 
 namespace NRGScoutingApp
 {
     public partial class NewMatchStart : ContentPage
     {
-
 
         public NewMatchStart()
         {
@@ -58,7 +58,7 @@ namespace NRGScoutingApp
                 //timer.Elapsed += new ElapsedEventHandler(Timer_Elapsed); //Elapsed
                 //timer.Enabled = true;
                 //timer.Start();
-                Device.StartTimer(TimeSpan.FromMilliseconds(10), () => {
+                Device.StartTimer(TimeSpan.FromMilliseconds(100), () => {
                     if ((timerrValue >= 150000)||startTimer.Text == "Start Timer")
                     {
                         startTimer.Text = "Start Timer";
@@ -80,8 +80,8 @@ namespace NRGScoutingApp
         }
         private void Timer_Elapsed() //sender  System.Timers.ElapsedEventArgs
         {
-            ms += 10;
-            timerrValue += 10;
+            ms += 100;
+            timerrValue += 100;
             if (ms >= 1000)
             {
                 sec++;
@@ -100,7 +100,7 @@ namespace NRGScoutingApp
             // {
             //     mst = (int)(ms / 10);
             //}
-            timeSlider.Value = 0;
+            timeSlider.Value = 70 ;
             timerValue.Text = min + ":" + sec + "." + (ms/10);// String.Format("{0}:{00}.{00}", min, sec, ms / 10);
         }
 
@@ -116,7 +116,7 @@ namespace NRGScoutingApp
                 string[] split2 = splitStrArr.Split(seperator2, StringSplitOptions.None);
                 double mins = double.Parse(split1[0]);
                 double secs = double.Parse(split2[0]);
-                double mss =0;
+                double mss =8;
                 if (double.Parse(split2[1])<10){
                     mss = double.Parse(split2[1])*100;
                 }
@@ -195,7 +195,8 @@ namespace NRGScoutingApp
             {
                 DisplayAlert("Error", "Timer not Started", "OK");
             }
-            else
+
+            else if(cubePicked.Text=="Cube Picked")
             {
                 //Performs action/s to open popup for adding cube dropped, etc
                 string TimerValue = timerValue.Text;
@@ -207,10 +208,48 @@ namespace NRGScoutingApp
                 double mins = double.Parse(split1[0]);
                 double secs = double.Parse(split2[0]);
                 double mss = double.Parse(split2[1]) / 100;
-                double timerrValue = mins + secs + mss;
+                double pickedTime = mins + secs + mss;
+                cubePicked.Text = "Cube Dropped";
             }
+            else if (cubePicked.Text == "Cube Dropped")
+            {
+                //Performs action/s to open popup for adding cube dropped, etc
+                string TimerValue = timerValue.Text;
+                char[] seperator = new char[] { ':' };
+                string[] split1 = TimerValue.Split(seperator, StringSplitOptions.None);
+                char[] seperator2 = new char[] { '.' };
+                string splitStrArr = (string)split1[1];
+                string[] split2 = splitStrArr.Split(seperator2, StringSplitOptions.None);
+                double mins = double.Parse(split1[0]);
+                double secs = double.Parse(split2[0]);
+                double mss = double.Parse(split2[1]) / 100;
+                double droppedTime = mins + secs + mss;
+                PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
+            }
+             
 
 
         }
+        public static void cubeEventStatus()
+        {
+
+
+            //if (EventOccured == true)
+            //{
+                var cubeText = new NewMatchStart();
+                cubeText.cubePicked.Text= "Cube Picked";//NewMatchStart.cubePicked.Text = "Cube Picked";
+            //}
+            //else if (EventOccured == false)
+            //{
+            //    var cubeText = new NewMatchStart();
+            //    cubeText.cubePicked.Text ="Cube Dropped";//NewMatchStart.cubePicked.Text = "Cube Dropped";
+            //}
+            //else { }
+        }
+        public void SetCubeText(string text)
+        {
+             cubePicked.Text = text;
+        }
+
     }
 }
