@@ -51,6 +51,7 @@ namespace NRGScoutingApp
             //NewMatchStart.cubeEventStatus(false);
             PopupNavigation.Instance.PopAsync(true);
         }
+
     }
     //public class NewMatchStart : ContentPage
     //{

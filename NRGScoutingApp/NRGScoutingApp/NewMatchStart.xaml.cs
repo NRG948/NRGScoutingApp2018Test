@@ -246,10 +246,7 @@ namespace NRGScoutingApp
             //}
             //else { }
         }
-        public void SetCubeText(string text)
-        {
-             cubePicked.Text = text;
-        }
+
 
     }
 }
