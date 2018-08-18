@@ -23,4 +23,5 @@ namespace NRGScoutingApp.iOS
             return base.FinishedLaunching(app, options);
         }
     }
+
 }

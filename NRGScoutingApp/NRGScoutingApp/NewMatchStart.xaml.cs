@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Timers;
 using Rg.Plugins.Popup.Services;
+using System.Linq.Expressions;
+
 
 namespace NRGScoutingApp
 {
@@ -236,8 +238,18 @@ namespace NRGScoutingApp
 
             //if (EventOccured == true)
             //{
+
                 var cubeText = new NewMatchStart();
-                cubeText.cubePicked.Text= "Cube Picked";//NewMatchStart.cubePicked.Text = "Cube Picked";
+            cubeText.DisplayAlert("hi", "hello", "OK");
+                cubeText.cubePicked.Text = "Cube Picked";
+
+            cubeText.DisplayAlert("hujki", "hello", "OK");
+
+                cubeText.DisplayAlert("why","y", "ok");
+           
+             
+                
+            //NewMatchStart.cubePicked.Text = "Cube Picked";
             //}
             //else if (EventOccured == false)
             //{

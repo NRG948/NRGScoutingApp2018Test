@@ -72,7 +72,7 @@
                     </Frame>
                    <Frame BackgroundColor="#fdad13"
                        HasShadow="false"
-                      Padding="15,1"
+                      Padding="17,-3"
                        Margin="3,5"
                           HorizontalOptions="Center">
                     <Frame.GestureRecognizers>
@@ -83,9 +83,9 @@
                 <Button
                     x:Name="noneDrop"
                     Text="None"
-                    FontSize="15"
+                    FontSize="13"
                     Clicked="noneClicked"
-                    Margin="0,10"
+                    Margin="-3,15"
                     TextColor="White"
                     BackgroundColor="#fdad13"/>
                 </StackLayout>
@@ -105,7 +105,7 @@
                     Text="Opp. Switch"
                     FontSize="15"
                     Clicked="oppSwitchClicked"
-                    Margin="0,10"
+                    Margin="0,11"
                     TextColor="White"
                     BackgroundColor="#fdad13"/>
                 </StackLayout>

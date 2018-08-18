@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="NRGScoutingApp.MatchParameters"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-             Title="Match Parameters"
-             Icon=""
              ios:Page.UseSafeArea="true"
+             Icon="ic_assignment.png"
+             ios:Title="Match Info"
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content>
         <ScrollView>
@@ -94,6 +94,7 @@
                    Margin="10"
                    FontSize="20"/>
             <Label Text="Implement RatingBar"/>
+                
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">

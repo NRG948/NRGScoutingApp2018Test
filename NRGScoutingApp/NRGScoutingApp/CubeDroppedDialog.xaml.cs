@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Rg.Plugins.Popup.Services;
 using System.Security.Cryptography.X509Certificates;
 //using Security;
+using System.Globalization;
 
 namespace NRGScoutingApp
 {
@@ -17,31 +18,31 @@ namespace NRGScoutingApp
         public static Boolean EventOccured;
         void scaleClicked(object sender, System.EventArgs e)
         {
-            EventOccured = true;
+                    
             NewMatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
-        }
+            }
         void allySwitchClicked(object sender, System.EventArgs e)
         {
-            EventOccured = true;
+            
             NewMatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void noneClicked(object sender, System.EventArgs e)
         {
-            EventOccured = true;
+            
             NewMatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void oppSwitchClicked(object sender, System.EventArgs e)
         {
-            EventOccured = true;
+           
             NewMatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void exchangeClicked(object sender, System.EventArgs e)
         {
-            EventOccured = true;
+          
             NewMatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
