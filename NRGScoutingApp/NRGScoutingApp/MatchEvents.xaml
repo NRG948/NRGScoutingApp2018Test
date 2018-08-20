@@ -9,5 +9,14 @@
              ios:NavigationPage.PrefersLargeTitles="true">
     
     <ContentPage.Content>
+        <StackLayout>
+            <FlexLayout 
+            Direction="Row"
+            AlignItems="Center"
+            JustifyContent="Center">
+                <Button Text="Back" Clicked="backClicked"/>
+                <Button Text="Save" Clicked="saveClicked"/>
+            </FlexLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

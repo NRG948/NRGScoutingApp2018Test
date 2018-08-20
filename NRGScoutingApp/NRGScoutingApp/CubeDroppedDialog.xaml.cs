@@ -13,37 +13,38 @@ namespace NRGScoutingApp
     {
         public CubeDroppedDialog()
         {
+             
             InitializeComponent();
         }
         public static Boolean EventOccured;
         void scaleClicked(object sender, System.EventArgs e)
         {
-                    
-            NewMatchStart.cubeEventStatus();
+            var MatchStart = new NewMatchStart();
+            MatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
             }
         void allySwitchClicked(object sender, System.EventArgs e)
         {
-            
-            NewMatchStart.cubeEventStatus();
+            var MatchStart = new NewMatchStart();
+            MatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void noneClicked(object sender, System.EventArgs e)
         {
-            
-            NewMatchStart.cubeEventStatus();
+            var MatchStart = new NewMatchStart();
+            MatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void oppSwitchClicked(object sender, System.EventArgs e)
         {
-           
-            NewMatchStart.cubeEventStatus();
+            var MatchStart = new NewMatchStart();
+            MatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void exchangeClicked(object sender, System.EventArgs e)
         {
-          
-            NewMatchStart.cubeEventStatus();
+            var MatchStart = new NewMatchStart();
+            MatchStart.cubeEventStatus();
             PopupNavigation.Instance.PopAsync(true);
         }
         void backClicked(object sender, System.EventArgs e)

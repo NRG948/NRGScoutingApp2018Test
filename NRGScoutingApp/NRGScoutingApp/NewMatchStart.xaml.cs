@@ -23,6 +23,8 @@ namespace NRGScoutingApp
 
         public NewMatchStart()
         {
+            App.Current.Properties["appState"] = 1;
+            App.Current.SavePropertiesAsync();
             InitializeComponent();
 
         }
@@ -232,7 +234,7 @@ namespace NRGScoutingApp
 
 
         }
-        public static void cubeEventStatus()
+        public void cubeEventStatus()
         {
 
 

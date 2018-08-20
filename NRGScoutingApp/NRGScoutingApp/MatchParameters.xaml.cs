@@ -10,7 +10,7 @@ namespace NRGScoutingApp
     {
         public MatchParameters()
         {
-            InitializeComponent();
+           InitializeComponent();
         }
         //double timerrValue;
         //public Boolean timestart = false;

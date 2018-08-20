@@ -1,6 +1,8 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Xamarin.Forms;
+using System.ComponentModel;
+
 
 namespace NRGScoutingApp
 {
@@ -13,13 +15,24 @@ namespace NRGScoutingApp
         public App()
         {
             InitializeComponent();
-            if (Device.RuntimePlatform == Device.iOS){
+
+                    if (Device.RuntimePlatform == Device.iOS)
+            {
                 MainPage = new NavigationPage(new NavTab());
                 //new NavigationPage(
             }
-            else{
+            else
+            {
                 MainPage = new NavigationPage(new NavTab());
             }
+            switch(App.Current.Properties["appState"]) {
+                case 0:
+                    break;
+                case 1:
+                    new NavigationPage(new MatchEntryEditTab());
+                    break;
+            }
+
 
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();

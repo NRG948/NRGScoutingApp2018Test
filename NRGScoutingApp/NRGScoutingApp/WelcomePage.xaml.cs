@@ -31,8 +31,9 @@ namespace NRGScoutingApp
     
         public WelcomePage()
         {
+            App.Current.Properties["appState"] = 0;
+            App.Current.SavePropertiesAsync();
             InitializeComponent();
-            Title = "Matches";
             MatchesList.ItemsSource = teams;
             
 
