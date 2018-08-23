@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace NRGScoutingApp
 {
-    public partial class WelcomePage : ContentPage
+    public partial class Matches : ContentPage
     {
         //void Handle_Clicked(object sender, System.EventArgs e)
         //{
@@ -29,32 +29,12 @@ namespace NRGScoutingApp
         }
 
     
-        public WelcomePage()
+         public Matches()
         {
-            App.Current.Properties["appState"] = 0;
-            App.Current.SavePropertiesAsync();
             InitializeComponent();
+            matchConfirm();
             MatchesList.ItemsSource = teams;
-            
-
-           /* if (Device.RuntimePlatform == Device.iOS)
-            {
-                textColor = "#000000";
-
-            }
-            else if (Device.RuntimePlatform == Device.Android)
-            {
-                textColor = "#fbfdf8";
-            }
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                bgColor = "#ffffff";
-            }
-            else if (Device.RuntimePlatform == Device.Android)
-            {
-                bgColor = "#d7401a";
-            } */
-            }
+         }
         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {
            // MatchesList.BeginRefresh();
@@ -102,6 +82,34 @@ namespace NRGScoutingApp
             "6456 - Oregon Trail Academy Wi-Fires", "6465 - Mystic Biscuit", "6503 - Iron Dragon", "6696 - Cardinal Dynamics", "6831 - A-05 Annex",
             "6845 - River Bots", "6959 - Centralia Circuit Breakers", "7034 - 2B Determined", "7118 - ScotBots"};
 
+         void matchConfirm(){
+            if (App.Current.Properties["appState"].ToString() == "1")
+            {
+
+                     Navigation.PushAsync(new MatchEntryEditTab());
+                }
+            //else{
+            //    var confirm = await DisplayAlert("Confirm", "Do you want to discard the match?", "Yes", "No");
+            //    if (confirm){
+            //        App.Current.Properties["appState"] = "0";
+            //        App.Current.Properties["teamStart"] = "";
+            //        await App.Current.SavePropertiesAsync();
+            //    }
+            //    else{
+            //        await Navigation.PushAsync(new MatchEntryEditTab());
+            //    }
+            //}
+            else
+            {
+                App.Current.Properties["appState"] = 0;
+                App.Current.Properties["timerValue"] = 0;
+                App.Current.SavePropertiesAsync();
+                DisplayAlert("Alert", App.Current.Properties["appState"].ToString(), "OK");
+            }
+        }
+          
+        }
+
     }
 
-}
+

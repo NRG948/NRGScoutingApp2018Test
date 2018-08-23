@@ -6,9 +6,10 @@
              Icon="ic_edit.png"
              ios:Title="Match Events"
              ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
              ios:NavigationPage.PrefersLargeTitles="true">
     
-    <ContentPage.Content>
+    <ContentPage.Content NavigationPage.HasNavigationBar="False">
         <StackLayout>
             <FlexLayout 
             Direction="Row"

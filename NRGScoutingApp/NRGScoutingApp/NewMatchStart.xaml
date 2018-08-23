@@ -6,13 +6,9 @@
              ios:Page.UseSafeArea="true"
              ios:Title="Match Timer"
              Icon="ic_timer.png"
+             NavigationPage.HasNavigationBar="False"
              ios:NavigationPage.PrefersLargeTitles="true">
-    <ContentPage.ToolbarItems> 
-    <!--<ToolbarItem  Icon="plus.png" Clicked="New_Clicked"/>
-<ToolbarItem Icon="web.png" Clicked="Handle_Clicked"/> 
-    <ToolbarItem  Text="NRG Scouting"/>-->
-</ContentPage.ToolbarItems>
-    <ContentPage.Content>
+<ContentPage.Content NavigationPage.HasNavigationBar="False">
         <ScrollView HorizontalOptions="CenterAndExpand">
                    <StackLayout HorizontalOptions="CenterAndExpand">
             

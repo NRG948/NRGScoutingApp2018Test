@@ -18,7 +18,9 @@ namespace NRGScoutingApp
             var text = await DisplayAlert("Alert", "Do you want to discard progress?", "Yes", "No");
             //Boolean nav = (Boolean) text;
             if (text){
-                await Navigation.PopAsync();
+                Application.Current.Properties["teamStart"] = "";
+                await Navigation.PopToRootAsync();
+
             }
             else{
                 
@@ -26,8 +28,22 @@ namespace NRGScoutingApp
         }
         void saveClicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            Application.Current.Properties["teamStart"] = "";
+            Application.Current.Properties["appState"] = 0;
+            App.Current.Properties["timerValue"] = 0;
+            Navigation.PopToRootAsync();
         }
 
       }
 }
+
+//void timerConfirm()
+//{
+    //if ((int)(App.Current.Properties["timerValue"]) >= 0)
+    //{
+    //        private double timerrValue = (int)(App.Current.Properties["timerValue"]);
+    //}
+    //        else{
+    //            private double timerrValue;
+    //        }
+    //}

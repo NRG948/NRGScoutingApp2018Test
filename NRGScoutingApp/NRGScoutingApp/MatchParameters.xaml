@@ -6,11 +6,12 @@
              ios:Page.UseSafeArea="true"
              Icon="ic_assignment.png"
              ios:Title="Match Info"
+             NavigationPage.HasNavigationBar="False"
              ios:NavigationPage.PrefersLargeTitles="true">
-    <ContentPage.Content>
+    <ContentPage.Content NavigationPage.HasNavigationBar="False">
         <ScrollView>
         <StackLayout>
-            <FlexLayout 
+        <FlexLayout 
             Direction="Row"
             AlignItems="Center">
             <Label Text="Match Number:"

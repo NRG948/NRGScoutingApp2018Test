@@ -20,7 +20,11 @@ namespace NRGScoutingApp
 
         public MatchEntryStart()
         {
-            InitializeComponent();
+           InitializeComponent();
+            //if (App.Current.Properties["appState"].ToString() == "1" && App.Current.Properties["teamStart"].ToString() !="")
+            //{
+            //   Navigation.PushAsync(new MatchEntryEditTab());
+            //}
             //if (EnableBackButtonOverride)
             //{
             //    this.CustomBackButtonAction = async () =>
@@ -37,10 +41,8 @@ namespace NRGScoutingApp
             //    };
             //}
             MatchesList.ItemsSource = teams;
-
-
-
-        }
+            }
+        public string teamName;
         /*      protected override bool OnBackButtonPressed()
               {
                   // If you want to continue going back
@@ -51,7 +53,12 @@ namespace NRGScoutingApp
               } */
         void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
+            teamName = e.Item.ToString();
+            App.Current.Properties["teamStart"] = teamName;
+            App.Current.SavePropertiesAsync();
             Navigation.PushAsync(new MatchEntryEditTab());
+            
+            
 
         }
 

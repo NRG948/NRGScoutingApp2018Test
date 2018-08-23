@@ -15,6 +15,7 @@ namespace NRGScoutingApp
         public App()
         {
             InitializeComponent();
+            Application.Current.MainPage = new NavigationPage(new NavTab());
 
                     if (Device.RuntimePlatform == Device.iOS)
             {
@@ -25,13 +26,13 @@ namespace NRGScoutingApp
             {
                 MainPage = new NavigationPage(new NavTab());
             }
-            switch(App.Current.Properties["appState"]) {
-                case 0:
-                    break;
-                case 1:
-                    new NavigationPage(new MatchEntryEditTab());
-                    break;
-            }
+            //switch(App.Current.Properties["appState"]) {
+            //    case 0:
+            //        break;
+            //    case 1:
+            //        new NavigationPage(new MatchEntryEditTab());
+            //        break;
+            //}
 
 
             if (UseMockDataStore)
@@ -46,7 +47,7 @@ namespace NRGScoutingApp
         {
             public NavTab()
             {
-                Children.Add(new WelcomePage());
+                Children.Add(new Matches());
                 Children.Add(new Rankings());
 
             }
