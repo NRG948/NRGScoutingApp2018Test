@@ -14,7 +14,6 @@ using System.Linq;
 using System.Timers;
 using Rg.Plugins.Popup.Services;
 using System.Linq.Expressions;
-using Security;
 
 
 namespace NRGScoutingApp
@@ -27,11 +26,12 @@ namespace NRGScoutingApp
             InitializeComponent();
             App.Current.Properties["appState"] = "1";
             App.Current.SavePropertiesAsync();
-            timerConfirm();
+            //timerConfirm();
 
         }
         private int min = 0, sec = 0, ms = 0;
         private int minutes, seconds, milliseconds;
+        public double timerrValue;
 
 
         void resetClicked(object sender, System.EventArgs e)
@@ -240,32 +240,32 @@ namespace NRGScoutingApp
 
             cubeText.DisplayAlert("why", "y", "ok");
         }
-        void timerConfirm()
-        {
-            if ((int)App.Current.Properties["timerValue"] >= 0)
-            {
+        //void timerConfirm()
+        //{
+        //    if ((int)App.Current.Properties["timerValue"] >= 0)
+        //    {
 
-                Navigation.PushAsync(new MatchEntryEditTab());
-            }
-            //else{
-            //    var confirm = await DisplayAlert("Confirm", "Do you want to discard the match?", "Yes", "No");
-            //    if (confirm){
-            //        App.Current.Properties["appState"] = "0";
-            //        App.Current.Properties["teamStart"] = "";
-            //        await App.Current.SavePropertiesAsync();
-            //    }
-            //    else{
-            //        await Navigation.PushAsync(new MatchEntryEditTab());
-            //    }
-            //}
-            else
-            {
-                App.Current.Properties["appState"] = 0;
-                App.Current.Properties["timerValue"] = 0;
-                App.Current.SavePropertiesAsync();
-                DisplayAlert("Alert", App.Current.Properties["appState"].ToString(), "OK");
-            }
-        }
+        //        double timerrValue = (int)(App.Current.Properties["timerValue"]);
+        //    }
+        //    //else{
+        //    //    var confirm = await DisplayAlert("Confirm", "Do you want to discard the match?", "Yes", "No");
+        //    //    if (confirm){
+        //    //        App.Current.Properties["appState"] = "0";
+        //    //        App.Current.Properties["teamStart"] = "";
+        //    //        await App.Current.SavePropertiesAsync();
+        //    //    }
+        //    //    else{
+        //    //        await Navigation.PushAsync(new MatchEntryEditTab());
+        //    //    }
+        //    //}
+        //    else
+        //    {
+        //        App.Current.Properties["appState"] = 0;
+        //        App.Current.Properties["timerValue"] = 0;
+        //        App.Current.SavePropertiesAsync();
+        //        DisplayAlert("Alert", App.Current.Properties["appState"].ToString(), "OK");
+        //    }
+        //}
 
 
     }

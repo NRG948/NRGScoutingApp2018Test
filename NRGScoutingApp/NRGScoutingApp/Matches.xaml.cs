@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Linq;
 
 
+
 namespace NRGScoutingApp
 {
     public partial class Matches : ContentPage
@@ -83,28 +84,19 @@ namespace NRGScoutingApp
             "6845 - River Bots", "6959 - Centralia Circuit Breakers", "7034 - 2B Determined", "7118 - ScotBots"};
 
          void matchConfirm(){
-            if (App.Current.Properties["appState"].ToString() == "1")
-            {
+            if(!App.Current.Properties.ContainsKey("appState")){
+                App.Current.Properties["appState"] = 0;
+            }
 
-                     Navigation.PushAsync(new MatchEntryEditTab());
-                }
-            //else{
-            //    var confirm = await DisplayAlert("Confirm", "Do you want to discard the match?", "Yes", "No");
-            //    if (confirm){
-            //        App.Current.Properties["appState"] = "0";
-            //        App.Current.Properties["teamStart"] = "";
-            //        await App.Current.SavePropertiesAsync();
-            //    }
-            //    else{
-            //        await Navigation.PushAsync(new MatchEntryEditTab());
-            //    }
-            //}
+             else if (App.Current.Properties["appState"].ToString() == "1")
+            {
+                Navigation.PushAsync(new MatchEntryEditTab());
+            }
             else
             {
                 App.Current.Properties["appState"] = 0;
                 App.Current.Properties["timerValue"] = 0;
                 App.Current.SavePropertiesAsync();
-                DisplayAlert("Alert", App.Current.Properties["appState"].ToString(), "OK");
             }
         }
           
