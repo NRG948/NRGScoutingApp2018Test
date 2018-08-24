@@ -1,7 +1,3 @@
-# Notice
-Please don't commit anything yet (or ask Shrey before you do it)... Basic framework is being built
-
-
 # XamarinNRGScoutingApp
 Start of transition from Android to a cross-platform scouting app for FRC teams to use
 ## Instructions:
