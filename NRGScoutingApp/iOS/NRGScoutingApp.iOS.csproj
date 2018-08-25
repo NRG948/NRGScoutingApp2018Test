@@ -177,6 +177,10 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <None Include="packages.config" />
+    <None Include="BackOverRide.cs" />
+    <None Include="BackOverRide.designer.cs">
+      <DependentUpon>BackOverRide.cs</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

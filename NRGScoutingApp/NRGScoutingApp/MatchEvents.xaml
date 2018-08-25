@@ -6,17 +6,16 @@
              Icon="ic_edit.png"
              ios:Title="Match Events"
              ios:Page.UseSafeArea="true"
-             NavigationPage.HasNavigationBar="False"
              ios:NavigationPage.PrefersLargeTitles="true">
     
-    <ContentPage.Content NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
         <StackLayout>
             <FlexLayout 
             Direction="Row"
             AlignItems="Center"
             JustifyContent="Center">
-                <Button Text="Back" Clicked="backClicked"/>
-                <Button Text="Save" Clicked="saveClicked"/>
+                <Button Text="Back" Clicked="backClicked" Margin="5,1"/>
+                <Button Text="Save" Clicked="saveClicked" Margin="5,1"/>
             </FlexLayout>
         </StackLayout>
     </ContentPage.Content>

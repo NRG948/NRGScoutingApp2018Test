@@ -19,8 +19,10 @@ namespace NRGScoutingApp
         public static Boolean EventOccured;
         void scaleClicked(object sender, System.EventArgs e)
         {
-            var MatchStart = new NewMatchStart();
-            MatchStart.cubeEventStatus();
+           // var MatchStart = new NewMatchStart();
+           //MatchStart.cubeEventStatus();
+            Button cubeClicked = (Button)sender;
+            cubeClicked.Text = "Cube Picked";
             PopupNavigation.Instance.PopAsync(true);
             }
         void allySwitchClicked(object sender, System.EventArgs e)

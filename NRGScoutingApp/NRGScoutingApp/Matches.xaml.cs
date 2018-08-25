@@ -36,6 +36,7 @@ namespace NRGScoutingApp
             matchConfirm();
             MatchesList.ItemsSource = teams;
          }
+        public Boolean appRestore;
         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {
            // MatchesList.BeginRefresh();
@@ -85,15 +86,18 @@ namespace NRGScoutingApp
 
          void matchConfirm(){
             if(!App.Current.Properties.ContainsKey("appState")){
+                appRestore = false;
                 App.Current.Properties["appState"] = 0;
             }
 
              else if (App.Current.Properties["appState"].ToString() == "1")
             {
+                appRestore = true;
                 Navigation.PushAsync(new MatchEntryEditTab());
             }
             else
             {
+                appRestore = false;
                 App.Current.Properties["appState"] = 0;
                 App.Current.Properties["timerValue"] = 0;
                 App.Current.SavePropertiesAsync();

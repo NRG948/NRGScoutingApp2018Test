@@ -6,9 +6,8 @@
              ios:Page.UseSafeArea="true"
              ios:Title="Match Timer"
              Icon="ic_timer.png"
-             NavigationPage.HasNavigationBar="False"
              ios:NavigationPage.PrefersLargeTitles="true">
-<ContentPage.Content NavigationPage.HasNavigationBar="False">
+<ContentPage.Content>
         <ScrollView HorizontalOptions="CenterAndExpand">
                    <StackLayout HorizontalOptions="CenterAndExpand">
             
@@ -20,8 +19,8 @@
             TextColor="#fdad13" 
             FontSize="60"
             Margin="0,20,0,10"/>
-            <!--<Label x:Name="testLabel" Text=" Unstarted"/>-->
-        <Slider 
+           <!--<Button x:Name="testButton" Text="Click Here" Clicked="testClicked"/>-->
+            <Slider 
             x:Name="timeSlider"
             Maximum="150000"
             ValueChanged="timerValueChanged"

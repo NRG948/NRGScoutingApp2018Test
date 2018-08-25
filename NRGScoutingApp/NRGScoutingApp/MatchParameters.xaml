@@ -6,7 +6,6 @@
              ios:Page.UseSafeArea="true"
              Icon="ic_assignment.png"
              ios:Title="Match Info"
-             NavigationPage.HasNavigationBar="False"
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content NavigationPage.HasNavigationBar="False">
         <ScrollView>
