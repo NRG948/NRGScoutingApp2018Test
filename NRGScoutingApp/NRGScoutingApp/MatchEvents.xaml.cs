@@ -8,6 +8,7 @@ namespace NRGScoutingApp
 {
     public partial class MatchEvents : ContentPage
     {
+        StringFormat paramFormat = new StringFormat();
         public MatchEvents()
         {
             InitializeComponent();
@@ -34,6 +35,11 @@ namespace NRGScoutingApp
         void saveClicked(object sender, System.EventArgs e)
         {
             var appbool = new Matches();
+            string param = paramFormat.ConvertMatchParam("hi", MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
+                                                          MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
+                                                          MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
+                                                          MatchParameters.noclimbB, "5", MatchParameters.recyellowB, MatchParameters.recredB, "great");
+            DisplayAlert(param, "generated", "OK");
             Application.Current.Properties["teamStart"] = "";
             Application.Current.Properties["appState"] = 0;
             App.Current.Properties["timerValue"] = 0;

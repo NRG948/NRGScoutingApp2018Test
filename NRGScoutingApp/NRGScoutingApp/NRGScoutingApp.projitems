@@ -60,6 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CubeDroppedDialog.xaml.cs">
       <DependentUpon>CubeDroppedDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)StringFormat.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />

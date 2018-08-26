@@ -19,10 +19,12 @@
         <Entry Placeholder="(Type Here)" 
                Keyboard="Numeric"/>
                 </FlexLayout>
-            <Picker Title="Team Identifier" 
-                    HorizontalOptions="StartAndExpand" 
+            <Picker x:Name="PositionPicker"
+                    Title="Team Identifier" 
+                    HorizontalOptions="StartAndExpand"
                     Margin="10,5,0,0"
-                    FontSize="20">
+                    FontSize="20"
+                    SelectedIndexChanged="Handle_SelectedIndexChanged">
                 <Picker.Items>
                     <x:String>Red 1</x:String>
                     <x:String>Red 2</x:String>
@@ -39,7 +41,9 @@
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">
-            <Switch Margin="10,5,0,0" 
+            <Switch x:Name="crossbase"
+                    Toggled="Handle_Toggled"
+                    Margin="10,5,0,0" 
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Crossed Baseline" 
                        Margin="10,3" 
@@ -49,7 +53,9 @@
             Direction="Row"
             AlignItems="Center"
                 Margin="40,0">
-            <Switch Margin="10,5,0,0" 
+            <Switch x:Name="switchP"
+                    Toggled="Handle_Toggled_1"
+                    Margin="10,5,0,0" 
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Switch" 
                        Margin="10,3" 
@@ -59,7 +65,9 @@
             Direction="Row"
             AlignItems="Center"
                 Margin="40,0">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="scale"
+                    Toggled="Handle_Toggled_2"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Scale" 
                        Margin="10,3" 
@@ -69,7 +77,9 @@
             Direction="Row"
             AlignItems="Center"
                 Margin="40,0">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="farswitch"
+                    Toggled="Handle_Toggled_3"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Far Switch" 
                        Margin="10,3" 
@@ -79,7 +89,9 @@
             Direction="Row"
             AlignItems="Center"
                 Margin="40,0">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="farscale"
+                    Toggled="Handle_Toggled_4"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Far Scale" 
                        Margin="10,3" 
@@ -98,7 +110,9 @@
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="death"
+                    Toggled="Handle_Toggled_5"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Death" 
                        Margin="10,3" 
@@ -111,7 +125,9 @@
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="solo"
+                    Toggled="Handle_Toggled_6"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Solo Climb" 
                        Margin="10,3" 
@@ -121,6 +137,8 @@
             Direction="Row"
             AlignItems="Center">
             <Switch Margin="10,5,0,0" 
+                    x:Name="assisted"
+                    Toggled="Handle_Toggled_7"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Assisted Climb" 
                        Margin="10,3" 
@@ -129,7 +147,9 @@
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="needed"
+                    Toggled="Handle_Toggled_8"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Needed Assisted Climb" 
                        Margin="10,3" 
@@ -138,7 +158,9 @@
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="platform"
+                    Toggled="Handle_Toggled_9"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="On Platform" 
                        Margin="10,3" 
@@ -147,7 +169,9 @@
             <FlexLayout 
             Direction="Row"
             AlignItems="Center">
-            <Switch Margin="10,5,0,0" 
+            <Switch Margin="10,5,0,0"
+                    x:Name="noclimb"
+                    Toggled="Handle_Toggled_10"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Didn't Climb" 
                        Margin="10,3" 
@@ -160,8 +184,10 @@
             <Label Text="Fouls:"
                    Margin="10"
                    FontSize="20"/>
-            <Entry Placeholder="0" 
+            <Entry Placeholder="0"
+                   x:Name="fouls"
                Keyboard="Numeric"
+                   
                    HorizontalOptions="StartAndExpand"
                    Margin="10,5,0,0"
                    WidthRequest="50"/>
@@ -169,6 +195,8 @@
             Direction="Row"
             AlignItems="Center">
             <Switch Margin="10,5,0,0" 
+                    x:Name="yellow"
+                    Toggled="Handle_Toggled_11"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Received Yellow Card" 
                        Margin="10,3" 
@@ -178,6 +206,8 @@
             Direction="Row"
             AlignItems="Center">
             <Switch Margin="10,5,0,0" 
+                    x:Name="red"
+                    Toggled="Handle_Toggled_12"
                     VerticalOptions="CenterAndExpand" />
                 <Label Text="Received Red Card" 
                        Margin="10,3" 
