@@ -88,6 +88,7 @@ namespace NRGScoutingApp
             if(!App.Current.Properties.ContainsKey("appState")){
                 appRestore = false;
                 App.Current.Properties["appState"] = 0;
+                App.Current.SavePropertiesAsync();
             }
 
              else if (App.Current.Properties["appState"].ToString() == "1")

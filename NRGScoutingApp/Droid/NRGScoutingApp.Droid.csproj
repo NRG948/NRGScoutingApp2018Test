@@ -60,12 +60,6 @@
     <Reference Include="Rg.Plugins.Popup.Droid">
       <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.168\lib\MonoAndroid\Rg.Plugins.Popup.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="Messier16.Forms.Android.Controls">
-      <HintPath>..\packages\Messier16.Forms.Controls.2.2.0\lib\MonoAndroid10\Messier16.Forms.Android.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Messier16.Forms.Controls">
-      <HintPath>..\packages\Messier16.Forms.Controls.2.2.0\lib\MonoAndroid10\Messier16.Forms.Controls.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Arch.Core.Common">
       <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.0.0.1\lib\MonoAndroid80\Xamarin.Android.Arch.Core.Common.dll</HintPath>
     </Reference>

@@ -99,12 +99,6 @@
     <Reference Include="Rg.Plugins.Popup.IOS">
       <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.168\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
     </Reference>
-    <Reference Include="Messier16.Forms.Controls">
-      <HintPath>..\packages\Messier16.Forms.Controls.2.2.0\lib\Xamarin.iOS10\Messier16.Forms.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Messier16.Forms.iOS.Controls">
-      <HintPath>..\packages\Messier16.Forms.Controls.2.2.0\lib\Xamarin.iOS10\Messier16.Forms.iOS.Controls.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>

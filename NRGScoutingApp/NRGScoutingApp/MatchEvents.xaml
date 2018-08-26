@@ -10,13 +10,14 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <FlexLayout 
+            <!--<FlexLayout 
             Direction="Row"
             AlignItems="Center"
             JustifyContent="Center">
                 <Button Text="Back" Clicked="backClicked" Margin="5,1"/>
                 <Button Text="Save" Clicked="saveClicked" Margin="5,1"/>
-            </FlexLayout>
+            </FlexLayout>-->
+            <Label Text="hi"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

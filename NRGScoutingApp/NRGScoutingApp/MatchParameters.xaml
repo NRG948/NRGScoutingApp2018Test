@@ -10,6 +10,13 @@
     <ContentPage.Content NavigationPage.HasNavigationBar="False">
         <ScrollView>
         <StackLayout>
+                <FlexLayout 
+            Direction="Row"
+            AlignItems="Center"
+            JustifyContent="Center">
+                <Button Text="Back" Clicked="backClicked" Margin="5,1"/>
+                <Button Text="Save" Clicked="saveClicked" Margin="5,1"/>
+            </FlexLayout>
         <FlexLayout 
             Direction="Row"
             AlignItems="Center">

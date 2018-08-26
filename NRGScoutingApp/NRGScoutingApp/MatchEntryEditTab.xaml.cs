@@ -12,8 +12,8 @@ namespace NRGScoutingApp
             //TabbedPage.SetBinding(MatchEntryEditTab.TitleProperty = teamAssign.teamName);
           
             Children.Add(new NewMatchStart());
-            Children.Add(new MatchParameters());
             Children.Add(new MatchEvents());
+            Children.Add(new MatchParameters());
             BindingContext = this;
            
         InitializeComponent();
