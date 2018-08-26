@@ -91,16 +91,16 @@ namespace NRGScoutingApp
                 App.Current.SavePropertiesAsync();
             }
 
-             else if (App.Current.Properties["appState"].ToString() == "1")
+            else if (App.Current.Properties["appState"].ToString() == "1")
             {
                 appRestore = true;
                 Navigation.PushAsync(new MatchEntryEditTab());
             }
-            else
+            else if (App.Current.Properties["appState"].ToString() == "0")
             {
                 appRestore = false;
                 App.Current.Properties["appState"] = 0;
-                App.Current.Properties["timerValue"] = 0;
+                App.Current.Properties["timerValue"] = (int) 0;
                 App.Current.SavePropertiesAsync();
             }
         }

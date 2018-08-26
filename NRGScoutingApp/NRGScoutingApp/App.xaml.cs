@@ -16,16 +16,15 @@ namespace NRGScoutingApp
         {
             InitializeComponent();
             Application.Current.MainPage = new NavigationPage(new NavTab());
-
-                    if (Device.RuntimePlatform == Device.iOS)
-            {
-                MainPage = new NavigationPage(new NavTab());
-                //new NavigationPage(
-            }
-            else
-            {
-                MainPage = new NavigationPage(new NavTab());
-            }
+  
+            //        if (Device.RuntimePlatform == Device.iOS)
+            //{
+            //    MainPage = new NavigationPage(new NavTab());
+            //    //new NavigationPage(
+            //else
+            //{
+            //    MainPage = new NavigationPage(new NavTab());
+            //}
             //switch(App.Current.Properties["appState"]) {
             //    case 0:
             //        break;
