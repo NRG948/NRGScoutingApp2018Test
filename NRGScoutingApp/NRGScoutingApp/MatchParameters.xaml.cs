@@ -47,10 +47,11 @@ namespace NRGScoutingApp
         void saveClicked(object sender, System.EventArgs e)
         {
             var appbool = new Matches();
-            string param = paramFormat.ConvertMatchParam("hi", MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
+            string param = paramFormat.ConvertMatchParam(matchnum.Text, MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
                                                           MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
                                                           MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
-                                                          MatchParameters.noclimbB, "5", MatchParameters.recyellowB, MatchParameters.recredB, "great");
+                                                         MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
+            Console.WriteLine(param); //DEBUG PURPOSES
             DisplayAlert(param, "generated", "OK");
             Application.Current.Properties["teamStart"] = "";
             Application.Current.Properties["appState"] = 0;

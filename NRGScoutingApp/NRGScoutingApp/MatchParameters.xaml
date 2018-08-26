@@ -10,20 +10,14 @@
     <ContentPage.Content NavigationPage.HasNavigationBar="False">
         <ScrollView>
         <StackLayout>
-                <FlexLayout 
-            Direction="Row"
-            AlignItems="Center"
-            JustifyContent="Center">
-                <Button Text="Back" Clicked="backClicked" Margin="5,1"/>
-                <Button Text="Save" Clicked="saveClicked" Margin="5,1"/>
-            </FlexLayout>
         <FlexLayout 
             Direction="Row"
             AlignItems="Center">
             <Label Text="Match Number:"
                    Margin="10"
                    FontSize="20"/>
-        <Entry Placeholder="(Type Here)" 
+        <Entry Placeholder="(Type Here)"
+               x:Name="matchnum"
                Keyboard="Numeric"/>
                 </FlexLayout>
             <Picker x:Name="PositionPicker"
@@ -224,11 +218,19 @@
                    Margin="10"
                    FontSize="20"/>
             <Editor Text="Type Here!" 
+                    x:Name="comments"
                     AutoSize="TextChanges" 
                     Margin="10,5,0,0" 
                     HorizontalOptions="StartAndExpand"
                     Keyboard="Text"/>
-            </StackLayout>
-            </ScrollView>
+             <FlexLayout 
+                Direction="Row"
+                AlignItems="Center"
+                JustifyContent="Center">
+                <Button Text="Back" Clicked="backClicked" Margin="5,1"/>
+                <Button Text="Save" Clicked="saveClicked" Margin="5,1"/>
+            </FlexLayout>
+           </StackLayout>
+          </ScrollView>
     </ContentPage.Content>
 </ContentPage>
