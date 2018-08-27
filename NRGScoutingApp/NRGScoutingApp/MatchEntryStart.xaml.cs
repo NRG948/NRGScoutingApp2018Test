@@ -20,7 +20,8 @@ namespace NRGScoutingApp
 
         public MatchEntryStart()
         {
-           InitializeComponent();
+            InitializeComponent();
+
             //if (App.Current.Properties["appState"].ToString() == "1" && App.Current.Properties["teamStart"].ToString() !="")
             //{
             //   Navigation.PushAsync(new MatchEntryEditTab());
@@ -40,6 +41,7 @@ namespace NRGScoutingApp
             //        }
             //    };
             //}
+            popCheck();
             MatchesList.ItemsSource = teams;
             }
         public string teamName;
@@ -75,6 +77,21 @@ namespace NRGScoutingApp
 
             //MatchesList.EndRefresh();
         }
+
+         void popCheck(){
+            var modalCheck = new Matches();
+            DisplayAlert("jo", "hi", "ok");
+            if (modalCheck.popNav == true)
+            {
+                modalCheck.appRestore = false;
+                //Navigation.RemovePage(this);
+                Navigation.PopAsync(true);
+            }
+            else if(modalCheck.popNav == false){
+                 DisplayAlert("Not Popping", "Agree?", "OK!");
+            }
+        }
+
         public List<String> teams = new List<string> {"360 - The Revolution", "488 - Team XBot", "492 - Titan Robotics Club", "568 - Nerds of the North",
             "753 - High Desert Droids", "847 - PHRED", "948 - NRG (Newport Robotics Group)", "949 - Wolverine Robotics",
             "955 - CV Robotics", "957 - SWARM", "997 - Spartan Robotics", "1258 - SeaBot", "1294 - Top Gun", "1318 - Issaquah Robotics Society",

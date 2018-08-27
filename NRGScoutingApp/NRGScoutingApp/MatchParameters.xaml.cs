@@ -22,28 +22,42 @@ namespace NRGScoutingApp
         async void backClicked(object sender, System.EventArgs e)
         {
             var text = await DisplayAlert("Alert", "Do you want to discard progress?", "Yes", "No");
-            //Boolean nav = (Boolean) text;
             var appbool = new Matches();
             if (text)
             {
-                Application.Current.Properties["teamStart"] = "";
-                Application.Current.Properties["appState"] = 0;
+                App.Current.Properties["teamStart"] = "";
+                App.Current.Properties["appState"] = 0;
                 App.Current.Properties["timerValue"] = (int)0;
+                await App.Current.SavePropertiesAsync();
+                appbool.popNav = true;
+                appbool.appRestore = false;
+                //await Navigation.PopAsync(true);
                 if (appbool.appRestore == false)
                 {
                     appbool.appRestore = false;
-                    //await Navigation.PopToRootAsync(true);
-                    Device.BeginInvokeOnMainThread(async () => await Navigation.PopToRootAsync());
+                    //await Navigation.PopAsync(true);
+                   await Navigation.PopToRootAsync(true);
+
                 }
                 else if (appbool.appRestore == true)
                 {
                     appbool.appRestore = false;
                     //await Navigation.PopAsync(true);
-                    Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
+                    await Navigation.PopAsync(true);
                 }
 
             }
         }
+
+        void rootClicked(object sender, System.EventArgs e)
+        {
+            App.Current.Properties["teamStart"] = "";
+             App.Current.Properties["appState"] = 0;
+            App.Current.Properties["timerValue"] = (int)0;
+            App.Current.SavePropertiesAsync();
+            Navigation.PopToRootAsync(true);
+        }
+
         void saveClicked(object sender, System.EventArgs e)
         {
             var appbool = new Matches();
@@ -53,20 +67,25 @@ namespace NRGScoutingApp
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
             Console.WriteLine(param); //DEBUG PURPOSES
             DisplayAlert(param, "generated", "OK");
-            Application.Current.Properties["teamStart"] = "";
-            Application.Current.Properties["appState"] = 0;
+            App.Current.Properties["teamStart"] = "";
+            App.Current.Properties["appState"] = 0;
             App.Current.Properties["timerValue"] = 0;
+            App.Current.SavePropertiesAsync();
+            appbool.popNav = true;
+            appbool.appRestore = false;
+            //Navigation.PopAsync(true);
             if (appbool.appRestore == false)
             {
                 appbool.appRestore = false;
-                Device.BeginInvokeOnMainThread(async () => await Navigation.PopToRootAsync());
-                //Navigation.PopToRootAsync();
+                appbool.popNav = true;
+                //Navigation.PopAsync(true);
+                Navigation.PopToRootAsync(true);
             }
             else if (appbool.appRestore == true)
             {
                 appbool.appRestore = false;
-                Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
-                //Navigation.PopAsync(true);
+                appbool.popNav = true;
+                Navigation.PopAsync(true);
             }
         }
 

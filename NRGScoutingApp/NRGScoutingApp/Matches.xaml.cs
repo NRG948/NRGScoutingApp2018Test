@@ -23,13 +23,7 @@ namespace NRGScoutingApp
         //    Navigation.PushAsync(new BlueAllianceMatches());
         //}
 
-        void New_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new MatchEntryStart());
-             
-        }
 
-    
          public Matches()
         {
             InitializeComponent();
@@ -37,7 +31,16 @@ namespace NRGScoutingApp
             MatchesList.ItemsSource = teams;
          }
         public Boolean appRestore;
-        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+        public Boolean popNav;
+
+        void New_Clicked(object sender, System.EventArgs e)
+        {
+            popNav = false;
+            appRestore = false;
+            Navigation.PushAsync(new MatchEntryStart());
+             
+        }
+    private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {
            // MatchesList.BeginRefresh();
 
