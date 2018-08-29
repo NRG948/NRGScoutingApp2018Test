@@ -24,15 +24,13 @@ namespace NRGScoutingApp
         {
             BindingContext = this;
             InitializeComponent();
+            //cubeDropValue = "Cube Picked";
             App.Current.Properties["appState"] = "1";
             App.Current.SavePropertiesAsync();
+            timerValueSetter();
         }
 
-        //void testClicked(object sender, System.EventArgs e)
-        //{
-        //    testButton.Text = App.Current.Properties["timerValue"].ToString();
-        //}
-
+        public string cubeDropValue = "Cube Picked";
         private int min = 0, sec = 0, ms = 0;
         private int minutes, seconds, milliseconds;
         public double timerrValue;
@@ -122,7 +120,7 @@ namespace NRGScoutingApp
                 min++;
                 sec = 0;
             }
-            timeSlider.Value = 700;
+            timeSlider.Value = timerrValue;
             App.Current.Properties["timerValue"] = (int)timerrValue;
             App.Current.SavePropertiesAsync();
             timerValue.Text = min + ":" + sec + "." + (ms/10);
@@ -244,7 +242,9 @@ namespace NRGScoutingApp
                 double secs = double.Parse(split2[0]);
                 double mss = double.Parse(split2[1]) / 100;
                 double pickedTime = mins + secs + mss;
+                cubeDropValue = "Cube Dropped";
                 cubePicked.Text = "Cube Dropped";
+
             }
             else if (cubePicked.Text == "Cube Dropped")
             {
@@ -260,6 +260,8 @@ namespace NRGScoutingApp
                 double mss = double.Parse(split2[1]) / 100;
                 double droppedTime = mins + secs + mss;
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
+                cubeDropValue = "Cube Picked";
+                cubePicked.Text = "Cube Picked";
             }
         }
 
@@ -267,6 +269,48 @@ namespace NRGScoutingApp
         {
             var cubeText = new NewMatchStart();
             cubeText.cubePicked.Text = "Cube Picked";
+        }
+        private void timerValueSetter()
+        {
+            if (!App.Current.Properties.ContainsKey("timerValue"))
+            {
+                App.Current.Properties["timerValue"] = (int)0;
+                App.Current.SavePropertiesAsync();
+            }
+            else if (App.Current.Properties.ContainsKey("timerValue") && firstTimerStart == true)
+            {
+                timerrValue = Convert.ToDouble(App.Current.Properties["timerValue"]);
+                timeSlider.Value = timerrValue;
+                if (timerrValue >= 60000)
+                {
+                    minutes = (int)(Math.Floor(timerrValue / 60000));
+                    min = (int)(Math.Floor(timerrValue / 60000));
+                    seconds = (int)(Math.Floor(timerrValue - (60000 * minutes)) / 1000);
+                    sec = (int)(Math.Floor(timerrValue - (60000 * minutes)) / 1000);
+                    milliseconds = (int)(((timerrValue - ((minutes * 60000) + (seconds * 1000)))) / 10);
+                    ms = (int)((timerrValue - ((minutes * 60000) + (seconds * 1000))));
+                    timerValue.Text = String.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds); //minutes + ":" + seconds + "." + milliseconds;
+                }
+                if (timerrValue <= 60000)
+                {
+                    seconds = (int)(Math.Floor(timerrValue / 1000));
+                    sec = (int)(Math.Floor(timerrValue / 1000));
+                    milliseconds = (int)(((timerrValue - (seconds * 1000))) / 10);
+                    ms = (int)((timerrValue - (seconds * 1000)));
+                    min = 0;
+                    timerValue.Text = String.Format("0:{0:00}.{1:00}", seconds, milliseconds);
+                }
+                if (timerrValue <= 1000)
+                {
+                    milliseconds = (int)((timerrValue) / 10);
+                    min = 0;
+                    sec = 0;
+                    ms = (int)((timerrValue) / 10);
+                    timerValue.Text = String.Format("0:00.{0:00}", milliseconds);
+                }
+                firstTimerStart = false;
+            }
+
         }
     }
 }

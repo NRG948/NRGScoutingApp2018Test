@@ -28,8 +28,23 @@ namespace NRGScoutingApp
         {
             InitializeComponent();
             matchConfirm();
+            App.Current.Properties["newAppear"] = 0;
+            App.Current.SavePropertiesAsync();
             MatchesList.ItemsSource = teams;
          }
+
+        protected override void OnAppearing()
+        {
+            popNav = false;
+            appRestore = false;
+            if (App.Current.Properties["newAppear"].ToString() == "1")
+            App.Current.Properties["appState"] = 0;
+            App.Current.Properties["timerValue"] = (int)0;
+            App.Current.Properties["teamStart"] = "";
+            App.Current.Properties["newAppear"] = 0;
+            App.Current.SavePropertiesAsync();
+        }
+
         public Boolean appRestore;
         public Boolean popNav;
 
@@ -91,6 +106,8 @@ namespace NRGScoutingApp
             if(!App.Current.Properties.ContainsKey("appState")){
                 appRestore = false;
                 App.Current.Properties["appState"] = 0;
+                App.Current.Properties["teamStart"] = "";
+                App.Current.Properties["timerValue"] = (int)0;
                 App.Current.SavePropertiesAsync();
             }
 
@@ -104,6 +121,7 @@ namespace NRGScoutingApp
                 appRestore = false;
                 App.Current.Properties["appState"] = 0;
                 App.Current.Properties["timerValue"] = (int) 0;
+                App.Current.Properties["teamStart"] = "";
                 App.Current.SavePropertiesAsync();
             }
         }

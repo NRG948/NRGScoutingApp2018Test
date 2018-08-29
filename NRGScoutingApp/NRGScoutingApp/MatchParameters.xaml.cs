@@ -27,14 +27,13 @@ namespace NRGScoutingApp
             {
                 App.Current.Properties["teamStart"] = "";
                 App.Current.Properties["appState"] = 0;
+                App.Current.Properties["newAppear"] = 1;
                 App.Current.Properties["timerValue"] = (int)0;
                 await App.Current.SavePropertiesAsync();
                 appbool.popNav = true;
-                appbool.appRestore = false;
-                //await Navigation.PopAsync(true);
+               //await Navigation.PopAsync(true);
                 if (appbool.appRestore == false)
                 {
-                    appbool.appRestore = false;
                     //await Navigation.PopAsync(true);
                    await Navigation.PopToRootAsync(true);
 
@@ -70,6 +69,7 @@ namespace NRGScoutingApp
             App.Current.Properties["teamStart"] = "";
             App.Current.Properties["appState"] = 0;
             App.Current.Properties["timerValue"] = 0;
+            App.Current.Properties["newAppear"] = 1;
             App.Current.SavePropertiesAsync();
             appbool.popNav = true;
             appbool.appRestore = false;
