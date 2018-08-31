@@ -41,9 +41,9 @@ namespace NRGScoutingApp
             //        }
             //    };
             //}
-            popCheck();
-            MatchesList.ItemsSource = teams;
+           MatchesList.ItemsSource = teams;
             }
+        public Boolean goBack = false;
         public string teamName;
         /*      protected override bool OnBackButtonPressed()
               {
@@ -53,6 +53,14 @@ namespace NRGScoutingApp
                   return true;
 
               } */
+        protected override void OnAppearing()
+        {
+            if (goBack == true){
+                Navigation.PopAsync();
+                goBack = false;
+            }
+        }
+
         void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             teamName = e.Item.ToString();
@@ -78,19 +86,19 @@ namespace NRGScoutingApp
             //MatchesList.EndRefresh();
         }
 
-         void popCheck(){
-            var modalCheck = new Matches();
-            DisplayAlert("jo", "hi", "ok");
-            if (modalCheck.popNav == true)
-            {
-                modalCheck.appRestore = false;
-                //Navigation.RemovePage(this);
-                Navigation.PopAsync(true);
-            }
-            else if(modalCheck.popNav == false){
-                 DisplayAlert("Not Popping", "Agree?", "OK!");
-            }
-        }
+        // void popCheck(){
+        //    var modalCheck = new Matches();
+        //    DisplayAlert("jo", "hi", "ok");
+        //    if (modalCheck.popNav == true)
+        //    {
+        //        modalCheck.appRestore = false;
+        //        //Navigation.RemovePage(this);
+        //        Navigation.PopAsync(true);
+        //    }
+        //    else if(modalCheck.popNav == false){
+        //         DisplayAlert("Not Popping", "Agree?", "OK!");
+        //    }
+        //}
 
         public List<String> teams = new List<string> {"360 - The Revolution", "488 - Team XBot", "492 - Titan Robotics Club", "568 - Nerds of the North",
             "753 - High Desert Droids", "847 - PHRED", "948 - NRG (Newport Robotics Group)", "949 - Wolverine Robotics",

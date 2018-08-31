@@ -38,11 +38,13 @@ namespace NRGScoutingApp
             popNav = false;
             appRestore = false;
             if (App.Current.Properties["newAppear"].ToString() == "1")
-            App.Current.Properties["appState"] = 0;
-            App.Current.Properties["timerValue"] = (int)0;
-            App.Current.Properties["teamStart"] = "";
-            App.Current.Properties["newAppear"] = 0;
-            App.Current.SavePropertiesAsync();
+            {
+                App.Current.Properties["appState"] = 0;
+                App.Current.Properties["timerValue"] = (int)0;
+                App.Current.Properties["teamStart"] = "";
+                App.Current.Properties["newAppear"] = 0;
+                App.Current.SavePropertiesAsync();
+            }
         }
 
         public Boolean appRestore;

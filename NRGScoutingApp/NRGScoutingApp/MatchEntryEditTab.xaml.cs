@@ -15,11 +15,13 @@ namespace NRGScoutingApp
             Children.Add(new MatchEvents());
             Children.Add(new MatchParameters());
             BindingContext = this;
-           
-        InitializeComponent();
+            App.Current.Properties["newAppear"] = 1;
+            App.Current.SavePropertiesAsync();
+            InitializeComponent();
         }
         string titleName = (App.Current.Properties["teamStart"].ToString());
         public string teamName { get { return titleName; } }
+
 
     }
 }

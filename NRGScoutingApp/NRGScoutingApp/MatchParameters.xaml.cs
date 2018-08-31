@@ -30,12 +30,15 @@ namespace NRGScoutingApp
                 App.Current.Properties["newAppear"] = 1;
                 App.Current.Properties["timerValue"] = (int)0;
                 await App.Current.SavePropertiesAsync();
-                appbool.popNav = true;
-               //await Navigation.PopAsync(true);
+                var back = new MatchEntryStart();
+                //await Navigation.PopAsync(true);
                 if (appbool.appRestore == false)
                 {
+                    appbool.appRestore = false;
+                    back.goBack = true;
                     //await Navigation.PopAsync(true);
-                   await Navigation.PopToRootAsync(true);
+                    await Navigation.PopToRootAsync(true);
+                    Application.Current.MainPage = new NavigationPage(new TabbedPage());
 
                 }
                 else if (appbool.appRestore == true)
@@ -71,20 +74,20 @@ namespace NRGScoutingApp
             App.Current.Properties["timerValue"] = 0;
             App.Current.Properties["newAppear"] = 1;
             App.Current.SavePropertiesAsync();
-            appbool.popNav = true;
             appbool.appRestore = false;
             //Navigation.PopAsync(true);
+            var back = new MatchEntryStart();
             if (appbool.appRestore == false)
             {
                 appbool.appRestore = false;
-                appbool.popNav = true;
-                //Navigation.PopAsync(true);
+                Navigation.PopAsync(true);
+                back.goBack = true;
                 Navigation.PopToRootAsync(true);
+                Application.Current.MainPage = new NavigationPage(new TabbedPage());
             }
             else if (appbool.appRestore == true)
             {
                 appbool.appRestore = false;
-                appbool.popNav = true;
                 Navigation.PopAsync(true);
             }
         }
