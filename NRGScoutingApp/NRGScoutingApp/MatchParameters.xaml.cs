@@ -29,6 +29,8 @@ namespace NRGScoutingApp
                 App.Current.Properties["appState"] = 0;
                 App.Current.Properties["newAppear"] = 1;
                 App.Current.Properties["timerValue"] = (int)0;
+                App.Current.Properties["lastCubePicked"] = 0;
+                App.Current.Properties["lastCubeDropped"] = 0;
                 await App.Current.SavePropertiesAsync();
                 var back = new MatchEntryStart();
                 //await Navigation.PopAsync(true);
@@ -56,6 +58,9 @@ namespace NRGScoutingApp
             App.Current.Properties["teamStart"] = "";
              App.Current.Properties["appState"] = 0;
             App.Current.Properties["timerValue"] = (int)0;
+            App.Current.Properties["lastCubePicked"] = 0;
+            App.Current.Properties["lastCubeDropped"] = 0;
+
             App.Current.SavePropertiesAsync();
             Navigation.PopToRootAsync(true);
         }
@@ -73,6 +78,8 @@ namespace NRGScoutingApp
             App.Current.Properties["appState"] = 0;
             App.Current.Properties["timerValue"] = 0;
             App.Current.Properties["newAppear"] = 1;
+            App.Current.Properties["lastCubePicked"] = 0;
+            App.Current.Properties["lastCubeDropped"] = 0;
             App.Current.SavePropertiesAsync();
             appbool.appRestore = false;
             //Navigation.PopAsync(true);

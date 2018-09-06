@@ -53,7 +53,7 @@ namespace NRGScoutingApp
             //EventOccured = false;
             //NewMatchStart.cubeEventStatus(false);
             var MatchTimer = new NewMatchStart();
-            MatchTimer.cubeDropValue = "Cube Dropped";
+            MatchTimer.pickedText = "Cube Dropped";
             PopupNavigation.Instance.PopAsync(true);
         }
 

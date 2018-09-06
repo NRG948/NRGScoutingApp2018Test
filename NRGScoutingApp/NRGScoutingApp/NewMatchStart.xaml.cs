@@ -35,6 +35,11 @@ namespace NRGScoutingApp
         private int minutes, seconds, milliseconds;
         public double timerrValue;
         private Boolean firstTimerStart = true;
+        public double pickedTime = 0;
+        public double droppedTime = 0;
+        public String pickedText = "Cube Picked";
+        public string cubeOption { get { return pickedText; } }
+
 
         void resetClicked(object sender, System.EventArgs e)
         {
@@ -232,16 +237,10 @@ namespace NRGScoutingApp
             else if (cubePicked.Text == "Cube Picked")
             {
                 //Performs action/s to open popup for adding cube dropped, etc
-                string TimerValue = timerValue.Text;
-                char[] seperator = new char[] { ':' };
-                string[] split1 = TimerValue.Split(seperator, StringSplitOptions.None);
-                char[] seperator2 = new char[] { '.' };
-                string splitStrArr = (string)split1[1];
-                string[] split2 = splitStrArr.Split(seperator2, StringSplitOptions.None);
-                double mins = double.Parse(split1[0]);
-                double secs = double.Parse(split2[0]);
-                double mss = double.Parse(split2[1]) / 100;
-                double pickedTime = mins + secs + mss;
+                pickedTime = (int)timerrValue;
+                App.Current.Properties["lastCubePicked"] = (int)pickedTime;
+                App.Current.SavePropertiesAsync();
+                testButton.Text = "Picked " + pickedTime;
                 cubeDropValue = "Cube Dropped";
                 cubePicked.Text = "Cube Dropped";
 
@@ -249,16 +248,10 @@ namespace NRGScoutingApp
             else if (cubePicked.Text == "Cube Dropped")
             {
                 //Performs action/s to open popup for adding cube dropped, etc
-                string TimerValue = timerValue.Text;
-                char[] seperator = new char[] { ':' };
-                string[] split1 = TimerValue.Split(seperator, StringSplitOptions.None);
-                char[] seperator2 = new char[] { '.' };
-                string splitStrArr = (string)split1[1];
-                string[] split2 = splitStrArr.Split(seperator2, StringSplitOptions.None);
-                double mins = double.Parse(split1[0]);
-                double secs = double.Parse(split2[0]);
-                double mss = double.Parse(split2[1]) / 100;
-                double droppedTime = mins + secs + mss;
+                droppedTime =(int)timerrValue;
+                App.Current.Properties["lastCubeDropped"] = (int)droppedTime;
+                App.Current.SavePropertiesAsync();
+                testButton.Text = "Dropped " + droppedTime;
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
                 cubeDropValue = "Cube Picked";
                 cubePicked.Text = "Cube Picked";
@@ -272,6 +265,18 @@ namespace NRGScoutingApp
         }
         private void timerValueSetter()
         {
+            if(!App.Current.Properties.ContainsKey("lastCubePicked")){
+                App.Current.Properties["lastCubePicked"] = 0;
+                App.Current.Properties["lastCubeDropped"] = 0;
+                App.Current.SavePropertiesAsync();
+            }
+            else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) == 0 || Convert.ToInt32(App.Current.Properties["lastCubeDropped"]) == 0){
+
+            }
+            else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) > Convert.ToInt32(App.Current.Properties["lastCubeDropped"])){
+                cubePicked.Text = "Cube Dropped";
+            }
+
             if (!App.Current.Properties.ContainsKey("timerValue"))
             {
                 App.Current.Properties["timerValue"] = (int)0;
