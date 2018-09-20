@@ -15,7 +15,7 @@
         <item name="colorPrimaryDark">#000000</item>
         <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-        <item name="colorAccent">#f7ba24</item>
+        <item name="colorAccent">#000000</item>
         <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
         <!--<item name="navigationBarColor">#000000</item>
@@ -24,6 +24,11 @@
         <item name="windowActionModeOverlay">true
         <item name="android:itemTextAppearance">@style/TodoActionBar.MenuTextStyle</item>
         </item>
+        <item name="android:colorPressedHighlight">@color/ListViewSelected</item>
+   <item name="android:colorLongPressedHighlight">@color/ListViewHighlighted</item>
+   <item name="android:colorFocusedHighlight">@color/ListViewSelected</item>
+   <item name="android:colorActivatedHighlight">@color/ListViewSelected</item>
+   <item name="android:activatedBackgroundIndicator">@color/ListViewSelected</item>
       </style>
 
     <style name="TodoActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
@@ -35,5 +40,6 @@
     <style name="TodoActionBar.MenuTextStyle" parent="style/TextAppearance.AppCompat.Widget.ActionBar.Title">
        <item name="android:textSize">20sp</item>
    </style>
-
+   <color name="ListViewSelected">#ffffff</color>
+<color name="ListViewHighlighted">#ffffff</color>
 </resources>

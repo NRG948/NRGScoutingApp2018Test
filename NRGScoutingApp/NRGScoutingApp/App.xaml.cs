@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using System.ComponentModel;
+using System.Security.Principal;
+using BottomBar.XamarinForms;
 
 
 namespace NRGScoutingApp
@@ -45,7 +47,8 @@ namespace NRGScoutingApp
            
           
         }
-      public class NavTab : TabbedPage
+      
+        public class NavTab: BottomBarPage
         {
             public NavTab()
             {
@@ -54,16 +57,6 @@ namespace NRGScoutingApp
 
             }
         }
-
-        //public class MatchEntryEditTab : TabbedPage
-        //{
-        //    public MatchEntryEditTab()
-        //    {
-        //        Children.Add(new WelcomePage());
-        //        Children.Add(new Rankings());
-
-        //    }
-        //}
 
     }
 }

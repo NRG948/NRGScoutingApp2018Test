@@ -5,7 +5,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
              Title="Rankings"
-             Icon= "trophyvariant.png"
+             Icon= "ic_leader.png"
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content>
         <Label Text="Testing..."/>

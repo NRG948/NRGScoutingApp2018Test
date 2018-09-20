@@ -6,9 +6,11 @@
              ios:Page.UseSafeArea="true"
              ios:NavigationPage.PrefersLargeTitles="true"
              Title="Matches"
-             Icon="poll2.png">
+             Icon="ic_match.png">
     <ContentPage.ToolbarItems> 
-    <ToolbarItem  Icon="plus.png" Clicked="New_Clicked"/>
+    <ToolbarItem  Icon="plus.png" Clicked="newClicked"/>
+    <ToolbarItem Icon="ic_import_web.png" Clicked="importClicked"/>
+    <ToolbarItem Icon="ic_download_web.png" Clicked="exportClicked"/>
    <!-- <ToolbarItem Icon="web.png" Clicked="Handle_Clicked"/> -->   
     <ToolbarItem  Text="NRG Scouting"/>
 </ContentPage.ToolbarItems>

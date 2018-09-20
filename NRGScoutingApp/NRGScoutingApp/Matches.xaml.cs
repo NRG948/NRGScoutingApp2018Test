@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using Rg.Plugins.Popup.Services;
 
 
 
@@ -50,7 +51,17 @@ namespace NRGScoutingApp
         public Boolean appRestore;
         public Boolean popNav;
 
-        void New_Clicked(object sender, System.EventArgs e)
+        void importClicked(object sender, System.EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new ImportDialog());
+        }
+
+        void exportClicked(object sender, System.EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new ExportDialog());
+        }
+
+        void newClicked(object sender, System.EventArgs e)
         {
             popNav = false;
             appRestore = false;

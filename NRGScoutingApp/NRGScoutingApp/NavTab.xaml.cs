@@ -1,13 +1,13 @@
 using Xamarin.Forms;
-
+using BottomBar.XamarinForms;
 
 namespace NRGScoutingApp
 {
-    public partial class NavTab : TabbedPage
+    public partial class NavTab : BottomBarPage
     {
         public NavTab()
         {
-            InitializeComponent();
+           InitializeComponent();
         }
     }
 }
