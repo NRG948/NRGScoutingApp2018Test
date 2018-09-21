@@ -10,10 +10,8 @@
     <ContentPage.ToolbarItems> 
     <ToolbarItem  Icon="plus.png" Clicked="newClicked"/>
     <ToolbarItem Icon="ic_import_web.png" Clicked="importClicked"/>
-    <ToolbarItem Icon="ic_download_web.png" Clicked="exportClicked"/>
-   <!-- <ToolbarItem Icon="web.png" Clicked="Handle_Clicked"/> -->   
-    <ToolbarItem  Text="NRG Scouting"/>
-</ContentPage.ToolbarItems>
+    <ToolbarItem Icon="ic_export_web.png" Clicked="exportClicked"/>
+   </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
            <SearchBar Placeholder="Match Number" TextChanged="SearchBar_OnTextChanged"></SearchBar>

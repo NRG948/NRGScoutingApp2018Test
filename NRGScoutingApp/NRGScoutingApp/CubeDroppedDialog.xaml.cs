@@ -18,42 +18,34 @@ namespace NRGScoutingApp
         }
         void scaleClicked(object sender, System.EventArgs e)
         {
-            // var MatchStart = new NewMatchStart();
-            //MatchStart.cubeEventStatus();
-            //Button cubeClicked = (Button)sender;
-            //cubeClicked.Text = "Cube Picked";
+            App.matchEvents += "cubeDroppedScale:" + NewMatchStart.droppedTime + "||";
             PopupNavigation.Instance.PopAsync(true);
-            }
+        }
         void allySwitchClicked(object sender, System.EventArgs e)
         {
-            //var MatchStart = new NewMatchStart();
-            //MatchStart.cubeEventStatus();
+            App.matchEvents += "cubeDroppedAllySwitch:" + NewMatchStart.droppedTime + "||";
             PopupNavigation.Instance.PopAsync(true);
         }
         void noneClicked(object sender, System.EventArgs e)
         {
-            //var MatchStart = new NewMatchStart();
-            //MatchStart.cubeEventStatus();
+            App.matchEvents += "cubeDroppedNone:" + NewMatchStart.droppedTime + "||";
             PopupNavigation.Instance.PopAsync(true);
         }
         void oppSwitchClicked(object sender, System.EventArgs e)
         {
-            //var MatchStart = new NewMatchStart();
-            //MatchStart.cubeEventStatus();
+            App.matchEvents += "cubeDroppedOppSwitch:" + NewMatchStart.droppedTime + "||";
             PopupNavigation.Instance.PopAsync(true);
         }
         void exchangeClicked(object sender, System.EventArgs e)
         {
-            //var MatchStart = new NewMatchStart();
-            //MatchStart.cubeEventStatus();
+            App.matchEvents += "cubeDroppedExchange:" + NewMatchStart.droppedTime + "||";
             PopupNavigation.Instance.PopAsync(true);
         }
         void backClicked(object sender, System.EventArgs e)
         {
-            //EventOccured = false;
-            //NewMatchStart.cubeEventStatus(false);
             var MatchTimer = new NewMatchStart();
             MatchTimer.pickedText = "Cube Dropped";
+            App.matchEvents += "cubeDropped:back||";
             PopupNavigation.Instance.PopAsync(true);
         }
 

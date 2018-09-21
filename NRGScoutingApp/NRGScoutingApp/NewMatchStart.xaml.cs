@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using NRGScoutingApp;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.PlatformConfiguration;
 using System.Security.Cryptography.X509Certificates;
 using Xamarin.Forms.Platform;
@@ -27,6 +26,7 @@ namespace NRGScoutingApp
             //cubeDropValue = "Cube Picked";
             App.Current.Properties["appState"] = "1";
             App.Current.SavePropertiesAsync();
+            NavigationPage.SetHasBackButton(this, false);
             timerValueSetter();
         }
 
@@ -35,8 +35,10 @@ namespace NRGScoutingApp
         private int minutes, seconds, milliseconds;
         public double timerrValue;
         private Boolean firstTimerStart = true;
-        public double pickedTime = 0;
-        public double droppedTime = 0;
+        public static double pickedTime = 0;
+        public static double droppedTime = 0;
+        int climbTime = 0;
+
         public String pickedText = "Cube Picked";
         public string cubeOption { get { return pickedText; } }
 
@@ -212,10 +214,10 @@ namespace NRGScoutingApp
             {
                 DisplayAlert("Error", "Timer not Started", "OK");
             }
-            else
+            else if (climbTime == 0)
             {
                 //Adds info to to JSON about climb
-                string TimerValue = timerValue.Text;
+                /*string TimerValue = timerValue.Text;
                 char[] seperator = new char[] { ':' };
                 string[] split1 = TimerValue.Split(seperator, StringSplitOptions.None);
                 char[] seperator2 = new char[] { '.' };
@@ -224,7 +226,9 @@ namespace NRGScoutingApp
                 double mins = double.Parse(split1[0]);
                 double secs = double.Parse(split2[0]);
                 double mss = double.Parse(split2[1]) / 100;
-                timerrValue = mins + secs + mss;
+                timerrValue = mins + secs + mss;*/
+                climbTime = (int)timerrValue;
+                App.matchEvents +=  "climbStart:" + climbTime +"||";
             }
         }
         void cubeClicked(object sender, System.EventArgs e)
@@ -241,6 +245,7 @@ namespace NRGScoutingApp
                 App.Current.Properties["lastCubePicked"] = (int)pickedTime;
                 App.Current.SavePropertiesAsync();
                 testButton.Text = "Picked " + pickedTime;
+                App.matchEvents += "cubePicked:" + pickedTime +"|";
                 cubeDropValue = "Cube Dropped";
                 cubePicked.Text = "Cube Dropped";
 

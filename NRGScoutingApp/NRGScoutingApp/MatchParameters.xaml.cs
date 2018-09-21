@@ -16,6 +16,7 @@ namespace NRGScoutingApp
 
         public MatchParameters()
         {
+            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
 
@@ -73,7 +74,9 @@ namespace NRGScoutingApp
                                                           MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
             Console.WriteLine(param); //DEBUG PURPOSES
-            DisplayAlert(param, "generated", "OK");
+            DisplayAlert("generated", param,  "OK");
+            App.matchEvents += ")";
+            DisplayAlert("matchEvents", App.matchEvents, "OK");
             App.Current.Properties["teamStart"] = "";
             App.Current.Properties["appState"] = 0;
             App.Current.Properties["timerValue"] = 0;
@@ -90,7 +93,7 @@ namespace NRGScoutingApp
                 Navigation.PopAsync(true);
                 back.goBack = true;
                 Navigation.PopToRootAsync(true);
-                Application.Current.MainPage = new NavigationPage(new TabbedPage());
+               // Application.Current.MainPage = new NavigationPage(new TabbedPage());
             }
             else if (appbool.appRestore == true)
             {

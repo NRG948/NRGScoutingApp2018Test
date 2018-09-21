@@ -153,7 +153,6 @@
     <BundleResource Include="Resources\plusx2.png" />
     <BundleResource Include="Resources\plusx3.png" />
     <BundleResource Include="Resources\ic_match.png" />
-    <BundleResource Include="Resources\ic_leader.png" />
     <BundleResource Include="Resources\web.png" />
     <BundleResource Include="Resources\ic_climb.png" />
     <BundleResource Include="Resources\ic_exchange.png" />
@@ -165,7 +164,6 @@
     <BundleResource Include="Resources\ic_edit.png" />
     <BundleResource Include="Resources\ic_timer_large.png" />
     <BundleResource Include="Resources\ic_download_web.png" />
-    <BundleResource Include="Resources\ic_import_web.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />
@@ -195,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\ic_assignment.png" />
+    <AndroidResource Include="Resources\ic_leader.png" />
+    <AndroidResource Include="Resources\ic_export_web.png" />
+    <AndroidResource Include="Resources\ic_import_web.png" />
   </ItemGroup>
   <Import Project="..\NRGScoutingApp\NRGScoutingApp.projitems" Label="Shared" Condition="Exists('..\NRGScoutingApp\NRGScoutingApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

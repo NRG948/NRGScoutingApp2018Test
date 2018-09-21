@@ -176,13 +176,10 @@
     <AndroidResource Include="Resources\drawable\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable\ic_edit.png" />
     <AndroidResource Include="Resources\drawable\ic_timer_large.png" />
-    <AndroidResource Include="Resources\drawable\ic_download_web.png" />
-    <AndroidResource Include="Resources\drawable\ic_import_web.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_boost_powerup.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_cancel.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_climb.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_download_yellow.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_drop_cube.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_edit.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_exchange.png" />
@@ -198,7 +195,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_boost_powerup.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_cancel.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_climb.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_download_yellow.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_drop_cube.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_edit.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_exchange.png" />
@@ -213,7 +209,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_boost_powerup.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_cancel.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_climb.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_download_yellow.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drop_cube.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_edit.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_exchange.png" />
@@ -228,7 +223,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_boost_powerup.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_cancel.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_climb.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_download_yellow.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_drop_cube.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_edit.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_exchange.png" />
@@ -242,6 +236,14 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_match.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_match.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_match.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_import_web.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_import_web.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_import_web.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_import_web.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_export_web.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_export_web.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_export_web.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_export_web.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

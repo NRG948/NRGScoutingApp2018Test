@@ -19,35 +19,16 @@ namespace NRGScoutingApp
             InitializeComponent();
             Application.Current.MainPage = new NavigationPage(new NavTab());
             MainPage = new NavigationPage(new NavTab());
-
-  
-            //        if (Device.RuntimePlatform == Device.iOS)
-            //{
-            //    MainPage = new NavigationPage(new NavTab());
-            //    //new NavigationPage(
-            //}
-            //else
-            //{
-            //    MainPage = new NavigationPage(new NavTab());
-            //}
-            //switch(App.Current.Properties["appState"]) {
-            //    case 0:
-            //        break;
-            //    case 1:
-            //        new NavigationPage(new MatchEntryEditTab());
-            //        break;
-            //}
-
-
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else
-                DependencyService.Register<CloudDataStore>();
-
-           
-          
+                DependencyService.Register<CloudDataStore>();         
         }
-      
+
+        public static String matchInfo;
+        public static String matchEvents = "(";
+
+
         public class NavTab: BottomBarPage
         {
             public NavTab()

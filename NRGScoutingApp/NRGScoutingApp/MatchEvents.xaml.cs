@@ -11,6 +11,7 @@ namespace NRGScoutingApp
         //StringFormat paramFormat = new StringFormat();
         public MatchEvents()
         {
+            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
 

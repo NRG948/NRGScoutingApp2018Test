@@ -26,33 +26,17 @@ namespace NRGScoutingApp
             //{
             //   Navigation.PushAsync(new MatchEntryEditTab());
             //}
-            //if (EnableBackButtonOverride)
-            //{
-            //    this.CustomBackButtonAction = async () =>
-            //    {
-            //        var result = await this.DisplayAlert(null,
-            //            "Hey wait now! are you sure " +
-            //            "you want to go back?",
-            //            "Yes go back", "Nope");
-
-            //        if (result)
-            //        {
-            //            await Navigation.PopAsync(true);
-            //        }
-            //    };
-            //}
            MatchesList.ItemsSource = teams;
             }
         public Boolean goBack = false;
         public string teamName;
-        /*      protected override bool OnBackButtonPressed()
-              {
-                  // If you want to continue going back
-                  base.OnBackButtonPressed();
-                  DisplayAlert("Warning", "You will lose all unsaved data", "Cancel", "Ok");
-                  return true;
+            // protected override bool OnBackButtonPressed(){
+            //      // If you want to continue going back
+            //    base.OnBackButtonPressed();
+            //    DisplayAlert("Warning", "You will lose all unsaved data", "Cancel", "Ok");
+            //    return false;
+            //}
 
-              } */
         protected override void OnAppearing()
         {
             if (goBack == true){
@@ -86,21 +70,7 @@ namespace NRGScoutingApp
             //MatchesList.EndRefresh();
         }
 
-        // void popCheck(){
-        //    var modalCheck = new Matches();
-        //    DisplayAlert("jo", "hi", "ok");
-        //    if (modalCheck.popNav == true)
-        //    {
-        //        modalCheck.appRestore = false;
-        //        //Navigation.RemovePage(this);
-        //        Navigation.PopAsync(true);
-        //    }
-        //    else if(modalCheck.popNav == false){
-        //         DisplayAlert("Not Popping", "Agree?", "OK!");
-        //    }
-        //}
-
-        public List<String> teams = new List<string> {"360 - The Revolution", "488 - Team XBot", "492 - Titan Robotics Club", "568 - Nerds of the North",
+       public List<String> teams = new List<string> {"360 - The Revolution", "488 - Team XBot", "492 - Titan Robotics Club", "568 - Nerds of the North",
             "753 - High Desert Droids", "847 - PHRED", "948 - NRG (Newport Robotics Group)", "949 - Wolverine Robotics",
             "955 - CV Robotics", "957 - SWARM", "997 - Spartan Robotics", "1258 - SeaBot", "1294 - Top Gun", "1318 - Issaquah Robotics Society",
             "1359 - Scalawags", "1425 - Error Code Xero", "1432 - Metal Beavers", "1510 - Wildcats", "1540 - Flaming Chickens",
