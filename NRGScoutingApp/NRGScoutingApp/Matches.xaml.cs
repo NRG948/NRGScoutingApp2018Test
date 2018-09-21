@@ -44,6 +44,7 @@ namespace NRGScoutingApp
                 App.Current.Properties["timerValue"] = (int)0;
                 App.Current.Properties["teamStart"] = "";
                 App.Current.Properties["newAppear"] = 0;
+                App.matchEvents = "(";
                 App.Current.SavePropertiesAsync();
             }
         }
