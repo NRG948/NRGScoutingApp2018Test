@@ -432,7 +432,6 @@ namespace NRGScoutingApp.Droid
 			global::BottomBar.Droid.Resource.Color.switch_thumb_material_light = global::NRGScoutingApp.Droid.Resource.Color.switch_thumb_material_light;
 			global::BottomBar.Droid.Resource.Color.switch_thumb_normal_material_dark = global::NRGScoutingApp.Droid.Resource.Color.switch_thumb_normal_material_dark;
 			global::BottomBar.Droid.Resource.Color.switch_thumb_normal_material_light = global::NRGScoutingApp.Droid.Resource.Color.switch_thumb_normal_material_light;
-			global::BottomBar.Droid.Resource.Color.white = global::NRGScoutingApp.Droid.Resource.Color.white;
 			global::BottomBar.Droid.Resource.Dimension.abc_action_bar_content_inset_material = global::NRGScoutingApp.Droid.Resource.Dimension.abc_action_bar_content_inset_material;
 			global::BottomBar.Droid.Resource.Dimension.abc_action_bar_default_height_material = global::NRGScoutingApp.Droid.Resource.Dimension.abc_action_bar_default_height_material;
 			global::BottomBar.Droid.Resource.Dimension.abc_action_bar_default_padding_end_material = global::NRGScoutingApp.Droid.Resource.Dimension.abc_action_bar_default_padding_end_material;
@@ -2042,6 +2041,7 @@ namespace NRGScoutingApp.Droid
 			global::BottomNavigationBar.Resource.Color.background_material_dark = global::NRGScoutingApp.Droid.Resource.Color.background_material_dark;
 			global::BottomNavigationBar.Resource.Color.background_material_light = global::NRGScoutingApp.Droid.Resource.Color.background_material_light;
 			global::BottomNavigationBar.Resource.Color.bb_darkBackgroundColor = global::NRGScoutingApp.Droid.Resource.Color.bb_darkBackgroundColor;
+			global::BottomNavigationBar.Resource.Color.bb_darkInActiveBottomBarItemColor = global::NRGScoutingApp.Droid.Resource.Color.bb_darkInActiveBottomBarItemColor;
 			global::BottomNavigationBar.Resource.Color.bb_inActiveBottomBarItemColor = global::NRGScoutingApp.Droid.Resource.Color.bb_inActiveBottomBarItemColor;
 			global::BottomNavigationBar.Resource.Color.bb_tabletRightBorderDark = global::NRGScoutingApp.Droid.Resource.Color.bb_tabletRightBorderDark;
 			global::BottomNavigationBar.Resource.Color.bright_foreground_disabled_material_dark = global::NRGScoutingApp.Droid.Resource.Color.bright_foreground_disabled_material_dark;
@@ -4734,6 +4734,9 @@ namespace NRGScoutingApp.Droid
 			// aapt resource value: 0x7f0c004d
 			public const int bb_darkBackgroundColor = 2131492941;
 			
+			// aapt resource value: 0x7f0c004c
+			public const int bb_darkInActiveBottomBarItemColor = 2131492940;
+			
 			// aapt resource value: 0x7f0c004b
 			public const int bb_inActiveBottomBarItemColor = 2131492939;
 			
@@ -4946,9 +4949,6 @@ namespace NRGScoutingApp.Droid
 			
 			// aapt resource value: 0x7f0c003e
 			public const int tooltip_background_light = 2131492926;
-			
-			// aapt resource value: 0x7f0c004c
-			public const int white = 2131492940;
 			
 			static Color()
 			{

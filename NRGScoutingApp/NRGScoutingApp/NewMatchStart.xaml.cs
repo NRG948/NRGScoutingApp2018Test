@@ -98,15 +98,29 @@ namespace NRGScoutingApp
                     firstTimerStart = false;
                 }
                 startTimer.Text = "Pause Timer";
-                Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
-                {
-                    if ((timerrValue >= 150000) || startTimer.Text == "Start Timer")
+                if (Device.RuntimePlatform == "iOS"){
+                    Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
                     {
-                        startTimer.Text = "Start Timer";
-                        return false;
-                    }
-                    Timer_Elapsed(); return true;
-                });
+                        if ((timerrValue >= 150000) || startTimer.Text == "Start Timer")
+                        {
+                            startTimer.Text = "Start Timer";
+                            return false;
+                        }
+                        Timer_Elapsed(); return true;
+                    });
+                }
+                else if (Device.RuntimePlatform == "Android"){
+                    Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+                    {
+                        if ((timerrValue >= 150000) || startTimer.Text == "Start Timer")
+                        {
+                            startTimer.Text = "Start Timer";
+                            return false;
+                        }
+                        Timer_Elapsed(); return true;
+                    });
+                }
+
             }
             else if (startTimer.Text == "Pause Timer") //
             {
@@ -115,8 +129,15 @@ namespace NRGScoutingApp
         }
         private void Timer_Elapsed()
         {
-            ms += 1;
-            timerrValue += 1;
+            if (Device.RuntimePlatform=="iOS"){
+                ms += 1;
+                timerrValue += 1;
+            }
+            else if (Device.RuntimePlatform == "Android")
+            {
+                ms += 100;
+                timerrValue += 100;
+            }
             if (ms >= 1000)
             {
                 sec++;

@@ -25,7 +25,8 @@
             Maximum="150000"
             ValueChanged="timerValueChanged"
             Margin="20,5,20,5"
-            Minimum="0"/>
+            Minimum="0"
+            MinimumTrackColor="Red"/>
         <FlexLayout 
             Direction="Row"
             AlignItems="Center"
@@ -47,7 +48,7 @@
                     Margin="0,11"
                     TextColor="White"
                     BackgroundColor="#fdad13"
-                    />
+                    Clicked="resetClicked"/>
                 </StackLayout>
                     </Frame>
                     <Frame BackgroundColor="#fdad13"
