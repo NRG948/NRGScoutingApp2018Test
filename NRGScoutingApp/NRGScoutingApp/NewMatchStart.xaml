@@ -15,7 +15,7 @@
             Text="0:00.00"
             x:Name="timerValue"
             VerticalOptions="Start" 
-            HorizontalOptions="Center" 
+            HorizontalOptions="Center"                  
             TextColor="#fdad13" 
             FontSize="60"
             Margin="0,20,0,10"/>

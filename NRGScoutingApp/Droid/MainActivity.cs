@@ -21,7 +21,7 @@ namespace NRGScoutingApp.Droid
             base.OnCreate(bundle);
 
             Rg.Plugins.Popup.Popup.Init(this, bundle);
-            
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());
