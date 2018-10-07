@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Collections;
 using Xamarin.Forms;
 using System.ComponentModel;
 
@@ -12,12 +12,36 @@ namespace NRGScoutingApp
         public static String pickerS;
         public static bool crossedB, switchB, scaleB, fswitchB, fscaleB, deathB, soloB, assistedB, neededB, platformB, 
         noclimbB, recyellowB, recredB;
-        StringFormat paramFormat = new StringFormat();
+        public StringFormat paramFormat = new StringFormat();
 
         public MatchParameters()
         {
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
+        }
+
+        public MatchParameters(ArrayList list)
+        {
+            NavigationPage.SetHasBackButton(this, false);
+            InitializeComponent();
+            matchnum.Text = list[0].ToString();
+            PositionPicker.Items[PositionPicker.SelectedIndex] = list[1].ToString();
+            crossbase.IsToggled = Convert.ToBoolean(list[2].ToString());
+            switchP.IsToggled = Convert.ToBoolean(list[3].ToString());
+            scale.IsToggled = Convert.ToBoolean(list[4].ToString());
+            farswitch.IsToggled = Convert.ToBoolean(list[5].ToString());
+            farscale.IsToggled = Convert.ToBoolean(list[6].ToString());
+            death.IsToggled = Convert.ToBoolean(list[7].ToString());
+            solo.IsToggled = Convert.ToBoolean(list[8].ToString());
+            assisted.IsToggled = Convert.ToBoolean(list[9].ToString());
+            needed.IsToggled = Convert.ToBoolean(list[10].ToString());
+            platform.IsToggled = Convert.ToBoolean(list[11].ToString());
+            noclimb.IsToggled = Convert.ToBoolean(list[12].ToString());
+            fouls.Text = list[13].ToString();
+            yellow.IsToggled = Convert.ToBoolean(list[14].ToString());
+            red.IsToggled = Convert.ToBoolean(list[15].ToString());
+            comments.Text = list[16].ToString();
+            list.Clear();
         }
 
         async void backClicked(object sender, System.EventArgs e)
@@ -83,6 +107,7 @@ namespace NRGScoutingApp
             App.Current.Properties["newAppear"] = 1;
             App.Current.Properties["lastCubePicked"] = 0;
             App.Current.Properties["lastCubeDropped"] = 0;
+            App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"] = param;
             App.Current.SavePropertiesAsync();
             appbool.appRestore = false;
             //Navigation.PopAsync(true);
