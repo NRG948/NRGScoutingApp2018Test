@@ -19,6 +19,14 @@ namespace NRGScoutingApp
 {
     public partial class NewMatchStart : ContentPage
     {
+
+        // INTERNAL VARIABLE FOR SETTING KEY TIMER AND BUTTON VALUES (DO NOT CHANGE THIS)
+        public static readonly double matchSpanMs = 150000;
+        public static readonly double minMs = 60000;
+        public static readonly double secMs = 1000;
+        public static readonly String cubePickedText = "Cube Picked";
+        public static readonly String cubeDroppedText = "Cube Dropped";
+
         public NewMatchStart()
         {
             BindingContext = this;
@@ -38,10 +46,6 @@ namespace NRGScoutingApp
         public static double pickedTime = 0;
         public static double droppedTime = 0;
         int climbTime = 0;
-
-        public String pickedText = "Cube Picked";
-        public string cubeOption { get { return pickedText; } }
-
 
         void resetClicked(object sender, System.EventArgs e)
         {
@@ -68,26 +72,26 @@ namespace NRGScoutingApp
                 else if (App.Current.Properties.ContainsKey("timerValue") && firstTimerStart== true)
                 {
                     timerrValue = Convert.ToDouble(App.Current.Properties["timerValue"]);
-                    if (timerrValue >= 60000)
+                    if (timerrValue >= minMs)
                     {
-                        minutes = (int)(Math.Floor(timerrValue / 60000));
-                        min = (int)(Math.Floor(timerrValue / 60000));
-                        seconds = (int)(Math.Floor(timerrValue - (60000 * minutes)) / 1000);
-                        sec = (int)(Math.Floor(timerrValue - (60000 * minutes)) / 1000);
-                        milliseconds = (int)(((timerrValue - ((minutes * 60000) + (seconds * 1000)))) / 10);
-                        ms = (int)((timerrValue - ((minutes * 60000) + (seconds * 1000))));
+                        minutes = (int)(Math.Floor(timerrValue / minMs));
+                        min = (int)(Math.Floor(timerrValue / minMs));
+                        seconds = (int)(Math.Floor(timerrValue - (minMs * minutes)) / secMs);
+                        sec = (int)(Math.Floor(timerrValue - (minMs * minutes)) / secMs);
+                        milliseconds = (int)(((timerrValue - ((minutes * minMs) + (seconds * secMs)))) / 10);
+                        ms = (int)((timerrValue - ((minutes * minMs) + (seconds * secMs))));
                         timerValue.Text = String.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds); //minutes + ":" + seconds + "." + milliseconds;
                     }
-                    if (timerrValue <= 60000)
+                    if (timerrValue <= minMs)
                     {
-                        seconds = (int)(Math.Floor(timerrValue / 1000));
-                        sec = (int)(Math.Floor(timerrValue / 1000));
-                        milliseconds = (int)(((timerrValue - (seconds * 1000))) / 10);
-                        ms = (int)((timerrValue - (seconds * 1000)));
+                        seconds = (int)(Math.Floor(timerrValue / secMs));
+                        sec = (int)(Math.Floor(timerrValue / secMs));
+                        milliseconds = (int)(((timerrValue - (seconds * secMs))) / 10);
+                        ms = (int)((timerrValue - (seconds * secMs)));
                         min = 0;
                         timerValue.Text = String.Format("0:{0:00}.{1:00}", seconds, milliseconds);
                     }
-                    if (timerrValue <= 1000)
+                    if (timerrValue <= secMs)
                     {
                         milliseconds = (int)((timerrValue) / 10);
                         min = 0;
@@ -101,7 +105,7 @@ namespace NRGScoutingApp
                 if (Device.RuntimePlatform == "iOS"){
                     Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
                     {
-                        if ((timerrValue >= 150000) || startTimer.Text == "Start Timer")
+                        if ((timerrValue >= matchSpanMs) || startTimer.Text == "Start Timer")
                         {
                             startTimer.Text = "Start Timer";
                             return false;
@@ -112,7 +116,7 @@ namespace NRGScoutingApp
                 else if (Device.RuntimePlatform == "Android"){
                     Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
                     {
-                        if ((timerrValue >= 150000) || startTimer.Text == "Start Timer")
+                        if ((timerrValue >= matchSpanMs) || startTimer.Text == "Start Timer")
                         {
                             startTimer.Text = "Start Timer";
                             return false;
@@ -138,7 +142,7 @@ namespace NRGScoutingApp
                 ms += 100;
                 timerrValue += 100;
             }
-            if (ms >= 1000)
+            if (ms >= secMs)
             {
                 sec++;
                 ms = 0;
@@ -175,7 +179,8 @@ namespace NRGScoutingApp
                 {
                     mss = double.Parse(split2[1]) * 10;
                 }
-                double sliderTimerValue = mins * 60000 + secs * 1000 + mss;
+                double sliderTimerValue = mins * minMs + secs * secMs
+                 + mss;
                 timeSlider.Value = timerrValue;
 
             }
@@ -195,28 +200,28 @@ namespace NRGScoutingApp
                     App.Current.SavePropertiesAsync();
                 }
                 double value = e.NewValue;
-                if (value >= 60000)
+                if (value >= minMs)
                 {
-                    minutes = (int)(Math.Floor(value / 60000));
-                    min = (int)(Math.Floor(value / 60000));
-                    seconds = (int)(Math.Floor(value - (60000 * minutes)) / 1000);
-                    sec = (int)(Math.Floor(value - (60000 * minutes)) / 1000);
-                    milliseconds = (int)(((value - ((minutes * 60000) + (seconds * 1000)))) / 10);
-                    ms = (int)((value - ((minutes * 60000) + (seconds * 1000)))); 
+                    minutes = (int)(Math.Floor(value / minMs));
+                    min = (int)(Math.Floor(value / minMs));
+                    seconds = (int)(Math.Floor(value - (minMs * minutes)) / secMs);
+                    sec = (int)(Math.Floor(value - (minMs * minutes)) / secMs);
+                    milliseconds = (int)(((value - ((minutes * minMs) + (seconds * secMs)))) / 10);
+                    ms = (int)((value - ((minutes * minMs) + (seconds * secMs)))); 
                     timerrValue = (double)(timeSlider.Value);
                     timerValue.Text = String.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds); //minutes + ":" + seconds + "." + milliseconds;
                 }
-                if (value <= 60000)
+                if (value <= minMs)
                 {
-                    seconds = (int)(Math.Floor(value / 1000));
-                    sec = (int)(Math.Floor(value / 1000));
-                    milliseconds = (int)(((value - (seconds * 1000))) / 10); 
-                    ms = (int)((value - (seconds * 1000))); 
+                    seconds = (int)(Math.Floor(value / secMs));
+                    sec = (int)(Math.Floor(value / secMs));
+                    milliseconds = (int)(((value - (seconds * secMs))) / 10); 
+                    ms = (int)((value - (seconds * secMs))); 
                     min = 0;
                     timerrValue = (double)(timeSlider.Value); 
                     timerValue.Text = String.Format("0:{0:00}.{1:00}", seconds, milliseconds);
                 }
-                if (value <= 1000)
+                if (value <= secMs)
                 {
                     milliseconds = (int)((value) / 10);
                     min = 0;
@@ -238,16 +243,6 @@ namespace NRGScoutingApp
             else if (climbTime == 0)
             {
                 //Adds info to to JSON about climb
-                /*string TimerValue = timerValue.Text;
-                char[] seperator = new char[] { ':' };
-                string[] split1 = TimerValue.Split(seperator, StringSplitOptions.None);
-                char[] seperator2 = new char[] { '.' };
-                string splitStrArr = (string)split1[1];
-                string[] split2 = splitStrArr.Split(seperator2, StringSplitOptions.None);
-                double mins = double.Parse(split1[0]);
-                double secs = double.Parse(split2[0]);
-                double mss = double.Parse(split2[1]) / 100;
-                timerrValue = mins + secs + mss;*/
                 climbTime = (int)timerrValue;
                 App.matchEvents +=  "climbStart:" + climbTime +"||";
             }
@@ -259,19 +254,19 @@ namespace NRGScoutingApp
                 DisplayAlert("Error", "Timer not Started", "OK");
             }
 
-            else if (cubePicked.Text == "Cube Picked")
+            else if (cubePicked.Text == cubePickedText)
             {
-                //Performs action/s to open popup for adding cube dropped, etc
+                //Performs actions to open popup for adding cube dropped, etc
                 pickedTime = (int)timerrValue;
                 App.Current.Properties["lastCubePicked"] = (int)pickedTime;
                 App.Current.SavePropertiesAsync();
                 testButton.Text = "Picked " + pickedTime;
                 App.matchEvents += "cubePicked:" + pickedTime +"|";
-                cubeDropValue = "Cube Dropped";
-                cubePicked.Text = "Cube Dropped";
+                cubeDropValue = cubeDroppedText;
+                cubePicked.Text = cubeDroppedText;
 
             }
-            else if (cubePicked.Text == "Cube Dropped")
+            else if (cubePicked.Text == cubeDroppedText)
             {
                 //Performs action/s to open popup for adding cube dropped, etc
                 droppedTime =(int)timerrValue;
@@ -279,15 +274,15 @@ namespace NRGScoutingApp
                 App.Current.SavePropertiesAsync();
                 testButton.Text = "Dropped " + droppedTime;
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
-                cubeDropValue = "Cube Picked";
-                cubePicked.Text = "Cube Picked";
+                cubeDropValue = cubePickedText;
+                cubePicked.Text = cubePickedText;
             }
         }
 
         public void cubeEventStatus()
         {
             var cubeText = new NewMatchStart();
-            cubeText.cubePicked.Text = "Cube Picked";
+            cubeText.cubePicked.Text = cubePickedText;
         }
         private void timerValueSetter()
         {
@@ -300,7 +295,7 @@ namespace NRGScoutingApp
 
             }
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) > Convert.ToInt32(App.Current.Properties["lastCubeDropped"])){
-                cubePicked.Text = "Cube Dropped";
+                cubePicked.Text = cubeDroppedText;
             }
 
             if (!App.Current.Properties.ContainsKey("timerValue"))
@@ -312,26 +307,26 @@ namespace NRGScoutingApp
             {
                 timerrValue = Convert.ToDouble(App.Current.Properties["timerValue"]);
                 timeSlider.Value = timerrValue;
-                if (timerrValue >= 60000)
+                if (timerrValue >= minMs)
                 {
-                    minutes = (int)(Math.Floor(timerrValue / 60000));
-                    min = (int)(Math.Floor(timerrValue / 60000));
-                    seconds = (int)(Math.Floor(timerrValue - (60000 * minutes)) / 1000);
-                    sec = (int)(Math.Floor(timerrValue - (60000 * minutes)) / 1000);
-                    milliseconds = (int)(((timerrValue - ((minutes * 60000) + (seconds * 1000)))) / 10);
-                    ms = (int)((timerrValue - ((minutes * 60000) + (seconds * 1000))));
+                    minutes = (int)(Math.Floor(timerrValue / minMs));
+                    min = (int)(Math.Floor(timerrValue / minMs));
+                    seconds = (int)(Math.Floor(timerrValue - (minMs * minutes)) / secMs);
+                    sec = (int)(Math.Floor(timerrValue - (minMs * minutes)) / secMs);
+                    milliseconds = (int)(((timerrValue - ((minutes * minMs) + (seconds * secMs)))) / 10);
+                    ms = (int)((timerrValue - ((minutes * minMs) + (seconds * secMs))));
                     timerValue.Text = String.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds); //minutes + ":" + seconds + "." + milliseconds;
                 }
-                if (timerrValue <= 60000)
+                if (timerrValue <= minMs)
                 {
-                    seconds = (int)(Math.Floor(timerrValue / 1000));
-                    sec = (int)(Math.Floor(timerrValue / 1000));
-                    milliseconds = (int)(((timerrValue - (seconds * 1000))) / 10);
-                    ms = (int)((timerrValue - (seconds * 1000)));
+                    seconds = (int)(Math.Floor(timerrValue / secMs));
+                    sec = (int)(Math.Floor(timerrValue / secMs));
+                    milliseconds = (int)(((timerrValue - (seconds * secMs))) / 10);
+                    ms = (int)((timerrValue - (seconds * secMs)));
                     min = 0;
                     timerValue.Text = String.Format("0:{0:00}.{1:00}", seconds, milliseconds);
                 }
-                if (timerrValue <= 1000)
+                if (timerrValue <= secMs)
                 {
                     milliseconds = (int)((timerrValue) / 10);
                     min = 0;
@@ -343,7 +338,15 @@ namespace NRGScoutingApp
             }
 
         }
+        public static void cubeDropSet()
+        {
+            var pickSet = new NewMatchStart();
+            pickSet.cubePicked.Text = "Cube Dropped";
+            Console.WriteLine ("Passed CubeDropset");
+        }
+
     }
+
 }
 
 

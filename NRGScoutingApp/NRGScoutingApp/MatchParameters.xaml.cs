@@ -93,37 +93,44 @@ namespace NRGScoutingApp
         void saveClicked(object sender, System.EventArgs e)
         {
             var appbool = new Matches();
-            string param = paramFormat.ConvertMatchParam(matchnum.Text, MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
+
+            if(string.IsNullOrWhiteSpace(matchnum.Text)) //matchnum.Text == "" || matchnum.Text = null
+            {
+                 DisplayAlert("Alert!", "Please Enter Match Number", "OK"); //Checks if Match Number is Present
+            }
+            else{
+                string param = paramFormat.ConvertMatchParam(App.Current.Properties["teamStart"].ToString(), matchnum.Text, MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
                                                           MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
                                                           MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
-            Console.WriteLine(param); //DEBUG PURPOSES
-            DisplayAlert("generated", param,  "OK");
-            App.matchEvents += ")";
-            DisplayAlert("matchEvents", App.matchEvents, "OK");
-            App.Current.Properties["teamStart"] = "";
-            App.Current.Properties["appState"] = 0;
-            App.Current.Properties["timerValue"] = 0;
-            App.Current.Properties["newAppear"] = 1;
-            App.Current.Properties["lastCubePicked"] = 0;
-            App.Current.Properties["lastCubeDropped"] = 0;
-            App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"] = param;
-            App.Current.SavePropertiesAsync();
-            appbool.appRestore = false;
-            //Navigation.PopAsync(true);
-            var back = new MatchEntryStart();
-            if (appbool.appRestore == false)
-            {
+                Console.WriteLine(param); //DEBUG PURPOSES
+                 DisplayAlert("generated", param, "OK");
+                App.matchEvents += ")";
+                 DisplayAlert("matchEvents", App.matchEvents, "OK");
+                App.Current.Properties["teamStart"] = "";
+                App.Current.Properties["appState"] = 0;
+                App.Current.Properties["timerValue"] = 0;
+                App.Current.Properties["newAppear"] = 1;
+                App.Current.Properties["lastCubePicked"] = 0;
+                App.Current.Properties["lastCubeDropped"] = 0;
+                //App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"] = param;
+                 App.Current.SavePropertiesAsync();
                 appbool.appRestore = false;
-                Navigation.PopAsync(true);
-                back.goBack = true;
-                Navigation.PopToRootAsync(true);
-               // Application.Current.MainPage = new NavigationPage(new TabbedPage());
-            }
-            else if (appbool.appRestore == true)
-            {
-                appbool.appRestore = false;
-                Navigation.PopAsync(true);
+                //Navigation.PopAsync(true);
+                var back = new MatchEntryStart();
+                if (appbool.appRestore == false)
+                {
+                    appbool.appRestore = false;
+                     Navigation.PopAsync(true);
+                    back.goBack = true;
+                    Navigation.PopToRootAsync(true);
+
+                }
+                else if (appbool.appRestore == true)
+                {
+                    appbool.appRestore = false;
+                     Navigation.PopAsync(true);
+                }
             }
         }
 

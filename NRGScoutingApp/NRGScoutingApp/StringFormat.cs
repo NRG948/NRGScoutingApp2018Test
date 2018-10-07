@@ -8,9 +8,9 @@ namespace NRGScoutingApp
             
         }
 
-        public string ConvertMatchParam(string matchNum, string pickerS, bool crossedB, bool switchB, bool scaleB, bool fswitchB, bool fscaleB, bool deathB, bool soloB, bool assistedB, bool neededB, bool platformB,
+        public string ConvertMatchParam(string teamName, string matchNum, string pickerS, bool crossedB, bool switchB, bool scaleB, bool fswitchB, bool fscaleB, bool deathB, bool soloB, bool assistedB, bool neededB, bool platformB,
             bool noclimbB, string fouls, bool recyellowB, bool recredB, string comments) {
-            string param = "<matchNum>" + matchNum + "<side>" + pickerS + "<crossedBase>" + crossedB + "<switch>" + switchB + "<scale>" + scaleB
+            string param = "<teamName>" + teamName + "<matchNum>" + matchNum + "<side>" + pickerS + "<crossedBase>" + crossedB + "<switch>" + switchB + "<scale>" + scaleB
             + "<farSwitch>" + fswitchB + "<farScale>" + fscaleB + "<death>" + deathB + "<solo>" + soloB + "<assisted>" + assistedB + "<needed>" + neededB + "<platform>" + platformB
                 + "<noClimb>" + noclimbB + "<fouls>" + fouls + "<yellowC>" + recyellowB + "<redC>" + recredB + "<comments>" + comments;
             return param;

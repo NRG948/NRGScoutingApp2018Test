@@ -10,12 +10,10 @@ namespace NRGScoutingApp
         public MatchEntryEditTab()
         {
             //TabbedPage.SetBinding(MatchEntryEditTab.TitleProperty = teamAssign.teamName);
-            ArrayList vals = new ArrayList();
-            StringFormat s = new StringFormat();
-            vals = s.ParseMatchParam(App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"].ToString());
+            checkParse();
             Children.Add(new NewMatchStart());
             Children.Add(new MatchEvents());
-            Children.Add(new MatchParameters(vals));
+            Children.Add(new MatchParameters()); //vals
             BindingContext = this;
             App.Current.Properties["newAppear"] = 1;
             App.Current.SavePropertiesAsync();
@@ -23,5 +21,14 @@ namespace NRGScoutingApp
         }
         string titleName = (App.Current.Properties["teamStart"].ToString());
         public string teamName { get { return titleName; } }
+        private void checkParse(){
+            String teamParse = App.Current.Properties["teamStart"].ToString() + "converted";
+            if (!App.Current.Properties.ContainsKey(App.Current.Properties["teamStart"].ToString() + "converted")){}
+            else{
+                ArrayList vals = new ArrayList();
+                StringFormat s = new StringFormat();
+                vals = s.ParseMatchParam(App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"].ToString()); //"<" + App.Current.Properties["teamStart"].ToString()+">"
+            }
+        }
     }
 }

@@ -44,7 +44,10 @@ namespace NRGScoutingApp
         void backClicked(object sender, System.EventArgs e)
         {
             var MatchTimer = new NewMatchStart();
-            MatchTimer.pickedText = "Cube Dropped";
+           // MatchTimer.cubePicked.Text = "Cube Dropped";
+            Button cubePicked = (Button)sender;
+            NewMatchStart.cubeDropSet();
+            cubePicked.Text = "New Value";
             App.matchEvents += "cubeDropped:back||";
             PopupNavigation.Instance.PopAsync(true);
         }

@@ -8,6 +8,9 @@
              Icon= "ic_leader.png"
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content>
+        <StackLayout>
         <Label Text="Testing..."/>
+        <Button Text="Clear ALL App Data (Debug Purposes)" Clicked="Handle_Clicked"/>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>
