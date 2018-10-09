@@ -32,7 +32,6 @@ namespace NRGScoutingApp
                 Navigation.PopAsync();
                 goBack = false;
             }
-            DisplayAlert("ji", (Matches.appRestore.ToString()), "ok");
         }
 
         void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
