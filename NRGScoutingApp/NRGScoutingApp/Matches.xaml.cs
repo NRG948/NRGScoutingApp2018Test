@@ -19,13 +19,16 @@ namespace NRGScoutingApp
 {
     public partial class Matches : ContentPage
     {
-        //void Handle_Clicked(object sender, System.EventArgs e)
-        //{
-        //    Navigation.PushAsync(new BlueAllianceMatches());
-        //}
+        /* For Blue Alliance Matches 
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new BlueAllianceMatches());
+        } */
 
+        public static Boolean appRestore;
+        public Boolean popNav;
 
-         public Matches()
+        public Matches()
         {
             InitializeComponent();
             matchConfirm();
@@ -37,7 +40,7 @@ namespace NRGScoutingApp
         protected override void OnAppearing()
         {
             popNav = false;
-            appRestore = false;
+           //appRestore = false;
             if (!App.Current.Properties.ContainsKey("newAppear")){}  //DEBUG PURPOSES
             else if (App.Current.Properties["newAppear"].ToString() == "1")
             {
@@ -49,9 +52,6 @@ namespace NRGScoutingApp
                 App.Current.SavePropertiesAsync();
             }
         }
-
-        public Boolean appRestore;
-        public Boolean popNav;
 
         void importClicked(object sender, System.EventArgs e)
         {
@@ -70,7 +70,8 @@ namespace NRGScoutingApp
             Navigation.PushAsync(new MatchEntryStart());
              
         }
-    private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+
+        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {
            // MatchesList.BeginRefresh();
 
@@ -81,6 +82,31 @@ namespace NRGScoutingApp
 
             //MatchesList.EndRefresh();
         }
+
+        void matchConfirm(){
+            if(!App.Current.Properties.ContainsKey("appState")){
+                appRestore = false;
+                App.Current.Properties["appState"] = 0;
+                App.Current.Properties["teamStart"] = "";
+                App.Current.Properties["timerValue"] = (int)0;
+                App.Current.SavePropertiesAsync();
+            }
+
+            else if (App.Current.Properties["appState"].ToString() == "1")
+            {
+                appRestore = true;
+                Navigation.PushAsync(new MatchEntryEditTab());
+            }
+            else if (App.Current.Properties["appState"].ToString() == "0")
+            {
+                appRestore = false;
+                App.Current.Properties["appState"] = 0;
+                App.Current.Properties["timerValue"] = (int) 0;
+                App.Current.Properties["teamStart"] = "";
+                App.Current.SavePropertiesAsync();
+            }
+        }
+
         public List<String> teams = new List<string> {"360 - The Revolution", "488 - Team XBot", "492 - Titan Robotics Club", "568 - Nerds of the North",
             "753 - High Desert Droids", "847 - PHRED", "948 - NRG (Newport Robotics Group)", "949 - Wolverine Robotics",
             "955 - CV Robotics", "957 - SWARM", "997 - Spartan Robotics", "1258 - SeaBot", "1294 - Top Gun", "1318 - Issaquah Robotics Society",
@@ -117,32 +143,8 @@ namespace NRGScoutingApp
             "6456 - Oregon Trail Academy Wi-Fires", "6465 - Mystic Biscuit", "6503 - Iron Dragon", "6696 - Cardinal Dynamics", "6831 - A-05 Annex",
             "6845 - River Bots", "6959 - Centralia Circuit Breakers", "7034 - 2B Determined", "7118 - ScotBots"};
 
-         void matchConfirm(){
-            if(!App.Current.Properties.ContainsKey("appState")){
-                appRestore = false;
-                App.Current.Properties["appState"] = 0;
-                App.Current.Properties["teamStart"] = "";
-                App.Current.Properties["timerValue"] = (int)0;
-                App.Current.SavePropertiesAsync();
-            }
-
-            else if (App.Current.Properties["appState"].ToString() == "1")
-            {
-                appRestore = true;
-                Navigation.PushAsync(new MatchEntryEditTab());
-            }
-            else if (App.Current.Properties["appState"].ToString() == "0")
-            {
-                appRestore = false;
-                App.Current.Properties["appState"] = 0;
-                App.Current.Properties["timerValue"] = (int) 0;
-                App.Current.Properties["teamStart"] = "";
-                App.Current.SavePropertiesAsync();
-            }
-        }
-          
-        }
-
     }
+
+}
 
 

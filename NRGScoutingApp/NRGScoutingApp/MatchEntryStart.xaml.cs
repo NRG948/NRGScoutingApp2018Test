@@ -21,28 +21,18 @@ namespace NRGScoutingApp
         public MatchEntryStart()
         {
             InitializeComponent();
-
-            //if (App.Current.Properties["appState"].ToString() == "1" && App.Current.Properties["teamStart"].ToString() !="")
-            //{
-            //   Navigation.PushAsync(new MatchEntryEditTab());
-            //}
-           MatchesList.ItemsSource = teams;
-            }
+            MatchesList.ItemsSource = teams;
+        }
         public Boolean goBack = false;
         public string teamName;
-            // protected override bool OnBackButtonPressed(){
-            //      // If you want to continue going back
-            //    base.OnBackButtonPressed();
-            //    DisplayAlert("Warning", "You will lose all unsaved data", "Cancel", "Ok");
-            //    return false;
-            //}
-
+            
         protected override void OnAppearing()
         {
             if (goBack == true){
                 Navigation.PopAsync();
                 goBack = false;
             }
+            DisplayAlert("ji", (Matches.appRestore.ToString()), "ok");
         }
 
         void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
@@ -51,12 +41,7 @@ namespace NRGScoutingApp
             App.Current.Properties["teamStart"] = teamName;
             App.Current.SavePropertiesAsync();
             Navigation.PushAsync(new MatchEntryEditTab());
-            
-            
-
         }
-
-
 
         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 namespace NRGScoutingApp
 {
-    public class StringFormat
+    public class ParametersFormat
     {
-        public StringFormat()
+        public ParametersFormat()
         {
             
         }

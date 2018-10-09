@@ -20,7 +20,7 @@ namespace NRGScoutingApp
     public partial class NewMatchStart : ContentPage
     {
 
-        // INTERNAL VARIABLE FOR SETTING KEY TIMER AND BUTTON VALUES (DO NOT CHANGE THIS)
+        // INTERNAL VARIABLES FOR SETTING KEY TIMER AND BUTTON VALUES (DO NOT CHANGE THIS)
         public static readonly double matchSpanMs = 150000;
         public static readonly double minMs = 60000;
         public static readonly double secMs = 1000;

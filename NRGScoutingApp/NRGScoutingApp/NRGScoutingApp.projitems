@@ -60,7 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CubeDroppedDialog.xaml.cs">
       <DependentUpon>CubeDroppedDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)StringFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ParametersFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExportDialog.xaml.cs">
       <DependentUpon>ExportDialog.xaml</DependentUpon>
     </Compile>
