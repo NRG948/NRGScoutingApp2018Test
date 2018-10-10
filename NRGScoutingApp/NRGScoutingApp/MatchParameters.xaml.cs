@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Xamarin.Forms;
 using System.ComponentModel;
-
+using NRGScoutingApp;
 
 namespace NRGScoutingApp
 {
@@ -13,6 +13,7 @@ namespace NRGScoutingApp
         public static bool crossedB, switchB, scaleB, fswitchB, fscaleB, deathB, soloB, assistedB, neededB, platformB, 
         noclimbB, recyellowB, recredB;
         public ParametersFormat paramFormat = new ParametersFormat();
+        public MatchEventsFormat eventsFormat = new MatchEventsFormat();
 
         public MatchParameters()
         {
@@ -95,6 +96,7 @@ namespace NRGScoutingApp
                                                           MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
                                                           MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
+                MatchEventsFormat.
                 Console.WriteLine(param); //DEBUG PURPOSES
                  await DisplayAlert("generated", param, "OK");
                 App.matchEvents += ")";

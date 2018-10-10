@@ -18,27 +18,32 @@ namespace NRGScoutingApp
         }
         void scaleClicked(object sender, System.EventArgs e)
         {
-            App.matchEvents += "cubeDroppedScale:" + NewMatchStart.droppedTime + "||";
+            App.matchEvents += "cubeDroppedScale" + NewMatchStart.dropNum + ":" + NewMatchStart.droppedTime + "||";
+            NewMatchStart.dropNum++;
             PopupNavigation.Instance.PopAsync(true);
         }
         void allySwitchClicked(object sender, System.EventArgs e)
         {
-            App.matchEvents += "cubeDroppedAllySwitch:" + NewMatchStart.droppedTime + "||";
+            App.matchEvents += "cubeDroppedAllySwitch" + NewMatchStart.dropNum + ":" + NewMatchStart.droppedTime + "||";
+            NewMatchStart.dropNum++;
             PopupNavigation.Instance.PopAsync(true);
         }
         void noneClicked(object sender, System.EventArgs e)
         {
-            App.matchEvents += "cubeDroppedNone:" + NewMatchStart.droppedTime + "||";
+            App.matchEvents += "cubeDroppedNone" + NewMatchStart.dropNum + ":" + NewMatchStart.droppedTime + "||";
+            NewMatchStart.dropNum++;
             PopupNavigation.Instance.PopAsync(true);
         }
         void oppSwitchClicked(object sender, System.EventArgs e)
         {
-            App.matchEvents += "cubeDroppedOppSwitch:" + NewMatchStart.droppedTime + "||";
+            App.matchEvents += "cubeDroppedOppSwitch" + NewMatchStart.dropNum + ":" + NewMatchStart.droppedTime + "||";
+            NewMatchStart.dropNum++;
             PopupNavigation.Instance.PopAsync(true);
         }
         void exchangeClicked(object sender, System.EventArgs e)
         {
-            App.matchEvents += "cubeDroppedExchange:" + NewMatchStart.droppedTime + "||";
+            App.matchEvents += "cubeDroppedExchange" + NewMatchStart.dropNum + ":" + NewMatchStart.droppedTime + "||";
+            NewMatchStart.dropNum++;
             PopupNavigation.Instance.PopAsync(true);
         }
         void backClicked(object sender, System.EventArgs e)

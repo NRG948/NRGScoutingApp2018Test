@@ -20,7 +20,7 @@ namespace NRGScoutingApp
     public partial class NewMatchStart : ContentPage
     {
 
-        // INTERNAL VARIABLES FOR SETTING KEY TIMER AND BUTTON VALUES (DO NOT CHANGE THIS)
+        //INTERNAL VARIABLES FOR SETTING IMPORTANT TIMER AND BUTTON VALUES (DO NOT CHANGE THIS)
         public static readonly double matchSpanMs = 150000;
         public static readonly double minMs = 60000;
         public static readonly double secMs = 1000;
@@ -31,7 +31,6 @@ namespace NRGScoutingApp
         {
             BindingContext = this;
             InitializeComponent();
-            //cubeDropValue = "Cube Picked";
             App.Current.Properties["appState"] = "1";
             App.Current.SavePropertiesAsync();
             NavigationPage.SetHasBackButton(this, false);
@@ -45,6 +44,7 @@ namespace NRGScoutingApp
         private Boolean firstTimerStart = true;
         public static double pickedTime = 0;
         public static double droppedTime = 0;
+        public static int pickNum = 0, dropNum = 0;
         int climbTime = 0;
 
         void resetClicked(object sender, System.EventArgs e)
@@ -260,8 +260,9 @@ namespace NRGScoutingApp
                 pickedTime = (int)timerrValue;
                 App.Current.Properties["lastCubePicked"] = (int)pickedTime;
                 App.Current.SavePropertiesAsync();
-                testButton.Text = "Picked " + pickedTime;
-                App.matchEvents += "cubePicked:" + pickedTime +"|";
+                testButton.Text = "Picked " + pickedTime;  //DEBUG for Checking
+                App.matchEvents += "cubePicked" + pickNum + ":" + pickedTime +"|";
+                pickNum++;
                 cubeDropValue = cubeDroppedText;
                 cubePicked.Text = cubeDroppedText;
 
@@ -272,7 +273,7 @@ namespace NRGScoutingApp
                 droppedTime =(int)timerrValue;
                 App.Current.Properties["lastCubeDropped"] = (int)droppedTime;
                 App.Current.SavePropertiesAsync();
-                testButton.Text = "Dropped " + droppedTime;
+                testButton.Text = "Dropped " + droppedTime; //DEBUG for Checking
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
                 cubeDropValue = cubePickedText;
                 cubePicked.Text = cubePickedText;
@@ -284,6 +285,8 @@ namespace NRGScoutingApp
             var cubeText = new NewMatchStart();
             cubeText.cubePicked.Text = cubePickedText;
         }
+
+        //TODO: Call Parse Method for match number called and figure out the pickNum and dropNum values and set them
         private void timerValueSetter()
         {
             if(!App.Current.Properties.ContainsKey("lastCubePicked")){
@@ -291,9 +294,7 @@ namespace NRGScoutingApp
                 App.Current.Properties["lastCubeDropped"] = 0;
                 App.Current.SavePropertiesAsync();
             }
-            else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) == 0 || Convert.ToInt32(App.Current.Properties["lastCubeDropped"]) == 0){
-
-            }
+            else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) == 0 || Convert.ToInt32(App.Current.Properties["lastCubeDropped"]) == 0){}
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) > Convert.ToInt32(App.Current.Properties["lastCubeDropped"])){
                 cubePicked.Text = cubeDroppedText;
             }
