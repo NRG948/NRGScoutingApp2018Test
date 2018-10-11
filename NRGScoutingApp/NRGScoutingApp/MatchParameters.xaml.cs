@@ -17,7 +17,7 @@ namespace NRGScoutingApp
 
         public MatchParameters()
         {
-            NavigationPage.SetHasBackButton(this, false);
+            //NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
 
@@ -52,7 +52,6 @@ namespace NRGScoutingApp
             {
                 App.Current.Properties["teamStart"] = "";
                 App.Current.Properties["appState"] = 0;
-                //App.Current.Properties["newAppear"] = 1;
                 App.Current.Properties["timerValue"] = (int)0;
                 App.Current.Properties["lastCubePicked"] = 0;
                 App.Current.Properties["lastCubeDropped"] = 0;
@@ -87,9 +86,9 @@ namespace NRGScoutingApp
 
         async void saveClicked(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(matchnum.Text)) //matchnum.Text == "" || matchnum.Text = null
+            if (string.IsNullOrWhiteSpace(matchnum.Text) //Checks if Match Number is Present
             {
-                 await DisplayAlert("Alert!", "Please Enter Match Number", "OK"); //Checks if Match Number is Present
+                 await DisplayAlert("Alert!", "Please Enter Match Number", "OK"); 
             }
             else{
                 string param = paramFormat.ConvertMatchParam(App.Current.Properties["teamStart"].ToString(), matchnum.Text, MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
@@ -109,7 +108,6 @@ namespace NRGScoutingApp
                 App.Current.Properties["lastCubeDropped"] = 0;
                 App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"] = param;
                 await App.Current.SavePropertiesAsync();
-                //Matches.appRestore = false;
                 if (Matches.appRestore == false)
                 {
                     Matches.appRestore = false;
