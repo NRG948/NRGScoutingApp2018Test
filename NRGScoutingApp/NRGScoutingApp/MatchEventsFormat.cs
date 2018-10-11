@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Tracing;
+using System.Runtime.CompilerServices;
+
 namespace NRGScoutingApp
 {
 
@@ -11,19 +13,21 @@ namespace NRGScoutingApp
         }
         public static Array ParseMatchEvents(string events)
         {
-            events.Remove(0, 1);
-            events.Remove(events.Length - 1, 1);
-            char sep = '|' ; //fix sep with tutorial online "||","|"
-            Array[][][] x = null;
-            string[] eventsSplit = events.Split(sep);
-            for (int i = 0; i < eventsSplit.Length; i++)
+            events = events.Remove(0, 1);
+            events = events.Remove(events.Length - 1, 1);
+            String[] sep = new String[] { "||" }; //fix sep with tutorial online "||","|"
+            //Array[][][] x = null;
+            String[] mainSplit = events.Split(sep, StringSplitOptions.None);
+            String[,] eventsSplit = new String[mainSplit.Length,2];
+            for (int i = 0; i < mainSplit.Length; i++)
             {
-                Console.WriteLine(eventsSplit[0]);
-                Console.WriteLine(eventsSplit[1]);
-
+                String[] temp = mainSplit[i].Split('|');
+                eventsSplit[i,0] = temp[0];
+                eventsSplit[i,1] = temp[1];
+                Console.WriteLine(eventsSplit[i, 0]); //DEBUG
+                Console.WriteLine(eventsSplit[i, 1]); //DEBUG
             }
-            return null; //return parsed dict
-
+            return null; //return parsed dict: eventsSplit
         }
 
     }

@@ -96,7 +96,7 @@ namespace NRGScoutingApp
                                                           MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
                                                           MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
-                MatchEventsFormat.
+                MatchEventsFormat.ParseMatchEvents(App.matchEvents);
                 Console.WriteLine(param); //DEBUG PURPOSES
                  await DisplayAlert("generated", param, "OK");
                 App.matchEvents += ")";
@@ -109,7 +109,7 @@ namespace NRGScoutingApp
                 App.Current.Properties["lastCubeDropped"] = 0;
                 App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"] = param;
                 await App.Current.SavePropertiesAsync();
-                Matches.appRestore = false;
+                //Matches.appRestore = false;
                 if (Matches.appRestore == false)
                 {
                     Matches.appRestore = false;
