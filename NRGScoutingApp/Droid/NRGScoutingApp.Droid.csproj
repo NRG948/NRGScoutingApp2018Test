@@ -244,10 +244,15 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_leader.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_leader.png" />
     <AndroidResource Include="Resources\drawable\ic_assignment.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_32x.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_assignment.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_picked_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_picked_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_picked_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_picked_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable\ic_picked_cube_yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

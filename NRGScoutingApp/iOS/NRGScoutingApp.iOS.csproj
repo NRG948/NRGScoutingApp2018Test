@@ -167,6 +167,7 @@
     <BundleResource Include="Resources\ic_import_web.png" />
     <BundleResource Include="Resources\ic_leader.png" />
     <BundleResource Include="Resources\ic_assignment.png" />
+    <BundleResource Include="Resources\ic_picked_cube_yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

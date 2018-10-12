@@ -56,7 +56,6 @@ namespace NRGScoutingApp
                 App.Current.Properties["lastCubePicked"] = 0;
                 App.Current.Properties["lastCubeDropped"] = 0;
                 await App.Current.SavePropertiesAsync();
-                var back = new MatchEntryStart();
                if (Matches.appRestore == false)
                 {
                     Matches.appRestore = false;
@@ -86,7 +85,7 @@ namespace NRGScoutingApp
 
         async void saveClicked(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(matchnum.Text) //Checks if Match Number is Present
+            if (string.IsNullOrWhiteSpace(matchnum.Text)) //Checks if Match Number is Present
             {
                  await DisplayAlert("Alert!", "Please Enter Match Number", "OK"); 
             }
@@ -97,7 +96,7 @@ namespace NRGScoutingApp
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
                 MatchEventsFormat.ParseMatchEvents(App.matchEvents);
                 Console.WriteLine(param); //DEBUG PURPOSES
-                 await DisplayAlert("generated", param, "OK");
+                await DisplayAlert("generated", param, "OK");
                 App.matchEvents += ")";
                 await  DisplayAlert("matchEvents", App.matchEvents, "OK");
                 App.Current.Properties["teamStart"] = "";

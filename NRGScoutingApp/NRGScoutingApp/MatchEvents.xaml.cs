@@ -15,47 +15,16 @@ namespace NRGScoutingApp
             InitializeComponent();
         }
 
-        // async void backClicked (object sender, System.EventArgs e)
-        //{
-        //    var text = await DisplayAlert("Alert", "Do you want to discard progress?", "Yes", "No");
-        //    //Boolean nav = (Boolean) text;
-        //    var appbool = new Matches();
-        //    if (text){
-        //        Application.Current.Properties["teamStart"] = "";
-        //        Application.Current.Properties["appState"] = 0;
-        //        App.Current.Properties["timerValue"] = (int)0;
-        //        if (appbool.appRestore == false){
-        //            await Navigation.PopToRootAsync(true);
-        //        }
-        //        else if (appbool.appRestore == true){
-        //            await Navigation.PopAsync(true);
-        //        }
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            listView.ItemsSource = MatchEventsFormat.ParseUserEvents(App.matchEvents);
+            //MatchEventsFormat.ParseUserEvents(App.matchEvents);
+        }
 
-        //    }
-        //}
-        //void saveClicked(object sender, System.EventArgs e)
-        //{
-        //    var appbool = new Matches();
-        //    string param = paramFormat.ConvertMatchParam("hi", MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
-        //                                                  MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
-        //                                                  MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
-        //                                                  MatchParameters.noclimbB, "5", MatchParameters.recyellowB, MatchParameters.recredB, "great");
-        //    DisplayAlert(param, "generated", "OK");
-        //    Application.Current.Properties["teamStart"] = "";
-        //    Application.Current.Properties["appState"] = 0;
-        //    App.Current.Properties["timerValue"] = 0;
-        //    if (appbool.appRestore == false)
-        //    {
-        //        appbool.appRestore = false;
-        //        Navigation.PopToRootAsync();
-        //    }
-        //   else if (appbool.appRestore == true)
-        //    {
-        //        appbool.appRestore = false;
-        //        Navigation.PopAsync();
-        //    }
-        //}
-
+        void Handle_Tapped(object sender, System.EventArgs e)
+        {
+            DisplayAlert("Alert", "Not Implemented yet! get to work on this!", "OK"); //Hidden Gem (TODO: Remove in Prod. version)
+        }
       }
 }
 
