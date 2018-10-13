@@ -76,7 +76,7 @@
                         <TapGestureRecognizer Tapped="startClicked"/>
                     </Frame.GestureRecognizers>
             <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
-                <Image Source="ic_timer_large.png" Scale=".5"/>
+                <Image Source="ic_timer.png" Scale=".5"/>
                 <Button
                     x:Name="startTimer"
                     Text="Start Timer"
