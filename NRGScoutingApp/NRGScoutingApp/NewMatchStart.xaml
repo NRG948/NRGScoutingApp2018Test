@@ -11,158 +11,78 @@
         <ScrollView HorizontalOptions="CenterAndExpand">
                    <StackLayout HorizontalOptions="CenterAndExpand">
             
-          <Label 
-                Text="0:00.00"
-                x:Name="timerValue"
-                VerticalOptions="Start" 
-                HorizontalOptions="Center"                  
-                TextColor="#fdad13" 
-                FontSize="60"
-                Margin="0,20,0,10"/>
+          <Label Text="0:00.00"
+                  x:Name="timerValue"
+                  VerticalOptions="Start" 
+                  HorizontalOptions="Center"                  
+                  TextColor="#fdad13" 
+                  FontSize="60"
+                  Margin="0,20,0,10"/>
+                     
            <Button x:Name="testButton" Text="Click Here"/>
-            <Slider 
-            x:Name="timeSlider"
-            Maximum="150000"
-            ValueChanged="timerValueChanged"
-            Margin="20,5,20,5"
-            Minimum="0"
-            MinimumTrackColor="Red"/>
+                     
+            <Slider x:Name="timeSlider"
+                    Maximum="150000"
+                    ValueChanged="timerValueChanged"
+                    Margin="20,5,20,5"
+                    Minimum="0"
+                    MinimumTrackColor="Red"/>
                 
-                <Grid HorizontalOptions="Center"
-                      VerticalOptions="Center"
-                      RowSpacing="5"
-                      Margin="5,0">
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
-                   </Grid.ColumnDefinitions>
+          <Grid HorizontalOptions="Center"
+                VerticalOptions="Center"
+                RowSpacing="5"
+                Margin="5,0">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+              <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="2*" />
+             </Grid.ColumnDefinitions>
             
-            <Frame BackgroundColor="#fdad13"
-                   HasShadow="false"
-                   Padding="10,2"
-                   CornerRadius="7"
-                   HorizontalOptions="Fill"
-                   VerticalOptions="Fill"
-                   Grid.Row="0" 
-                   Grid.Column="0">
-                   <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                        
-                    
-                <Label
-                    Text="Reset Timer"
-                    FontSize="15"
-                    Margin="0,11"
+            <Button BackgroundColor="#fdad13"
+                    x:Name="resetTimer"
                     TextColor="White"
-                    Grid.Row="1"
+                    Text="Reset Timer"
+                    Grid.Row="0"
                     Grid.Column="0"
-                    HorizontalOptions="CenterAndExpand"/>
-             <Button
+                    ContentLayout="Top,0"                               
+                    Image="ic_exchange.png"
+                    Clicked="resetClicked"/>
+                  
+            <Button x:Name="startTimer"
                     BackgroundColor="#fdad13"
                     TextColor="White"
-                    Text="Hi"
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                ContentLayout="Top,0"
-                               
-                    Image="ic_climb.png"
-                    Clicked="resetClicked"
-                    />
-                    </Grid>
-                    </Frame>
-                
-               <Frame BackgroundColor="#fdad13"
-                       HasShadow="false"
-                       CornerRadius="7"
-                       Padding="50,2"
-                       HorizontalOptions="Fill"
-                      VerticalOptions="Fill"
-                      Grid.Row="0" 
-                      Grid.Column="1">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="startClicked"/>
-                    </Frame.GestureRecognizers>
-            <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
-                <Image Source="ic_timer.png" Scale=".5"/>
-                <Button
-                    x:Name="startTimer"
-                    Text="Start Timer"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Start"
-                    Clicked="startClicked"
+                    Text="Reset Timer"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ContentLayout="Top,0"                               
+                    Image="ic_timer.png"
+                    Clicked="startClicked"/>
+
+            <Button x:Name="climbStart"
+                    BackgroundColor="#fdad13"                         
                     TextColor="White"
-                    FontSize="15"
-                    BackgroundColor="#fdad13" 
-                    Margin="0,11"/>
-                   </StackLayout>
-                    </Frame>
-                
-               <Frame BackgroundColor="#fdad13"
-                      HasShadow="false"
-                      Padding="10,2"
-                      CornerRadius="7"
-                      HorizontalOptions="Fill"
-                      VerticalOptions="Fill"
-                      Grid.Row="1" 
-                      Grid.Column="0">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="climbClicked"/>
-                    </Frame.GestureRecognizers>
-            <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
-                    <Image Source="ic_climb.png" Scale=".5">
-                    </Image>
-                <Button 
-                    x:Name="climbStart"
                     Text="Climb Start"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    Clicked="climbClicked"
-                    FontSize="15"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    ContentLayout="Top,0"                               
+                    Image="ic_climb.png"
+                    Clicked="climbClicked"/>
+
+            <Button x:Name="cubePicked"
+                    BackgroundColor="#fdad13"
                     TextColor="White"
-                    Margin="0,11"
-                    BackgroundColor="#fdad13" />
-               </StackLayout>
-                </Frame>
-                
-                 <Frame BackgroundColor="#fdad13"
-                        HasShadow="false"
-                        Padding="50,2"
-                        CornerRadius="7"
-                       HorizontalOptions="Fill"
-                        VerticalOptions="Fill"
-                        Grid.Row="1" 
-                        Grid.Column="1">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="cubeClicked"/>
-                    </Frame.GestureRecognizers>
-            <StackLayout Spacing="-26" HorizontalOptions="CenterAndExpand">
-                        <Image Source="ic_picked_cube.png"
-                               Scale=".5"/>
-                       <Button x:Name="cubePicked"
-                            Text="Cube Picked"
-                            VerticalOptions="Center"
-                            HorizontalOptions="End"
-                            Clicked="cubeClicked"
-                            FontSize="15"
-                            TextColor="White" 
-                            Margin="0,11"
-                            BackgroundColor="#fdad13" 
-                            x:FieldModifier="public"/>
-                    </StackLayout>
-                </Frame>
-                    </Grid>
-            </StackLayout>
-            </ScrollView>
+                    Text="Cube Picked"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    ContentLayout="Top,0"                               
+                    Image="ic_picked_cube.png"
+                    Clicked="cubeClicked"/>
+          </Grid>
+        </StackLayout>
+      </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 
