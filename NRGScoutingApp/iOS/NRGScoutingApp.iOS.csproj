@@ -196,6 +196,7 @@
     <BundleResource Include="Resources\ic_import_web.png" />
     <BundleResource Include="Resources\ic_leader.png" />
     <BundleResource Include="Resources\ic_picked_cube_yellow.png" />
+    <BundleResource Include="Resources\ic_timer_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />
@@ -222,9 +223,6 @@
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="MyViewController.xib" />
     <InterfaceDefinition Include="ButtonWrapText.xib" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_timer_other.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_assignment.png" />

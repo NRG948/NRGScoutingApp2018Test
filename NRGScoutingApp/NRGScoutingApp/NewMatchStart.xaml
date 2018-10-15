@@ -12,13 +12,13 @@
                    <StackLayout HorizontalOptions="CenterAndExpand">
             
           <Label 
-            Text="0:00.00"
-            x:Name="timerValue"
-            VerticalOptions="Start" 
-            HorizontalOptions="Center"                  
-            TextColor="#fdad13" 
-            FontSize="60"
-            Margin="0,20,0,10"/>
+                Text="0:00.00"
+                x:Name="timerValue"
+                VerticalOptions="Start" 
+                HorizontalOptions="Center"                  
+                TextColor="#fdad13" 
+                FontSize="60"
+                Margin="0,20,0,10"/>
            <Button x:Name="testButton" Text="Click Here"/>
             <Slider 
             x:Name="timeSlider"
@@ -27,6 +27,7 @@
             Margin="20,5,20,5"
             Minimum="0"
             MinimumTrackColor="Red"/>
+                
                 <Grid HorizontalOptions="Center"
                       VerticalOptions="Center"
                       RowSpacing="5"
@@ -48,20 +49,36 @@
                    VerticalOptions="Fill"
                    Grid.Row="0" 
                    Grid.Column="0">
-                   <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="resetClicked"/>
-                    </Frame.GestureRecognizers>
-            <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
-                    <Image Source="ic_exchange.png" Scale=".5"/>
-                <Button
-                    x:Name="resetTimer"
+                   <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        
+                    
+                <Label
                     Text="Reset Timer"
                     FontSize="15"
                     Margin="0,11"
                     TextColor="White"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="CenterAndExpand"/>
+             <Button
                     BackgroundColor="#fdad13"
-                    Clicked="resetClicked"/>
-                </StackLayout>
+                    TextColor="White"
+                    Text="Hi"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                ContentLayout="Top,0"
+                               
+                    Image="ic_climb.png"
+                    Clicked="resetClicked"
+                    />
+                    </Grid>
                     </Frame>
                 
                <Frame BackgroundColor="#fdad13"
@@ -112,9 +129,9 @@
                     Clicked="climbClicked"
                     FontSize="15"
                     TextColor="White"
-                            Margin="0,11"
-                        BackgroundColor="#fdad13" />
-                    </StackLayout>
+                    Margin="0,11"
+                    BackgroundColor="#fdad13" />
+               </StackLayout>
                 </Frame>
                 
                  <Frame BackgroundColor="#fdad13"
@@ -149,4 +166,7 @@
     </ContentPage.Content>
 </ContentPage>
 
-<!--  Margin="0,5,0,-5"-->
+<!--  Margin="0,5,0,-5"
+<Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="resetClicked"/>
+                    </Frame.GestureRecognizers>-->
