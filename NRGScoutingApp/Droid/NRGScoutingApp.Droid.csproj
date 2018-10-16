@@ -27,6 +27,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+<AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+<EnableProguard>true</EnableProguard>
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

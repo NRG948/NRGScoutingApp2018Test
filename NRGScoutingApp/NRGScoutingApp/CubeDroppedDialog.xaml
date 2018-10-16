@@ -25,7 +25,10 @@
            Padding="10,10,10,-30">
   <!--  <StackLayout RowSpacing="5" 
                  ColumnSpacing="5">-->
-                <Grid HorizontalOptions="Center"
+            
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                        <Grid HorizontalOptions="Center"
                       VerticalOptions="Center">
                   <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -51,7 +54,7 @@
             <StackLayout Spacing="-25">
                     <Image Source="ic_scale.png" Scale=".5" Margin="0"/>
                 <Button
-                    x:Name="scaleDrop"
+                    x:Name="scaleDropIOS"
                     Text="Scale"
                     FontSize="15"
                     Clicked="scaleClicked"
@@ -73,7 +76,7 @@
         <StackLayout Spacing="-25">
                 <Image Source="ic_switch.png" Scale=".5" Margin="0"/>
             <Button
-                x:Name="allySwitchDrop"
+                x:Name="allySwitchDropIOS"
                 Text="Ally Switch"
                 FontSize="15"
                 Clicked="allySwitchClicked"
@@ -95,7 +98,7 @@
             <StackLayout Spacing="-25">
                     <Image Source="ic_cancel.png" Scale=".5" Margin="0"/>
                 <Button
-                    x:Name="noneDrop"
+                    x:Name="noneDropIOS"
                     Text="None"
                     FontSize="15"
                     Clicked="noneClicked"
@@ -117,7 +120,7 @@
             <StackLayout Spacing="-25">
                     <Image Source="ic_switch.png" Scale=".5" Margin="0"/>
                 <Button
-                    x:Name="oppSwitchDrop"
+                    x:Name="oppSwitchDropIOS"
                     Text="Opp. Switch"
                     FontSize="15"
                     Clicked="oppSwitchClicked"
@@ -139,7 +142,7 @@
             <StackLayout Spacing="-25">
                     <Image Source="ic_exchange.png" Scale=".5" Margin="0"/>
                 <Button
-                    x:Name="exchangeDrop"
+                    x:Name="exchangeDropIOS"
                     Text="Exchange"
                     FontSize="15"
                     Clicked="exchangeClicked"
@@ -156,6 +159,83 @@
                     Grid.Row="3"
                     Grid.Column="2"/>
             </Grid>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                     <Grid HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                  </Grid.ColumnDefinitions>
+                  
+                  <Button BackgroundColor="#fdad13"
+                          x:Name="scaleDropAndroid"
+                          TextColor="White"
+                          Text="Scale"
+                          Grid.Row="0"
+                          Grid.Column="1"
+                          ContentLayout="Top,0"                               
+                          Image="ic_scale.png"
+                          Clicked="scaleClicked"/>
+                  
+                  <Button BackgroundColor="#fdad13"
+                          x:Name="allySwitchDropAndroid"
+                          TextColor="White"
+                          Text="Ally Switch"
+                          Grid.Row="1"
+                          Grid.Column="0"
+                          ContentLayout="Top,0"                               
+                          Image="ic_switch.png"
+                          Clicked="allySwitchClicked"/>
+                  
+                  <Button BackgroundColor="#fdad13"
+                          x:Name="noneDropAndroid"
+                          TextColor="White"
+                          Text="None"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          ContentLayout="Top,0"                               
+                          Image="ic_cancel.png"
+                          Clicked="noneClicked"/>
+                  
+                  <Button BackgroundColor="#fdad13"
+                          x:Name="oppSwitchDropAndroid"
+                          TextColor="White"
+                          Text="Opp. Switch"
+                          Grid.Row="1"
+                          Grid.Column="2"
+                          ContentLayout="Top,0"                               
+                          Image="ic_switch.png"
+                          Clicked="oppSwitchClicked"/>
+                  
+                  <Button BackgroundColor="#fdad13"
+                          x:Name="exchangeDropAndroid"
+                          TextColor="White"
+                          Text="Exchange"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          ContentLayout="Top,0"                               
+                          Image="ic_exchange.png"
+                          Clicked="exchangeClicked"/>         
+                   
+                  <Button Text="Cancel" 
+                          VerticalOptions="StartAndExpand"
+                          Font="15"
+                          Margin="0,0"
+                          Clicked="backClicked"
+                          Grid.Row="3"
+                          Grid.Column="2"/>
+            </Grid>
+                </OnPlatform.Android>
+                </OnPlatform>
+              
         </Frame>
     </ScrollView>
 </pages:PopupPage>
