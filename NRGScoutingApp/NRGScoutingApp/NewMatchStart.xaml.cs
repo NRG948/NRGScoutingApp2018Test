@@ -17,6 +17,13 @@ using System.Linq.Expressions;
 
 namespace NRGScoutingApp
 {
+
+    /* NOTICE: REFERENCE 
+     * resetTimerIOS and resetTimerAndroid when changing reset Timer text
+     * startTimerIOS and startTimerAndroid when changing start timer text
+     * climbStartIOS and climbStartAndroid when changing climb timer text
+     * cubePickedIOS and cubePickedAndroid when changing cube picked/dropped text
+     */
     public partial class NewMatchStart : ContentPage
     {
 
@@ -26,6 +33,8 @@ namespace NRGScoutingApp
         public static readonly double secMs = 1000;
         public static readonly String cubePickedText = "Cube Picked";
         public static readonly String cubeDroppedText = "Cube Dropped";
+        public static readonly String timerStart = "Start Timer";
+        public static readonly String timerPause = "Pause Timer";
 
         public NewMatchStart()
         {
@@ -49,8 +58,8 @@ namespace NRGScoutingApp
 
         void resetClicked(object sender, System.EventArgs e)
         {
-            if (timerValue.Text == "0:00.00" || startTimer.Text == "Pause Timer"){}
-            else if (startTimer.Text == "Start Timer")
+            if (timerValue.Text == "0:00.00" || (startTimerAndroid.Text == timerPause || startTimerIOS.Text == timerPause)) {}
+            else if (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart)
             {
                 timeSlider.Value = 0;
                 min = 0; sec = 0; ms = 0;
@@ -63,7 +72,7 @@ namespace NRGScoutingApp
 
         void startClicked(object sender, System.EventArgs e)
         {
-            if (startTimer.Text == "Start Timer") 
+            if (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart) 
             {
                 if (!App.Current.Properties.ContainsKey("timerValue")) {
                     App.Current.Properties["timerValue"] = (int) 0;
@@ -101,13 +110,15 @@ namespace NRGScoutingApp
                     }
                     firstTimerStart = false;
                 }
-                startTimer.Text = "Pause Timer";
+                startTimerIOS.Text = timerPause;
+                startTimerAndroid.Text = timerPause;
                 if (Device.RuntimePlatform == "iOS"){
                     Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
                     {
-                        if ((timerrValue >= matchSpanMs) || startTimer.Text == "Start Timer")
+                        if ((timerrValue >= matchSpanMs) || (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart))
                         {
-                            startTimer.Text = "Start Timer";
+                            startTimerIOS.Text = timerStart;
+                            startTimerAndroid.Text = timerStart;
                             return false;
                         }
                         Timer_Elapsed(); return true;
@@ -116,9 +127,10 @@ namespace NRGScoutingApp
                 else if (Device.RuntimePlatform == "Android"){
                     Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
                     {
-                        if ((timerrValue >= matchSpanMs) || startTimer.Text == "Start Timer")
+                        if ((timerrValue >= matchSpanMs) || (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart))
                         {
-                            startTimer.Text = "Start Timer";
+                            startTimerIOS.Text = timerStart;
+                            startTimerAndroid.Text = timerStart;
                             return false;
                         }
                         Timer_Elapsed(); return true;
@@ -126,9 +138,10 @@ namespace NRGScoutingApp
                 }
 
             }
-            else if (startTimer.Text == "Pause Timer") //
+            else if (startTimerAndroid.Text == timerPause || startTimerIOS.Text == timerPause) //
             {
-              startTimer.Text = "Start Timer";
+                startTimerIOS.Text = timerStart;
+                startTimerAndroid.Text = timerStart;
             }
         }
         private void Timer_Elapsed()
@@ -160,7 +173,7 @@ namespace NRGScoutingApp
 
         void timerValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)
         {
-            if (startTimer.Text == "Pause Timer") 
+            if (startTimerAndroid.Text == timerPause || startTimerIOS.Text == timerPause) 
             {
                 string TimerValue = timerValue.Text;
                 char[] seperator = new char[] { ':' };
@@ -184,7 +197,7 @@ namespace NRGScoutingApp
                 timeSlider.Value = timerrValue;
 
             }
-            else if (startTimer.Text == "Start Timer")
+            else if (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart)
             {
                 if (!App.Current.Properties.ContainsKey("timerValue")){
                     App.Current.Properties["timerValue"] = (int) 0;
@@ -236,7 +249,7 @@ namespace NRGScoutingApp
 
         void climbClicked(object sender, System.EventArgs e)
         {
-            if (startTimer.Text == "Start Timer") //
+            if (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart) //
             {
                 DisplayAlert("Error", "Timer not Started", "OK");
             }
@@ -249,12 +262,12 @@ namespace NRGScoutingApp
         }
         void cubeClicked(object sender, System.EventArgs e)
         {
-            if (startTimer.Text == "Start Timer")  //
+            if (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart)  //
             {
                 DisplayAlert("Error", "Timer not Started", "OK");
             }
 
-            else if (cubePicked.Text == cubePickedText)
+            else if (cubePickedAndroid.Text == cubePickedText || cubePickedIOS.Text == cubePickedText)
             {
                 //Performs actions to open popup for adding cube dropped, etc
                 pickedTime = (int)timerrValue;
@@ -264,10 +277,11 @@ namespace NRGScoutingApp
                 App.matchEvents += "cubePicked" + pickNum + ":" + pickedTime +"|";
                 pickNum++;
                 cubeDropValue = cubeDroppedText;
-                cubePicked.Text = cubeDroppedText;
+                cubePickedAndroid.Text = cubeDroppedText;
+                cubePickedIOS.Text = cubeDroppedText;
 
             }
-            else if (cubePicked.Text == cubeDroppedText)
+            else if (cubePickedAndroid.Text == cubeDroppedText || cubePickedIOS.Text == cubeDroppedText)
             {
                 //Performs action/s to open popup for adding cube dropped, etc
                 droppedTime =(int)timerrValue;
@@ -276,15 +290,12 @@ namespace NRGScoutingApp
                 testButton.Text = "Dropped " + droppedTime; //DEBUG for Checking
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
                 cubeDropValue = cubePickedText;
-                cubePicked.Text = cubePickedText;
+                cubePickedAndroid.Text = cubePickedText;
+                cubePickedIOS.Text = cubePickedText;
             }
         }
 
-        public void cubeEventStatus()
-        {
-            var cubeText = new NewMatchStart();
-            cubeText.cubePicked.Text = cubePickedText;
-        }
+
 
         //TODO: Call Parse Method for match number called and figure out the pickNum and dropNum values and set them
         private void timerValueSetter()
@@ -296,7 +307,8 @@ namespace NRGScoutingApp
             }
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) == 0 || Convert.ToInt32(App.Current.Properties["lastCubeDropped"]) == 0){}
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) > Convert.ToInt32(App.Current.Properties["lastCubeDropped"])){
-                cubePicked.Text = cubeDroppedText;
+                cubePickedAndroid.Text = cubeDroppedText;
+                cubePickedIOS.Text = cubeDroppedText;
             }
 
             if (!App.Current.Properties.ContainsKey("timerValue"))
@@ -339,10 +351,12 @@ namespace NRGScoutingApp
             }
 
         }
+
         public static void cubeDropSet()
         {
             var pickSet = new NewMatchStart();
-            pickSet.cubePicked.Text = "Cube Dropped";
+            pickSet.cubePickedAndroid.Text = cubeDroppedText;
+            pickSet.cubePickedIOS.Text = cubeDroppedText;
             Console.WriteLine ("Passed CubeDropset");
         }
 

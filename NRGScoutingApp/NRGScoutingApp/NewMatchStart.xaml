@@ -28,10 +28,132 @@
                     Minimum="0"
                     MinimumTrackColor="Red"/>
                 
-          <Grid HorizontalOptions="Center"
+                <OnPlatform x:TypeArguments="View">
+            <OnPlatform.iOS>
+                <Grid HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      RowSpacing="5"
+                      Margin="5,0">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                   </Grid.ColumnDefinitions>
+            
+            <Frame BackgroundColor="#fdad13"
+                   HasShadow="false"
+                   Padding="10,2"
+                   CornerRadius="7"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill"
+                   Grid.Row="0" 
+                   Grid.Column="0">
+                   <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="resetClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
+                    <Image Source="ic_exchange.png" Scale=".5"/>
+                <Button
+                    x:Name="resetTimerIOS"
+                    Text="Reset Timer"
+                    FontSize="15"
+                    Margin="0,11"
+                    TextColor="White"
+                    BackgroundColor="#fdad13"
+                    Clicked="resetClicked"/>
+                </StackLayout>
+                    </Frame>
+                
+               <Frame BackgroundColor="#fdad13"
+                       HasShadow="false"
+                       CornerRadius="7"
+                       Padding="50,2"
+                       HorizontalOptions="Fill"
+                      VerticalOptions="Fill"
+                      Grid.Row="0" 
+                      Grid.Column="1">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="startClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
+                <Image Source="ic_timer.png" Scale=".5"/>
+                <Button
+                    x:Name="startTimerIOS"
+                    Text="Start Timer"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Clicked="startClicked"
+                    TextColor="White"
+                    FontSize="15"
+                    BackgroundColor="#fdad13" 
+                    Margin="0,11"/>
+                   </StackLayout>
+                    </Frame>
+                
+               <Frame BackgroundColor="#fdad13"
+                      HasShadow="false"
+                      Padding="10,2"
+                      CornerRadius="7"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="Fill"
+                      Grid.Row="1" 
+                      Grid.Column="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="climbClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-25" HorizontalOptions="CenterAndExpand">
+                    <Image Source="ic_climb.png" Scale=".5">
+                    </Image>
+                <Button 
+                    x:Name="climbStartIOS"
+                    Text="Climb Start"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Clicked="climbClicked"
+                    FontSize="15"
+                    TextColor="White"
+                            Margin="0,11"
+                        BackgroundColor="#fdad13" />
+                    </StackLayout>
+                </Frame>
+                
+                 <Frame BackgroundColor="#fdad13"
+                        HasShadow="false"
+                        Padding="50,2"
+                        CornerRadius="7"
+                       HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        Grid.Row="1" 
+                        Grid.Column="1">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="cubeClicked"/>
+                    </Frame.GestureRecognizers>
+            <StackLayout Spacing="-26" HorizontalOptions="CenterAndExpand">
+                        <Image Source="ic_picked_cube.png"
+                               Scale=".5"/>
+                       <Button x:Name="cubePickedIOS"
+                            Text="Cube Picked"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                            Clicked="cubeClicked"
+                            FontSize="15"
+                            TextColor="White" 
+                            Margin="0,11"
+                            BackgroundColor="#fdad13" 
+                            x:FieldModifier="public"/>
+                    </StackLayout>
+                </Frame>
+                    </Grid>
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                 <Grid HorizontalOptions="Center"
                 VerticalOptions="Center"
-                RowSpacing="5"
-                Margin="5,0">
+                RowSpacing="2"
+                ColumnSpacing="2"
+                Margin="1,0">
             <Grid.RowDefinitions>
               <RowDefinition Height="*" />
               <RowDefinition Height="*" />
@@ -41,27 +163,32 @@
               <ColumnDefinition Width="2*" />
              </Grid.ColumnDefinitions>
             
-            <Button BackgroundColor="#fdad13"
-                    x:Name="resetTimer"
+            
+             <Button BackgroundColor="#fdad13"
+                    x:Name="resetTimerAndroid"
                     TextColor="White"
                     Text="Reset Timer"
                     Grid.Row="0"
                     Grid.Column="0"
-                    ContentLayout="Top,0"                               
+                    ContentLayout="Top,0"
                     Image="ic_exchange.png"
-                    Clicked="resetClicked"/>
-                  
-            <Button x:Name="startTimer"
+                    Clicked="resetClicked"
+                    FontSize="Small"
+                    Margin="0"/>
+                   
+            <Button x:Name="startTimerAndroid"
                     BackgroundColor="#fdad13"
                     TextColor="White"
-                    Text="Reset Timer"
+                    Text="Start Timer"
                     Grid.Row="0"
                     Grid.Column="1"
                     ContentLayout="Top,0"                               
                     Image="ic_timer.png"
-                    Clicked="startClicked"/>
+                    Clicked="startClicked"
+                    FontSize="Medium"
+                    Margin="0"/>
 
-            <Button x:Name="climbStart"
+            <Button x:Name="climbStartAndroid"
                     BackgroundColor="#fdad13"                         
                     TextColor="White"
                     Text="Climb Start"
@@ -69,9 +196,11 @@
                     Grid.Column="0"
                     ContentLayout="Top,0"                               
                     Image="ic_climb.png"
-                    Clicked="climbClicked"/>
+                    Clicked="climbClicked"
+                    FontSize="Small"
+                    Margin="0"/>
 
-            <Button x:Name="cubePicked"
+            <Button x:Name="cubePickedAndroid"
                     BackgroundColor="#fdad13"
                     TextColor="White"
                     Text="Cube Picked"
@@ -79,8 +208,12 @@
                     Grid.Column="1"
                     ContentLayout="Top,0"                               
                     Image="ic_picked_cube.png"
-                    Clicked="cubeClicked"/>
+                    Clicked="cubeClicked"
+                    FontSize="Medium"
+                    Margin="0"/>
           </Grid>
+            </OnPlatform.Android>
+        </OnPlatform>
         </StackLayout>
       </ScrollView>
     </ContentPage.Content>
@@ -89,4 +222,6 @@
 <!--  Margin="0,5,0,-5"
 <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="resetClicked"/>
-                    </Frame.GestureRecognizers>-->
+                    </Frame.GestureRecognizers>
+
+ContentLayout="Top,0"-->
