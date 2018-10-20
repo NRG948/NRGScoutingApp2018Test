@@ -34,10 +34,12 @@
                                         Grid.Column="0"
                                         Source="ic_picked_cube_yellow.png"/>
                                     <Label Text="{Binding Path=Key}"
+                                           x:Name="key"
                                            Grid.Row="0" 
                                            Grid.Column="1"
                                            HorizontalTextAlignment="End"/>
-                                    <Label Text="{Binding Path=Value}" 
+                                    <Label Text="{Binding Path=Value}"
+                                           x:Name="value"
                                            Grid.Row="1" 
                                            Grid.Column="1"
                                            HorizontalTextAlignment="End"/>
