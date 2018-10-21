@@ -3,6 +3,7 @@ using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Data = System.Collections.Generic.KeyValuePair<string, string>;
 
 namespace NRGScoutingApp
@@ -107,8 +108,7 @@ namespace NRGScoutingApp
                     }
                 }
 
-                //Dictionary<string, string> userDict = new Dictionary<string, string>();
-                for (int i = 0; i < eventsSplit.GetLength(0); i++)
+               for (int i = 0; i < eventsSplit.GetLength(0); i++)
                 {
                     if (string.IsNullOrWhiteSpace(eventsSplit[i, 1]))
                     {
