@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using Newtonsoft.Json;
+
 namespace NRGScoutingApp
 {
     public class ParametersFormat
