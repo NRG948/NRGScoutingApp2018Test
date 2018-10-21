@@ -310,12 +310,12 @@ namespace NRGScoutingApp
             int minutes = 0;
             int seconds = 0;
             int milliseconds = 0;
-            min = timeValue / (int)minMs;
+            minutes = timeValue / (int)minMs;
             timeValue %= (int)minMs;
-            sec = timeValue / (int)secMs;
+            seconds = timeValue / (int)secMs;
             timeValue %= (int)secMs;
-            ms = timeValue;
-            return min + ":" + sec.ToString("D2") + "." + (ms / 10).ToString("D2");
+            milliseconds = timeValue;
+            return minutes + ":" + seconds.ToString("D2") + "." + (milliseconds / 10).ToString("D2");
         }
 
     }

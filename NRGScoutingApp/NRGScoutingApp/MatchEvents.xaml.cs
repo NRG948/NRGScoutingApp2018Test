@@ -16,6 +16,8 @@ namespace NRGScoutingApp
             InitializeComponent();
         }
 
+        List<Data> entries = new List<Data>();
+
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             listView.ItemsSource = MatchEventsFormat.ParseUserEvents(App.matchEvents);
@@ -30,7 +32,6 @@ namespace NRGScoutingApp
 
         void Handle_Tapped(object sender, System.EventArgs e)
         {
-            List<Data> entries = new List<Data>();
             entries = MatchEventsFormat.ParseUserEvents(App.matchEvents);
             var entry = sender as ContentView;
             Label value = entry.FindByName("value") as Label;
@@ -43,19 +44,27 @@ namespace NRGScoutingApp
             {
                 entries.Remove(item);
                 entries.RemoveAt(index);
+                App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
             }
             else if (ke.Contains("Dropped"))
             {
                 entries.Remove(item);
                 entries.RemoveAt(index - 1);
-            } else {
+                App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
+            } 
+            else {
                 entries.Remove(item);
+                App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);
-            DisplayAlert("Alert", "Not Implemented yet! get to work on this!", "OK"); //Hidden Gem (TODO: Remove in Prod. version)
         }
-      }
+
+        void Handle_Clicked_1(object sender, System.EventArgs e) //DEBUG for checking entries
+        {
+            DisplayAlert("new", MatchEventsFormat.returnUserEventsAsString(entries), "ok");
+        }
+    }
 }
 
 //void timerConfirm()

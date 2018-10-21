@@ -15,6 +15,7 @@ namespace NRGScoutingApp
     */
     public class MatchEventsFormat
     {
+
         public MatchEventsFormat(){}
         //THE ORIGINAL MATCH EVENTS STRING AND IF THE REQUESTED DATA IS FOR USER VIEWING OR BACKEND PROCESSING
         public static Dictionary<string, int> ParseMatchEvents(string events) 
@@ -52,7 +53,7 @@ namespace NRGScoutingApp
                 Dictionary<string, int> eventDict = new Dictionary<string, int>();
                 for (int i = 0; i < eventsSplit.GetLength(0); i++)
                 {
-                    if (eventsSplit[i, 1] == "")
+                    if (string.IsNullOrWhiteSpace(eventsSplit[i, 1]))
                     {
                         String[] temp = eventsSplit[i, 0].Split(':');
                         eventDict.Add(temp[0], Convert.ToInt32(temp[1]));
@@ -226,7 +227,80 @@ namespace NRGScoutingApp
                 return MatchEvents;               
             }
         }
-        public static String ToTimeFormat(int time){
+
+        public static String returnUserEventsAsString(List<Data> newMatchData)
+        {
+            String newEvents;
+            newEvents = "(";
+            int pickNum = 0, dropNum = 0;
+            for (int i = 0; i < newMatchData.Count; i++)
+            {
+                if (newMatchData[i].Key.Contains("Picked"))
+                {
+                    newEvents += "cubePicked" + pickNum + ":" + TimeToInt(newMatchData[i].Value);
+                    Console.WriteLine ("cubePicked" + pickNum + ":" + TimeToInt(newMatchData[i].Value));
+                    Console.WriteLine(pickNum);
+                    pickNum++;
+                }
+                else if (newMatchData[i].Key.Contains("Scale"))
+                {
+                    newEvents += "cubeDroppedScale" + dropNum + ":" + TimeToInt(newMatchData[i].Value) + "|";
+                    dropNum++;
+                }
+                else if (newMatchData[i].Key.Contains("Ally Switch"))
+                {
+                    newEvents += "cubeDroppedAllySwitch" + dropNum + ":" + TimeToInt(newMatchData[i].Value) + "|";
+                    dropNum++;
+                }
+                else if (newMatchData[i].Key.Contains("None"))
+                {
+                    newEvents += "cubeDroppedNone" + dropNum  + ":" + TimeToInt(newMatchData[i].Value) + "|";
+                    dropNum++;
+                }
+                else if (newMatchData[i].Key.Contains("Opposite Switch"))
+                {
+                    newEvents += "cubeDroppedOppSwitch" + dropNum + ":" + TimeToInt(newMatchData[i].Value) + "|";
+                    dropNum++;
+                }
+                else if (newMatchData[i].Key.Contains("Exchange"))
+                {
+                    newEvents += "cubeDroppedExchange" + dropNum + ":" + TimeToInt(newMatchData[i].Value) + "|";
+                    dropNum++;
+                }
+                else if (newMatchData[i].Key.Contains("Climb"))
+                {
+                    newEvents += "climbStart:" + TimeToInt(newMatchData[i].Value) + "|";
+
+                }
+                newEvents += "|";
+            }
+            return newEvents;
+        }
+
+        public static int TimeToInt(string time){
+            string TimerValue = time;
+            char[] seperator = new char[] { ':' };
+            string[] split1 = TimerValue.Split(seperator, StringSplitOptions.None);
+            char[] seperator2 = new char[] { '.' };
+            string splitStrArr = (string)split1[1];
+            string[] split2 = splitStrArr.Split(seperator2, StringSplitOptions.None);
+            double mins = double.Parse(split1[0]);
+            double secs = double.Parse(split2[0]);
+            double mss = 8;
+            if (double.Parse(split2[1]) < 10)
+            {
+                mss = double.Parse(split2[1]) * 100;
+            }
+            else if (double.Parse(split2[1]) > 10)
+            {
+                mss = double.Parse(split2[1]) * 10;
+            }
+            Console.WriteLine(mins * NewMatchStart.minMs + secs * NewMatchStart.secMs + mss);
+            return (int)(mins * NewMatchStart.minMs + secs * NewMatchStart.secMs + mss);
+        }
+
+        public static String ToTimeFormat(int time)
+        {
             int minutes, seconds, milliseconds;
             if (time >= NewMatchStart.minMs)
             {
@@ -246,11 +320,11 @@ namespace NRGScoutingApp
                 milliseconds = (int)((time) / 10);
                 return 0 + ":00" + '.' + milliseconds;
             }
-            else{
+            else
+            {
                 return null;
             }
         }
-
     }
 }
 
