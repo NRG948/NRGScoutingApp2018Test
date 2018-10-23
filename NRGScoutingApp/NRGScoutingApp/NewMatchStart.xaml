@@ -133,7 +133,8 @@
                     </Frame.GestureRecognizers>
             <StackLayout Spacing="-26" HorizontalOptions="CenterAndExpand">
                         <Image Source="ic_picked_cube.png"
-                               Scale=".5"/>
+                               Scale=".5"
+                               x:Name="iosCubeImage"/>
                        <Button x:Name="cubePickedIOS"
                             Text="Cube Picked"
                             VerticalOptions="Center"

@@ -33,8 +33,8 @@
                                     <Image 
                                         Grid.RowSpan="2" 
                                         Grid.Column="0"
-                                        Source="ic_picked_cube_yellow.png"/>
-                                    <Label Text="{Binding Path=Key}"
+                                        Source="ic_dropped_cube_yellow.png"/>
+                                   <Label Text="{Binding Path=Key}"
                                            x:Name="key"
                                            Grid.Row="0" 
                                            Grid.Column="1"
@@ -68,4 +68,43 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </DataTemplate>
-            </ListView.ItemTemplate> -->
+            </ListView.ItemTemplate> 
+            
+            
+            <Image.Triggers>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Cube Picked">
+                                                <Setter Property="Source" Value="ic_picked_cube.png" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Dropped Scale">
+                                                <Setter Property="Source" Value="ic_dropped_cube_yellow.png" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Dropped Opposite Switch">
+                                                <Setter Property="Source" Value="ic_dropped_cube_yellow.png" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Dropped Ally Switch">
+                                                </DataTrigger>
+                                                <Setter Property="Source" Value="ic_dropped_cube_yellow.png" />
+                                                    <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Dropped None">
+                                                <Setter Property="Source" Value="ic_cancel.png" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Dropped Exchange">
+                                                <Setter Property="Source" Value="ic_dropped_cube_yellow.png" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Key}"
+                                                         Value="Climb Start">
+                                                <Setter Property="Source" Value="ic_climb_yellow.png" />
+                                            </DataTrigger>
+                                        </Image.Triggers> -->

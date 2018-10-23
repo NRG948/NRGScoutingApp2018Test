@@ -252,11 +252,16 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_assignment.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_assignment.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_picked_cube_yellow.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_picked_cube_yellow.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_picked_cube_yellow.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_picked_cube_yellow.png" />
-    <AndroidResource Include="Resources\drawable\ic_picked_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_dropped_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_dropped_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_dropped_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_dropped_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable\ic_dropped_cube_yellow.png" />
+    <AndroidResource Include="Resources\drawable\ic_climb_yellow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_climb_yellow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_climb_yellow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_climb_yellow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_climb_yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

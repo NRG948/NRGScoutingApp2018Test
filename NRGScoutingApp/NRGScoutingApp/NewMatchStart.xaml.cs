@@ -23,6 +23,7 @@ namespace NRGScoutingApp
      * startTimerIOS and startTimerAndroid when changing start timer text
      * climbStartIOS and climbStartAndroid when changing climb timer text
      * cubePickedIOS and cubePickedAndroid when changing cube picked/dropped text
+     * To change images for buttons, use the android names above, and use iosCubeImage.Source for the ios cube image
      */
     public partial class NewMatchStart : ContentPage
     {
@@ -249,6 +250,8 @@ namespace NRGScoutingApp
                 App.matchEvents += "cubePicked" + pickNum + ":" + pickedTime +"|";
                 pickNum++;
                 cubeDropValue = cubeDroppedText;
+                cubePickedAndroid.Image = "ic_drop_cube.png";
+                iosCubeImage.Source = "ic_drop_cube.png";
                 cubePickedAndroid.Text = cubeDroppedText;
                 cubePickedIOS.Text = cubeDroppedText;
 
@@ -262,6 +265,8 @@ namespace NRGScoutingApp
                 testButton.Text = "Dropped " + droppedTime; //DEBUG for Checking
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
                 cubeDropValue = cubePickedText;
+                cubePickedAndroid.Image = "ic_picked_cube.png";
+                iosCubeImage.Source = "ic_picked_cube.png";
                 cubePickedAndroid.Text = cubePickedText;
                 cubePickedIOS.Text = cubePickedText;
             }
@@ -279,6 +284,8 @@ namespace NRGScoutingApp
             }
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) == 0 || Convert.ToInt32(App.Current.Properties["lastCubeDropped"]) == 0){}
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) > Convert.ToInt32(App.Current.Properties["lastCubeDropped"])){
+                cubePickedAndroid.Image = "ic_drop_cube.png";
+                iosCubeImage.Source = "ic_drop_cube.png";
                 cubePickedAndroid.Text = cubeDroppedText;
                 cubePickedIOS.Text = cubeDroppedText;
             }
