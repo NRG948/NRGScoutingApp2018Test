@@ -13,6 +13,7 @@ using System.Linq;
 using System.Timers;
 using Rg.Plugins.Popup.Services;
 using System.Linq.Expressions;
+using System.Security.AccessControl;
 
 
 namespace NRGScoutingApp
@@ -40,6 +41,7 @@ namespace NRGScoutingApp
         public NewMatchStart()
         {
             BindingContext = this;
+            App.matchEvents = "&(";
             InitializeComponent();
             App.Current.Properties["appState"] = "1";
             App.Current.SavePropertiesAsync();
@@ -206,8 +208,10 @@ namespace NRGScoutingApp
                 //Adds info to to JSON about climb
                 climbTime = (int)timerrValue;
                 App.matchEvents +=  "climbStart:" + climbTime +"||";
+                CubeDroppedDialog.saveEvents();
             }
         }
+
         void cubeClicked(object sender, System.EventArgs e)
         {
             if (startTimerAndroid.Text == timerStart || startTimerIOS.Text == timerStart)  //
@@ -223,6 +227,7 @@ namespace NRGScoutingApp
                 App.Current.SavePropertiesAsync();
                 testButton.Text = "Picked " + pickedTime;  //DEBUG for Checking
                 App.matchEvents += "cubePicked" + pickNum + ":" + pickedTime +"|";
+                CubeDroppedDialog.saveEvents();
                 pickNum++;
                 cubeDropValue = cubeDroppedText;
                 cubePickedAndroid.Image = "ic_drop_cube.png";
@@ -235,8 +240,6 @@ namespace NRGScoutingApp
             {
                 //Performs action/s to open popup for adding cube dropped, etc
                 droppedTime =(int)timerrValue;
-                App.Current.Properties["lastCubeDropped"] = (int)droppedTime;
-                App.Current.SavePropertiesAsync();
                 testButton.Text = "Dropped " + droppedTime; //DEBUG for Checking
                 PopupNavigation.Instance.PushAsync(new CubeDroppedDialog());
                 cubeDropValue = cubePickedText;
@@ -263,29 +266,24 @@ namespace NRGScoutingApp
                 iosCubeImage.Source = "ic_drop_cube.png";
                 cubePickedAndroid.Text = cubeDroppedText;
                 cubePickedIOS.Text = cubeDroppedText;
+                App.matchEvents = App.Current.Properties["tempEventString"].ToString();
             }
 
             if (!App.Current.Properties.ContainsKey("timerValue"))
             {
                 App.Current.Properties["timerValue"] = (int)0;
                 App.Current.SavePropertiesAsync();
+                App.matchEvents = App.Current.Properties["tempEventString"].ToString();
             }
             else if (App.Current.Properties.ContainsKey("timerValue") && firstTimerStart == true)
             {
                 timerrValue = Convert.ToDouble(App.Current.Properties["timerValue"]);
+                App.matchEvents = App.Current.Properties["tempEventString"].ToString();
                 timeSlider.Value = timerrValue;
                 timerValue.Text = timeToString((int)timerrValue);
                 firstTimerStart = false;
             }
 
-        }
-
-        public static void cubeDropSet()
-        {
-            var pickSet = new NewMatchStart();
-            pickSet.cubePickedAndroid.Text = cubeDroppedText;
-            pickSet.cubePickedIOS.Text = cubeDroppedText;
-            Console.WriteLine ("Passed CubeDropset");
         }
 
         public static string timeToString(int timeValue){

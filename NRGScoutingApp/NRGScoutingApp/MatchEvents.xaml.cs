@@ -18,10 +18,9 @@ namespace NRGScoutingApp
 
         List<Data> entries = new List<Data>();
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        protected override void OnAppearing()
         {
             listView.ItemsSource = MatchEventsFormat.ParseUserEvents(App.matchEvents);
-            //MatchEventsFormat.ParseUserEvents(App.matchEvents);
         }
 
         void Handle_Clicked(object sender, System.EventArgs e, List<Data> data)
@@ -58,11 +57,6 @@ namespace NRGScoutingApp
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);
-        }
-
-        void Handle_Clicked_1(object sender, System.EventArgs e) //DEBUG for checking entries
-        {
-            DisplayAlert("new", MatchEventsFormat.returnUserEventsAsString(entries), "ok");
         }
     }
 }

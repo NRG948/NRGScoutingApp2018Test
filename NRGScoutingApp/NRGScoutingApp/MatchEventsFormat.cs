@@ -17,6 +17,7 @@ namespace NRGScoutingApp
     {
 
         public MatchEventsFormat(){}
+
         //THE ORIGINAL MATCH EVENTS STRING AND IF THE REQUESTED DATA IS FOR USER VIEWING OR BACKEND PROCESSING
         public static Dictionary<string, int> ParseMatchEvents(string events) 
         {
@@ -28,7 +29,14 @@ namespace NRGScoutingApp
             else
             {
                 events = events.Remove(0, 1);
-                events = events.Remove(events.Length - 1, 1);
+                if (events.Substring(events.Length - 1) == ")")
+                {
+                    events = events.Remove(events.Length - 2, 2);
+                }
+                else if (events.Substring(events.Length - 1) == "|")
+                {
+                    events = events.Remove(events.Length - 1, 1);
+                }
                 String[] sep = new String[] { "||" };
                 String[] mainSplit = events.Split(sep, StringSplitOptions.None);
                 String[,] eventsSplit = new String[mainSplit.Length, 2];
@@ -75,6 +83,7 @@ namespace NRGScoutingApp
                 return eventDict;
             }
         }
+
         public static List<Data> ParseUserEvents(string events)
 
         {
@@ -87,7 +96,12 @@ namespace NRGScoutingApp
             {
                 List<Data> MatchEvents = new List<Data>();
                 events = events.Remove(0, 1);
-                events = events.Remove(events.Length - 1, 1);
+                if(events.Substring(events.Length-1) == ")"){
+                    events = events.Remove(events.Length - 2, 2);
+                }
+                else if(events.Substring(events.Length - 1) == "|"){
+                    events = events.Remove(events.Length - 1, 1);
+                }
                 String[] sep = new String[] { "||" };
                 String[] mainSplit = events.Split(sep, StringSplitOptions.None);
                 String[,] eventsSplit = new String[mainSplit.Length, 2];
