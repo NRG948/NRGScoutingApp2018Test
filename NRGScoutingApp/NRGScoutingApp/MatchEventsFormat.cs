@@ -277,6 +277,48 @@ namespace NRGScoutingApp
             return newEvents;
         }
 
+        public static List<Data> returnSortedUserEvents(List<Data> newMatchData){
+            //try{
+                String[,] matchDataInString = new String[newMatchData.Count, 2];
+                for (int i = 0; i < newMatchData.Count; i++)
+                {
+                    Console.WriteLine(i);
+                    matchDataInString[i, 0] = newMatchData[i].Key;
+                    matchDataInString[i, 1] = TimeToInt(newMatchData[i].Value).ToString();
+                }
+
+            for (int i = 1; i <= matchDataInString.GetLength(0); i++)
+                {
+                for (int j = 1; j <= matchDataInString.GetLength(0) - i; j++)
+                    {
+                        // Use ">" for ascending and "<" for descending 
+                        if (Convert.ToInt32(matchDataInString[i - 1, 1]) > Convert.ToInt32(matchDataInString[j + i - 1, 1]))
+                        {
+                            Console.WriteLine("I" + i + "J" + j);
+                            String c1 = matchDataInString[i - 1, 1];
+                            String c0 = matchDataInString[i - 1, 0];
+                            String d1 = matchDataInString[j + i - 1, 1];
+                            String d0 = matchDataInString[j + i - 1, 0];
+                            matchDataInString[i - 1, 1] = d1;
+                            matchDataInString[i - 1, 0] = d0;
+                            matchDataInString[j + i - 1, 1] = c1;
+                            matchDataInString[j + i - 1, 0] = c0;
+                        }
+                    }
+                }
+                List<Data> returnList = new List<Data>();
+                for (int i = 0; i < matchDataInString.Length; i++)
+                {
+                    returnList.Add(new Data(matchDataInString[i, 0], matchDataInString[i, 1]));
+                }
+                return returnList;
+            //}
+            //catch(IndexOutOfRangeException){
+            //    return null;
+            //}
+
+        }
+
         public static int TimeToInt(string time){
             string TimerValue = time;
             char[] seperator = new char[] { ':' };

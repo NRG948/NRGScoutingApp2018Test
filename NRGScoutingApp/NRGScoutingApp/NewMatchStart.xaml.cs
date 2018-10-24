@@ -50,7 +50,7 @@ namespace NRGScoutingApp
         public string cubeDropValue = "Cube Picked";
         private static int min = 0, sec = 0, ms = 0; //Values for Timer
         private int minutes, seconds, milliseconds;
-        public static double timerrValue;
+        public static double timerrValue = 0;
         private Boolean firstTimerStart = true;
         public static double pickedTime = 0;
         public static double droppedTime = 0;
@@ -82,33 +82,8 @@ namespace NRGScoutingApp
                 else if (App.Current.Properties.ContainsKey("timerValue") && firstTimerStart== true)
                 {
                     timerrValue = Convert.ToDouble(App.Current.Properties["timerValue"]);
-                    if (timerrValue >= minMs)
-                    {
-                        minutes = (int)(Math.Floor(timerrValue / minMs));
-                        min = (int)(Math.Floor(timerrValue / minMs));
-                        seconds = (int)(Math.Floor(timerrValue - (minMs * minutes)) / secMs);
-                        sec = (int)(Math.Floor(timerrValue - (minMs * minutes)) / secMs);
-                        milliseconds = (int)(((timerrValue - ((minutes * minMs) + (seconds * secMs)))) / 10);
-                        ms = (int)((timerrValue - ((minutes * minMs) + (seconds * secMs))));
-                        timerValue.Text = String.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds); //minutes + ":" + seconds + "." + milliseconds;
-                    }
-                    if (timerrValue <= minMs)
-                    {
-                        seconds = (int)(Math.Floor(timerrValue / secMs));
-                        sec = (int)(Math.Floor(timerrValue / secMs));
-                        milliseconds = (int)(((timerrValue - (seconds * secMs))) / 10);
-                        ms = (int)((timerrValue - (seconds * secMs)));
-                        min = 0;
-                        timerValue.Text = String.Format("0:{0:00}.{1:00}", seconds, milliseconds);
-                    }
-                    if (timerrValue <= secMs)
-                    {
-                        milliseconds = (int)((timerrValue) / 10);
-                        min = 0;
-                        sec = 0;
-                        ms = (int)((timerrValue) / 10);
-                        timerValue.Text = String.Format("0:00.{0:00}", milliseconds);
-                    }
+                    testButton.Text = timerrValue.ToString();
+                    timerValue.Text = timeToString((int)timerrValue);
                     firstTimerStart = false;
                 }
                 startTimerIOS.Text = timerPause;
@@ -169,7 +144,7 @@ namespace NRGScoutingApp
             timeSlider.Value = timerrValue;
             App.Current.Properties["timerValue"] = (int)timerrValue;
             App.Current.SavePropertiesAsync();
-            timerValue.Text = min + ":" +  sec.ToString("D2") + "." + (ms/10).ToString("D2");
+            timerValue.Text = timeToString((int)timerrValue);
         }
 
         void timerValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)
@@ -317,6 +292,7 @@ namespace NRGScoutingApp
             int minutes = 0;
             int seconds = 0;
             int milliseconds = 0;
+           //timeValue =(int)timerrValue;
             minutes = timeValue / (int)minMs;
             timeValue %= (int)minMs;
             seconds = timeValue / (int)secMs;
