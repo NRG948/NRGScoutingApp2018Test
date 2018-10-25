@@ -49,7 +49,7 @@ namespace NRGScoutingApp
         public string cubeDropValue = "Cube Picked";
         private int min = 0, sec = 0, ms = 0;
         private int minutes, seconds, milliseconds;
-        public double timerrValue;
+        public static double timerrValue;
         private Boolean firstTimerStart = true;
         public static double pickedTime = 0;
         public static double droppedTime = 0;
@@ -313,7 +313,7 @@ namespace NRGScoutingApp
 
             if (!App.Current.Properties.ContainsKey("timerValue"))
             {
-                App.Current.Properties["timerValue"] = (int)0;
+                App.Current.Properties["timerValue"] = (int)timerrValue;
                 App.Current.SavePropertiesAsync();
             }
             else if (App.Current.Properties.ContainsKey("timerValue") && firstTimerStart == true)
