@@ -9,7 +9,8 @@ namespace NRGScoutingApp
 {
     public partial class MatchEvents : ContentPage
     {
-                //StringFormat paramFormat = new StringFormat();
+        //StringFormat paramFormat = new StringFormat();
+        Data itemprev;
         public MatchEvents()
         {
             NavigationPage.SetHasBackButton(this, false);
@@ -38,6 +39,25 @@ namespace NRGScoutingApp
             Label key = entry.FindByName("key") as Label;
             String ke = key.Text;
             Data item = new Data(ke, val);
+            Console.WriteLine(item);
+            if (!itemprev.Equals(null))
+            {
+                int indexof = entries.IndexOf(itemprev);
+                if (itemprev.Key.Equals("Cube Picked") && !entries[indexof + 1].Key.Contains("Cube Picked"))
+                {
+                    entries.Remove(itemprev);
+                    entries.RemoveAt(indexof);
+                }
+                else
+                {
+                    entries.Remove(itemprev);
+                }
+                //else if (itemprev.Key.Contains("Dropped") && indexof - 1 >= 0)
+                //{
+                //    entries.Remove(itemprev);
+                //    entries.RemoveAt(indexof - 1);
+                //}
+            }
             int index = entries.IndexOf(item);
             if (ke.Equals("Cube Picked") && !entries[index + 1].Key.Contains("Cube Picked"))
             {
@@ -46,7 +66,7 @@ namespace NRGScoutingApp
                 App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
                 CubeDroppedDialog.saveEvents();
             }
-            else if (ke.Contains("Dropped"))
+            else if (ke.Contains("Dropped") && index-1 >= 0)
             {
                 entries.Remove(item);
                 entries.RemoveAt(index - 1);
@@ -60,6 +80,10 @@ namespace NRGScoutingApp
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);
+            //entries.Clear();
+            //item.Deconstruct(out ke, out val);
+            itemprev = item;
+            DisplayAlert("Alert", "Not Implemented yet! get to work on this!", "OK"); //Hidden Gem (TODO: Remove in Prod. version)
         }
     }
 }

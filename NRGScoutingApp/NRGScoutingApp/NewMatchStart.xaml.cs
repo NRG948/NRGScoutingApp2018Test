@@ -271,7 +271,7 @@ namespace NRGScoutingApp
 
             if (!App.Current.Properties.ContainsKey("timerValue"))
             {
-                App.Current.Properties["timerValue"] = (int)0;
+                App.Current.Properties["timerValue"] = (int)timerrValue;
                 App.Current.SavePropertiesAsync();
                 App.matchEvents = App.Current.Properties["tempEventString"].ToString();
             }
