@@ -77,13 +77,10 @@ namespace NRGScoutingApp
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);
-<<<<<<< HEAD
             //entries.Clear();
             //item.Deconstruct(out ke, out val);
             itemprev = item;
             DisplayAlert("Alert", "Not Implemented yet! get to work on this!", "OK"); //Hidden Gem (TODO: Remove in Prod. version)
-=======
->>>>>>> origin/master
         }
     }
 }

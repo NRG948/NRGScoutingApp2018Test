@@ -52,11 +52,7 @@ namespace NRGScoutingApp
         public string cubeDropValue = "Cube Picked";
         private static int min = 0, sec = 0, ms = 0; //Values for Timer
         private int minutes, seconds, milliseconds;
-<<<<<<< HEAD
-        public static double timerrValue;
-=======
         public static double timerrValue = 0;
->>>>>>> origin/master
         private Boolean firstTimerStart = true;
         public static double pickedTime = 0;
         public static double droppedTime = 0;
