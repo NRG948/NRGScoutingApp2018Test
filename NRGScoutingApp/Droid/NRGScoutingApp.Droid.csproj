@@ -17,6 +17,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <EnableProguard>true</EnableProguard>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,7 +29,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
 <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-<EnableProguard>true</EnableProguard>
 <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
 <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
   </PropertyGroup>

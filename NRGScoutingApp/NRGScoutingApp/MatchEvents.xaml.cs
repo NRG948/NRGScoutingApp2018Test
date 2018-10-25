@@ -44,16 +44,19 @@ namespace NRGScoutingApp
                 entries.Remove(item);
                 entries.RemoveAt(index);
                 App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
+                CubeDroppedDialog.saveEvents();
             }
             else if (ke.Contains("Dropped"))
             {
                 entries.Remove(item);
                 entries.RemoveAt(index - 1);
                 App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
+                CubeDroppedDialog.saveEvents();
             } 
             else {
                 entries.Remove(item);
                 App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
+                CubeDroppedDialog.saveEvents();
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);

@@ -226,7 +226,6 @@
                 JustifyContent="Center">
                 <Button Text="Back" Clicked="backClicked" Margin="5,1"/>
                 <Button Text="Save" Clicked="saveClicked" Margin="5,1"/>
-                    <Button Text="Pop Root" Clicked="rootClicked" Margin="5,1"/>
             </FlexLayout>
            </StackLayout>
           </ScrollView>
