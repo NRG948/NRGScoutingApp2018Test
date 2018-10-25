@@ -105,7 +105,8 @@ namespace NRGScoutingApp
                 App.Current.Properties["newAppear"] = 1;
                 App.Current.Properties["lastCubePicked"] = 0;
                 App.Current.Properties["lastCubeDropped"] = 0;
-                App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"] = param;
+                App.Current.Properties["matchEventsString"] += param + "*" + MatchEventsFormat.ParseMatchEvents(App.matchEvents);
+                App.Current.Properties["tempEventString"] = "";
                 await App.Current.SavePropertiesAsync();
                 if (Matches.appRestore == false)
                 {

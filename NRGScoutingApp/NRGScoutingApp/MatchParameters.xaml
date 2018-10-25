@@ -106,11 +106,9 @@
             <Label Text="Defensive Strategy Strength:"
                    Margin="10"
                    FontSize="20"/>
-            <Label Text="Implement RatingBar"/>
-                
             <FlexLayout 
-            Direction="Row"
-            AlignItems="Center">
+                        Direction="Row"
+                        AlignItems="Center">
             <Switch Margin="10,5,0,0"
                     x:Name="death"
                     Toggled="Handle_Toggled_5"

@@ -17,10 +17,11 @@ namespace NRGScoutingApp
             InitializeComponent();
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        List<Data> entries = new List<Data>();
+
+        protected override void OnAppearing()
         {
             listView.ItemsSource = MatchEventsFormat.ParseUserEvents(App.matchEvents);
-            //MatchEventsFormat.ParseUserEvents(App.matchEvents);
         }
 
         void Handle_Clicked(object sender, System.EventArgs e, List<Data> data)
@@ -31,7 +32,6 @@ namespace NRGScoutingApp
 
         void Handle_Tapped(object sender, System.EventArgs e)
         {
-            List<Data> entries = new List<Data>();
             entries = MatchEventsFormat.ParseUserEvents(App.matchEvents);
             var entry = sender as ContentView;
             Label value = entry.FindByName("value") as Label;
@@ -63,22 +63,29 @@ namespace NRGScoutingApp
             {
                 entries.Remove(item);
                 entries.RemoveAt(index);
+                App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
             }
             else if (ke.Contains("Dropped") && index-1 >= 0)
             {
                 entries.Remove(item);
                 entries.RemoveAt(index - 1);
-            } else {
+                App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
+            } 
+            else {
                 entries.Remove(item);
+                App.matchEvents = MatchEventsFormat.returnUserEventsAsString(entries);
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);
+<<<<<<< HEAD
             //entries.Clear();
             //item.Deconstruct(out ke, out val);
             itemprev = item;
             DisplayAlert("Alert", "Not Implemented yet! get to work on this!", "OK"); //Hidden Gem (TODO: Remove in Prod. version)
+=======
+>>>>>>> origin/master
         }
-      }
+    }
 }
 
 //void timerConfirm()
