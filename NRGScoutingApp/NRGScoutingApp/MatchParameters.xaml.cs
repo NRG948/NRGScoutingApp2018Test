@@ -95,6 +95,7 @@ namespace NRGScoutingApp
                 App.Current.Properties["lastCubeDropped"] = 0;
                 App.Current.Properties["matchEventsString"] += param + "*" + MatchEventsFormat.ParseMatchEvents(App.matchEvents);
                 App.Current.Properties["tempEventString"] = "";
+                App.Current.Properties["param+event"] = param + ":::" + (String)App.matchEvents;
                 await App.Current.SavePropertiesAsync();
                 if (Matches.appRestore == false)
                 {
