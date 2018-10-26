@@ -28,7 +28,13 @@ namespace NRGScoutingApp
             }
             else
             {
-                events = events.Remove(0, 1);
+                if(events[0] == '*'){
+                    events = events.Remove(0, 2);
+                }
+                else if (events[0] == '(')
+                {
+                    events = events.Remove(0, 1);
+                }
                 if (events.Substring(events.Length - 1) == ")")
                 {
                     events = events.Remove(events.Length - 2, 2);
@@ -84,9 +90,8 @@ namespace NRGScoutingApp
             }
         }
 
-        public static List<Data> ParseUserEvents(string events)
-
-        {
+        public static List<Data> ParseUserEvents(string events){
+            Console.WriteLine(events);
             if (!events.Contains("|") || !events.Contains("||"))
             {
                 Console.WriteLine("empty input");
@@ -95,8 +100,15 @@ namespace NRGScoutingApp
             else
             {
                 List<Data> MatchEvents = new List<Data>();
-                events = events.Remove(0, 1);
-                if(events.Substring(events.Length-1) == ")"){
+                if (events[0] == '*')
+                {
+                    events = events.Remove(0, 2);
+                }
+                else if (events[0] == '(')
+                {
+                    events = events.Remove(0, 1);
+                }
+                if (events.Substring(events.Length-1) == ")"){
                     events = events.Remove(events.Length - 2, 2);
                 }
                 else if(events.Substring(events.Length - 1) == "|"){

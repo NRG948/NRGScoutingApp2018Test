@@ -60,7 +60,6 @@ namespace NRGScoutingApp
             }
             Console.WriteLine(entries);
             Handle_Clicked(sender, e, entries);
-            DisplayAlert("Alert", "Not Implemented yet! get to work on this!", "OK"); //Hidden Gem (TODO: Remove in Prod. version)
         }
     }
 }

@@ -14,8 +14,33 @@
    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-           <SearchBar Placeholder="Match Number" TextChanged="SearchBar_OnTextChanged"></SearchBar>
+           <SearchBar Placeholder="Match Number" TextChanged="SearchBar_OnTextChanged"/>
            <ListView IsPullToRefreshEnabled="false" x:Name="MatchesList"/>
+            <ListView x:Name="listView" Margin="0,10,10,10">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <ViewCell>
+                        <ContentView Margin="0">
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Handle_Tapped"
+                                                          NumberOfTapsRequired="2"/>
+                                </ContentView.GestureRecognizers>
+                                <StackLayout>
+                                  <Label Text="{Binding teamName}"
+                                           x:Name="teamNames"
+                                           HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding matchNum}"
+                                           x:Name="matchNumber"
+                                           HorizontalTextAlignment="Start"/>
+                                     <Label Text="{Binding position}"
+                                           x:Name="matchPosition"
+                                           HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                            </ContentView>
+                      </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
             
     </ContentPage.Content>

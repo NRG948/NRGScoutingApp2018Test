@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Newtonsoft.Json;
+using System;
 
 namespace NRGScoutingApp
 {
@@ -18,7 +19,7 @@ namespace NRGScoutingApp
             return param;
         }
 
-        public ArrayList ParseMatchParam(string param) {
+        public static ArrayList ParseMatchParam(string param) {
             char[] sep = { '<', '>' };
             ArrayList list = new ArrayList();
             string[] par = param.Split(sep);

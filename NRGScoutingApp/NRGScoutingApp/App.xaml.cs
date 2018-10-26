@@ -25,8 +25,8 @@ namespace NRGScoutingApp
                 DependencyService.Register<CloudDataStore>();         
         }
 
-        public static String matchInfo;
-        public static String matchEvents = "(";
+        public static String matchInfo = "";
+        public static String matchEvents = "*(";
 
 
         public class NavTab: BottomBarPage

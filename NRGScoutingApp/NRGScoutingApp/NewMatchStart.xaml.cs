@@ -41,7 +41,7 @@ namespace NRGScoutingApp
         public NewMatchStart()
         {
             BindingContext = this;
-            App.matchEvents = "&(";
+            App.matchEvents = "*(";
             InitializeComponent();
             App.Current.Properties["appState"] = "1";
             App.Current.SavePropertiesAsync();
@@ -258,6 +258,8 @@ namespace NRGScoutingApp
             if(!App.Current.Properties.ContainsKey("lastCubePicked")){
                 App.Current.Properties["lastCubePicked"] = 0;
                 App.Current.Properties["lastCubeDropped"] = 0;
+                App.Current.Properties["tempEventString"] = "";
+                App.Current.Properties["matchEventsString"] = "";
                 App.Current.SavePropertiesAsync();
             }
             else if(Convert.ToInt32(App.Current.Properties["lastCubePicked"]) == 0 || Convert.ToInt32(App.Current.Properties["lastCubeDropped"]) == 0){}
@@ -272,8 +274,8 @@ namespace NRGScoutingApp
             if (!App.Current.Properties.ContainsKey("timerValue"))
             {
                 App.Current.Properties["timerValue"] = (int)timerrValue;
+                App.Current.Properties["tempEventString"] = "(";
                 App.Current.SavePropertiesAsync();
-                App.matchEvents = App.Current.Properties["tempEventString"].ToString();
             }
             else if (App.Current.Properties.ContainsKey("timerValue") && firstTimerStart == true)
             {

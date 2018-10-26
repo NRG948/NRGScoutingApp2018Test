@@ -48,11 +48,19 @@ namespace NRGScoutingApp
                 App.Current.Properties["timerValue"] = (int)0;
                 App.Current.Properties["teamStart"] = "";
                 App.Current.Properties["newAppear"] = 0;
-                App.Current.Properties["tempEventString"] = "&(";
-                App.matchEvents = "&(";
-
+                App.Current.Properties["tempEventString"] = "(";
+                App.matchEvents = "(";
+                App.matchInfo = "";
+                MatchFormat.matchesToSimpleData(MatchFormat.mainStringToSplit(App.Current.Properties["matchEventsString"].ToString()));
                 App.Current.SavePropertiesAsync();
             }
+        }
+
+        public class MatchData
+        {
+            public string teamName { get; set; }
+            public string matchNum { get; set; }
+            public string position { get; set; }
         }
 
         void importClicked(object sender, System.EventArgs e)

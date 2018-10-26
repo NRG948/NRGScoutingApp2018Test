@@ -85,6 +85,10 @@ namespace NRGScoutingApp
                 MatchEventsFormat.ParseMatchEvents(App.matchEvents);
                 Console.WriteLine(param); //DEBUG PURPOSES
                 await DisplayAlert("generated", param, "OK");
+                if (App.matchEvents[0] != '(' && App.matchEvents[0] != '*')
+                {
+                    App.matchEvents = "(" + App.matchEvents;
+                }
                 App.matchEvents += ")";
                 await  DisplayAlert("matchEvents", App.matchEvents, "OK");
                 App.Current.Properties["teamStart"] = "";
@@ -93,9 +97,19 @@ namespace NRGScoutingApp
                 App.Current.Properties["newAppear"] = 1;
                 App.Current.Properties["lastCubePicked"] = 0;
                 App.Current.Properties["lastCubeDropped"] = 0;
-                App.Current.Properties["matchEventsString"] += param + "*" + MatchEventsFormat.ParseMatchEvents(App.matchEvents);
-                App.Current.Properties["tempEventString"] = "";
-                App.Current.Properties["param+event"] = param + ":::" + (String)App.matchEvents;
+                if (App.matchEvents.Contains("*"))
+                {
+                    Console.WriteLine("&" + param + App.matchEvents.ToString());
+                    App.Current.Properties["matchEventsString"] += "&" + param + App.matchEvents.ToString();
+                }
+                else if (!App.matchEvents.Contains("*"))
+                {
+                    Console.WriteLine("&" + param + "*" + App.matchEvents.ToString());
+                    App.Current.Properties["matchEventsString"] +=  "&" + param + "*" + App.matchEvents.ToString();
+                }
+                App.Current.Properties["tempEventString"] = "(";
+                Console.WriteLine(App.Current.Properties["matchEventsString"]);
+               //App.Current.Properties["param+event"] = param + ":::" + (String)App.matchEvents;
                 await App.Current.SavePropertiesAsync();
                 if (Matches.appRestore == false)
                 {

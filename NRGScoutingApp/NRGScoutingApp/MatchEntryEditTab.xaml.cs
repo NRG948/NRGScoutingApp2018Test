@@ -33,7 +33,7 @@ namespace NRGScoutingApp
             }
             else{
                 ParametersFormat s = new ParametersFormat();
-                vals = s.ParseMatchParam(App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"].ToString()); //"<" + App.Current.Properties["teamStart"].ToString()+">"
+                vals = ParametersFormat.ParseMatchParam(App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "converted"].ToString()); //"<" + App.Current.Properties["teamStart"].ToString()+">"
                 DisplayAlert("Hello", "exists", "ok");  //DEBUG
                 return true;
             }
