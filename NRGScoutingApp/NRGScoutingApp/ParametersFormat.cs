@@ -24,9 +24,13 @@ namespace NRGScoutingApp
             ArrayList list = new ArrayList();
             string[] par = param.Split(sep);
             for (int i = 0; i < par.Length; i++) {
-                if(i % 2 != 0) {
+                //if(i % 2 != 0) {
+                if (String.IsNullOrWhiteSpace(par[i])) { }
+                else
+                {
                     list.Add(par[i]);
                 }
+              // }
             }
             return list;
         }

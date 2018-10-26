@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Rg.Plugins.Popup.Services;
+using Data = System.Collections.Generic.KeyValuePair<string, string>;
 
 
 
@@ -34,13 +35,20 @@ namespace NRGScoutingApp
             matchConfirm();
             App.Current.Properties["newAppear"] = 0;
             App.Current.SavePropertiesAsync();
-            MatchesList.ItemsSource = teams;
+           // MatchesList.ItemsSource = teams;
          }
+        List<Data> matches; 
 
         protected override void OnAppearing()
         {
             popNav = false;
-           //appRestore = false;
+            //appRestore = false;
+            if (!App.Current.Properties.ContainsKey("matchEventsString"))
+            {
+                App.Current.Properties["matchEventsString"] = "";
+                App.Current.Properties["tempEventString"] = "(";
+                App.Current.SavePropertiesAsync();
+            }
             if (!App.Current.Properties.ContainsKey("newAppear")){}  //DEBUG PURPOSES
             else if (App.Current.Properties["newAppear"].ToString() == "1")
             {
@@ -51,19 +59,17 @@ namespace NRGScoutingApp
                 App.Current.Properties["tempEventString"] = "(";
                 App.matchEvents = "(";
                 App.matchInfo = "";
-                MatchFormat.matchesToSimpleData(MatchFormat.mainStringToSplit(App.Current.Properties["matchEventsString"].ToString()));
+                listView.ItemsSource = MatchFormat.matchesToSimpleData(MatchFormat.mainStringToSplit(App.Current.Properties["matchEventsString"].ToString()));
+                matches = MatchFormat.matchesToSimpleData(MatchFormat.mainStringToSplit(App.Current.Properties["matchEventsString"].ToString()));
                 App.Current.SavePropertiesAsync();
+            }
+            else if(App.Current.Properties["newAppear"].ToString() == "0"){
+                listView.ItemsSource = MatchFormat.matchesToSimpleData(MatchFormat.mainStringToSplit(App.Current.Properties["matchEventsString"].ToString()));
+                matches = MatchFormat.matchesToSimpleData(MatchFormat.mainStringToSplit(App.Current.Properties["matchEventsString"].ToString()));
             }
         }
 
-        public class MatchData
-        {
-            public string teamName { get; set; }
-            public string matchNum { get; set; }
-            public string position { get; set; }
-        }
-
-        void importClicked(object sender, System.EventArgs e)
+       void importClicked(object sender, System.EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new ImportDialog());
         }
@@ -86,9 +92,9 @@ namespace NRGScoutingApp
            // MatchesList.BeginRefresh();
 
             if (string.IsNullOrWhiteSpace(e.NewTextValue))
-                MatchesList.ItemsSource = teams;
+                listView.ItemsSource = matches;
             else
-                MatchesList.ItemsSource = teams.Where( teams => teams.Contains(e.NewTextValue));
+                listView.ItemsSource = matches.Where( matches => matches.Key.Contains(e.NewTextValue) || matches.Value.Contains(e.NewTextValue));
 
             //MatchesList.EndRefresh();
         }
@@ -117,6 +123,21 @@ namespace NRGScoutingApp
                 App.Current.Properties["tempEventString"] = "";
                 App.Current.SavePropertiesAsync();
             }
+            if (!App.Current.Properties.ContainsKey("matchEventsString"))
+            {
+                App.Current.Properties["matchEventsString"] = "";
+                App.Current.Properties["tempEventString"] = "(";
+                App.Current.SavePropertiesAsync();
+            }
+        }
+
+        void Handle_Tapped(object sender, System.EventArgs e)
+        {
+            var entry = sender as ContentView;
+            Label value = entry.FindByName("value") as Label;
+            String val = value.Text;
+            Label key = entry.FindByName("key") as Label;
+            String ke = key.Text;
         }
 
         public List<String> teams = new List<string> {"360 - The Revolution", "488 - Team XBot", "492 - Titan Robotics Club", "568 - Nerds of the North",

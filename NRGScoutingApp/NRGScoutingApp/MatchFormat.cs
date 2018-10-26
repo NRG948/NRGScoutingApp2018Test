@@ -33,15 +33,11 @@ namespace NRGScoutingApp
             }
         }
 
-        public class MatchData
-        {
-            public string teamName { get; set; }
-            public string matchNum { get; set; }
-            public string position { get; set; }
-        }
-
-        public static List<MatchData> matchesToSimpleData(String[,] inputString){
-            List <MatchData>  data = new List<MatchData>();
+        public static List<Data> matchesToSimpleData(String[,] inputString){
+            List <Data>  data = new List<Data>();
+            if(inputString == null){
+                return null;
+            }
             for (int i = 0; i < inputString.GetLength(0); i++)
             {
                 if (String.IsNullOrWhiteSpace(inputString[i, 0]) || String.IsNullOrWhiteSpace(inputString[i, 1])) { }
@@ -49,12 +45,8 @@ namespace NRGScoutingApp
                 else
                 {
                     ArrayList parameters = ParametersFormat.ParseMatchParam(inputString[i, 0]);
-                    Console.WriteLine(inputString[i,0]);
-                    data.Add(new MatchData { teamName = parameters[0].ToString(), 
-                        matchNum = "Match " + parameters[1].ToString(), 
-                        position = parameters[2].ToString() });
-                    Console.WriteLine(parameters[0].ToString() + "Match " + parameters[1].ToString() + parameters[2].ToString());
-                }
+                    data.Add(new Data("Match " + parameters[3] + ": " + parameters[1], parameters[5].ToString()));
+               }
             }
                       
             return data;

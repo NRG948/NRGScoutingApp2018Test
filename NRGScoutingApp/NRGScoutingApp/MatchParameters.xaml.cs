@@ -55,6 +55,8 @@ namespace NRGScoutingApp
                 App.Current.Properties["timerValue"] = (int)0;
                 App.Current.Properties["lastCubePicked"] = 0;
                 App.Current.Properties["lastCubeDropped"] = 0;
+                App.Current.Properties["tempEventString"] = "(";
+                App.matchEvents = "(";
                 await App.Current.SavePropertiesAsync();
                if (Matches.appRestore == false)
                 {
@@ -73,9 +75,20 @@ namespace NRGScoutingApp
 
         async void saveClicked(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(matchnum.Text)) //Checks if Match Number is Present
+            if (string.IsNullOrWhiteSpace(matchnum.Text)||string.IsNullOrWhiteSpace(pickerS)) //Checks if Match Number or Picker is Present
             {
-                 await DisplayAlert("Alert!", "Please Enter Match Number", "OK"); 
+                if (string.IsNullOrWhiteSpace(matchnum.Text) && string.IsNullOrWhiteSpace(pickerS)){
+                    await DisplayAlert("Alert!", "Please Enter Match Number and Position", "OK");
+                }
+                else if (string.IsNullOrWhiteSpace(matchnum.Text))
+                {
+                    await DisplayAlert("Alert!", "Please Enter Match Number", "OK");
+                }
+                else if (string.IsNullOrWhiteSpace(pickerS))
+                {
+                    await DisplayAlert("Alert!", "Please Enter Position", "OK");
+                }
+
             }
             else{
                 string param = paramFormat.ConvertMatchParam(App.Current.Properties["teamStart"].ToString(), matchnum.Text, MatchParameters.pickerS, MatchParameters.crossedB, MatchParameters.switchB, MatchParameters.scaleB,
@@ -85,7 +98,8 @@ namespace NRGScoutingApp
                 MatchEventsFormat.ParseMatchEvents(App.matchEvents);
                 Console.WriteLine(param); //DEBUG PURPOSES
                 await DisplayAlert("generated", param, "OK");
-                if (App.matchEvents[0] != '(' && App.matchEvents[0] != '*')
+                if (String.IsNullOrWhiteSpace(App.matchEvents)){}
+                else if (App.matchEvents[0] != '(' && App.matchEvents[0] != '*')
                 {
                     App.matchEvents = "(" + App.matchEvents;
                 }

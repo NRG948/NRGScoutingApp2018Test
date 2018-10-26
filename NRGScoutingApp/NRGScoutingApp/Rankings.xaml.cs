@@ -17,8 +17,9 @@ namespace NRGScoutingApp
         {
             var del = await DisplayAlert("notice", "clear ALL Entires??", "yes", "no");
             if (del){
-                Application.Current.Properties.Clear();
+                App.Current.Properties.Clear();
                 App.Current.Properties["matchEventsString"] = "(";
+                await App.Current.SavePropertiesAsync();
             }
             else{
 
