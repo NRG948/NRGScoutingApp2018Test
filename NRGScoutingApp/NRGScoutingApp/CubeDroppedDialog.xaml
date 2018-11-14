@@ -223,15 +223,17 @@
                           Grid.Column="1"
                           ContentLayout="Top,0"                               
                           Image="ic_exchange.png"
-                          Clicked="exchangeClicked"/>         
-                   
-                  <Button Text="Cancel" 
+                          Clicked="exchangeClicked"/>    
+                        
+                         <Button Text="DONT CLICK" 
                           VerticalOptions="StartAndExpand"
                           Font="15"
                           Margin="0,0"
                           Clicked="backClicked"
                           Grid.Row="3"
                           Grid.Column="2"/>
+                   
+                  
             </Grid>
                 </OnPlatform.Android>
                 </OnPlatform>
@@ -244,3 +246,5 @@
                  ios:NavigationPage.PrefersLargeTitles="true">
     -->
     <!--     AlignItems="Center"-->
+    
+ 

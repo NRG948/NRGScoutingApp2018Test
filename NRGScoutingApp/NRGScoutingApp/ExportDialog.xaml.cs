@@ -16,7 +16,7 @@ namespace NRGScoutingApp
             BindingContext = this;
             InitializeComponent();
         }
-        String exportEntries = App.Current.Properties["appState"].ToString(); //TODO: Add Data From Entries to this TextField
+        String exportEntries = App.Current.Properties["matchEventsString"].ToString(); //TODO: Add Data From Entries to this TextField
 
         public string ExportDisplay { get { return exportEntries; } }
         void cancelClicked(object sender, System.EventArgs e)

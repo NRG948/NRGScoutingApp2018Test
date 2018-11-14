@@ -95,16 +95,24 @@ namespace NRGScoutingApp
                                                           MatchParameters.fswitchB, MatchParameters.fscaleB, MatchParameters.deathB, MatchParameters.soloB,
                                                           MatchParameters.assistedB, MatchParameters.neededB, MatchParameters.platformB,
                                                          MatchParameters.noclimbB, fouls.Text, MatchParameters.recyellowB, MatchParameters.recredB, comments.Text);
-                MatchEventsFormat.ParseMatchEvents(App.matchEvents);
-                Console.WriteLine(param); //DEBUG PURPOSES
-                await DisplayAlert("generated", param, "OK");
+                //double avgSwtich = Ranker.switchAvg(MatchEventsFormat.ParseUserEvents(App.matchEvents));
+                //double avgScale = Ranker.scaleAvg(MatchEventsFormat.ParseUserEvents(App.matchEvents));
+                //if(!App.Current.Properties.ContainsKey(App.Current.Properties["teamStart"].ToString() + "switch")){
+                //    App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "switch"] =  avgSwtich + ",";
+                //}
+                //else{
+
+                //}
+                //if (!App.Current.Properties.ContainsKey(App.Current.Properties["teamStart"].ToString() + "scale"))
+                //{
+                //    App.Current.Properties[App.Current.Properties["teamStart"].ToString() + "scale"] =  avgScale + ",";
+                //}
                 if (String.IsNullOrWhiteSpace(App.matchEvents)){}
                 else if (App.matchEvents[0] != '(' && App.matchEvents[0] != '*')
                 {
                     App.matchEvents = "(" + App.matchEvents;
                 }
                 App.matchEvents += ")";
-                await  DisplayAlert("matchEvents", App.matchEvents, "OK");
                 App.Current.Properties["teamStart"] = "";
                 App.Current.Properties["appState"] = 0;
                 App.Current.Properties["timerValue"] = 0;
@@ -122,8 +130,7 @@ namespace NRGScoutingApp
                     App.Current.Properties["matchEventsString"] +=  "&" + param + "*" + App.matchEvents.ToString();
                 }
                 App.Current.Properties["tempEventString"] = "(";
-                Console.WriteLine(App.Current.Properties["matchEventsString"]);
-               //App.Current.Properties["param+event"] = param + ":::" + (String)App.matchEvents;
+                //App.Current.Properties["param+event"] = param + ":::" + (String)App.matchEvents;
                 await App.Current.SavePropertiesAsync();
                 if (Matches.appRestore == false)
                 {

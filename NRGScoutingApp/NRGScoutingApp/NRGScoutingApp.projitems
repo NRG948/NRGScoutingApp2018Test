@@ -69,6 +69,8 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)MatchEventsFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MatchFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ranker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TeamsNames.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />

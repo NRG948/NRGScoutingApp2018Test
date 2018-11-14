@@ -8,9 +8,31 @@
              Icon= "ic_leader.png"
              ios:NavigationPage.PrefersLargeTitles="true">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
         <Label Text="Testing..."/>
         <Button Text="Clear ALL App Data (Debug Purposes)" Clicked="Handle_Clicked"/>
-            </StackLayout>
+            <ListView x:Name="listView" Margin="0,0,0,0">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <ViewCell>
+                        <ContentView Margin="0" Padding="0">
+                                 <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Handle_Tapped"
+                                                          NumberOfTapsRequired="2"/>
+                                </ContentView.GestureRecognizers>
+                                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                  <Label Text="{Binding Path=Key}"
+                                           x:Name="key"
+                                           HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=Value}"
+                                           x:Name="value"
+                                           HorizontalTextAlignment="Start"/>
+                                     </StackLayout>
+                            </ContentView>
+                      </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -59,9 +59,9 @@ namespace NRGScoutingApp
         void backClicked(object sender, System.EventArgs e)
         {
             Button cubePicked = (Button)sender;
-            cubePicked.Text = "New Value";
+           //cubePicked.Text = "New Value";
             //App.matchEvents += "cubeDropped:back||";
-            PopupNavigation.Instance.PopAsync(true);
+
         }
         public static void saveEvents(){
             App.Current.Properties["tempEventString"] = App.matchEvents;
