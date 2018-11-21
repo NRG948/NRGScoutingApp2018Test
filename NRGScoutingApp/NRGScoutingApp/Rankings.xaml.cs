@@ -9,13 +9,13 @@ namespace NRGScoutingApp
     {
         public Rankings()
         {
-            listView.ItemsSource = Ranker.mainRanker(App.Current.Properties["matchEventsString"].ToString());
+            //listView.ItemsSource = Ranker.mainRanker(App.Current.Properties["matchEventsString"].ToString());
             InitializeComponent();
         }
 
         protected override void OnAppearing()
         {
-           listView.ItemsSource = Ranker.mainRanker(App.Current.Properties["matchEventsString"].ToString());
+           //listView.ItemsSource = Ranker.mainRanker(App.Current.Properties["matchEventsString"].ToString());
         }
 
             // FOLLOWING BUTTON TO BE REMOVED IN PRODUCTION (DEBUG PURPOSES ONLY)

@@ -37,6 +37,12 @@ namespace NRGScoutingApp
             App.Current.SavePropertiesAsync();
            // MatchesList.ItemsSource = teams;
          }
+
+        void matchStart(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new MatchEntryStart());
+        }
+
         List<Data> matches; 
 
         protected override void OnAppearing()
