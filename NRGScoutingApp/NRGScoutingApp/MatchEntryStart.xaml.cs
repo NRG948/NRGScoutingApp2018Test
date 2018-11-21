@@ -20,8 +20,8 @@ namespace NRGScoutingApp
 
         public MatchEntryStart()
         {
-            InitializeComponent();
             MatchesList.ItemsSource = teams;
+            InitializeComponent();
         }
         public Boolean goBack = false;
         public string teamName;
